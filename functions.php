@@ -457,32 +457,25 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 \*------------------------------------*/
 
 
-// function filter_search_results_by_time( $posts, $query, $c ) {
-// 	global $wp_query, $wpdb;
-//
-// 	if ( !count( $posts ) ){
-// 		return $posts;
-// 	}
-//   // $date_array = array();
-// 	// foreach($posts as $key => $post){
-// 	// 	$date = get_post_meta($post->ID, 'wpcf-date');
-// 	// 	$date_array[$key] = $date[0];
-// 	// }
-// 	// array_multisort($date_array, SORT_DESC, $posts);
-//
-//   if (!is_admin()){
-//     $hour_array = array();
-//     foreach($posts as $key => $post){
-//       $source = get_post_meta($post->ID,"time");
-//       $hour = new DateTime($source);
-//       echo $hour;
-//       $hour_array[$key] = $source;
-//     }
-//     array_multisort($hour_array, SORT_DESC, $posts);
-//   }
-// 	return $posts;
-// }
-// add_filter( 'the_posts', 'filter_search_results_by_time' );
+function filter_search_results_by_time( $posts, $query, $c ) {
+	global $wp_query, $wpdb;
+
+	if ( !count( $posts ) ){
+		return $posts;
+	}
+
+  if (!is_admin()){
+    $hour_array = array();
+    foreach($posts as $key => $post){
+      $source = get_post_meta($post->ID,"wpcf-time");
+      $time = date('Gi', $source[0]);
+    	$hour_array[$key] = $time;
+    }
+    array_multisort($hour_array, SORT_DESC, $posts);
+  }
+	return $posts;
+}
+add_filter( 'the_posts', 'filter_search_results_by_time' );
 
 
 ?>
