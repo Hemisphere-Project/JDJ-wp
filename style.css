@@ -112,6 +112,10 @@ input:focus {
 	margin-left: 25%;
 }
 
+.timepost{
+	/*width:25%;*/
+}
+
 .elevator{
 	position: fixed;
 	margin-top: 50px;
