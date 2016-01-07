@@ -111,6 +111,13 @@ input:focus {
 	max-width: 50%;
 	margin-left: 25%;
 }
+
+.elevator{
+	position: fixed;
+	margin-top: 50px;
+	max-width: 20%;
+	margin-left: 5%;
+}
 /* nav */
 .nav {
 }

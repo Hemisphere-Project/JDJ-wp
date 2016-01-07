@@ -3,6 +3,10 @@
 	<main role="main">
 		<!-- section -->
 
+		<section class="elevator">
+			ELEVATOR
+		</section>
+
 
 
 		<section class="timeline">
@@ -15,7 +19,8 @@
 
 				<div class="timepost">
 					<h2 class='posttitle'>  <?php echo types_render_field( "time", array("format"=>"G\hi")); ?></h2>
-					<div>  <?php echo types_render_field( "position", array( ) ); ?></div>
+
+						<?php $header=types_render_field( "hourheader"); if($header==1){ echo 'HEADER'; } ?>
 
 						<?php $text=types_render_field( "text", array( ) );
 						if ($text){ ?> <div class="text"><?php echo types_render_field("text") ?></div> <?php } ?>
@@ -28,6 +33,9 @@
 
 						<?php $audio=types_render_field( "video");
 						if ($audio){ ?> <div class="video"><?php echo types_render_field("video") ?></div> <?php } ?>
+
+						<?php $pos=types_render_field( "position", array( ) );
+						if ($pos){ ?> <div class="pos_link"> <a href='' <?php echo types_render_field("position") ?> >VIEW POSITION</a> </div> <?php } ?>
 
 				</div>
 
