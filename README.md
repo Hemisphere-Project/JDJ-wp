@@ -1,4 +1,4 @@
-# [HTML5 Blank](http://html5blank.com)
+<!-- # [HTML5 Blank](http://html5blank.com)
 
 Powerful shell for rapidly deploying your WordPress projects.
 
@@ -70,4 +70,4 @@ There are a few ways to get involved, submit a Pull Request, or submit a comment
 * Tags support for showing Post Tags
 * Category support for showing the Category of post
 * Author support showing the author
-* Demo Custom Page Template for expansion
+* Demo Custom Page Template for expansion -->
