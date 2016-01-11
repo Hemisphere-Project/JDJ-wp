@@ -57,7 +57,7 @@
 		var globalW = $('.timeline').width();
 		console.log(globalW);
 
-			$('.image').each(function(){
+			$('image').each(function(){ 
 				var ww = $(this).children('img').width();
 				var hh = $(this).children('img').height();
 				if(ww>hh){

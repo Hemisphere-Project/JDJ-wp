@@ -25,10 +25,13 @@
 				$audio=types_render_field( "audio");
  				$video=types_render_field( "video");
 
+				if($image){ $post_type='imagepost'; }
+				elseif ($audio){ $post_type='audiopost'; }
+				elseif ($video){ $post_type='videopost'; }
 
 				 ?>
 
-				<div class="post <?php if ($header==1){ echo 'headerpost';} else echo 'timepost'; ?>" hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>">
+				<div class="post <?php echo $post_type; if ($header==1){ echo ' headerpost';} else echo ' timepost'; ?>" hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>">
 					<h2 class='posttitle'>  <?php echo types_render_field( "time", array("format"=>"G\hi")); ?></h2>
 
 						<?php $header=types_render_field( "hourheader"); if($header==1){ echo 'HEADER'; } ?>

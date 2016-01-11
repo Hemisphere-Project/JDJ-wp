@@ -115,6 +115,12 @@ input:focus {
 .timepost{
 	/*width:25%;*/
 }
+.audiopost{
+	width:50%;
+}
+.videopost{
+	width:50%;
+}
 
 .elevator{
 	position: fixed;
