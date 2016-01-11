@@ -121,7 +121,15 @@ input:focus {
 	margin-top: 50px;
 	max-width: 20%;
 	margin-left: 5%;
+	cursor: pointer;
+	font-size: 12pt;
 }
+
+.elevator-active{
+	color: red;
+}
+
+
 /* nav */
 .nav {
 }

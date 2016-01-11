@@ -4,8 +4,10 @@
 		<!-- section -->
 
 		<section class="elevator">
-			ELEVATOR
 		</section>
+
+		<div class="elevator-items-list">
+		</div>
 
 
 
@@ -16,10 +18,17 @@
 					'posts_per_page'=> -1);
 				$loop = new WP_Query( $args );
 
-				while ( $loop->have_posts() ) : $loop->the_post(); ?>
+				while ( $loop->have_posts() ) : $loop->the_post();
+
+				$header=types_render_field( "hourheader");
+				$image=types_render_field( "image");
+				$audio=types_render_field( "audio");
+ 				$video=types_render_field( "video");
 
 
-				<div class="timepost">
+				 ?>
+
+				<div class="post <?php if ($header==1){ echo 'headerpost';} else echo 'timepost'; ?>" hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>">
 					<h2 class='posttitle'>  <?php echo types_render_field( "time", array("format"=>"G\hi")); ?></h2>
 
 						<?php $header=types_render_field( "hourheader"); if($header==1){ echo 'HEADER'; } ?>
@@ -27,14 +36,15 @@
 						<?php $text=types_render_field( "text", array( ) );
 						if ($text){ ?> <div class="text"><?php echo types_render_field("text") ?></div> <?php } ?>
 
-						<?php echo types_render_field( "image", array("width" => "1200", "height" => "1200", "proportional" => "true" ) ) ;?>
-
-						<?php $audio=types_render_field( "audio");
-						if ($audio){ ?> <div class="audio"><?php echo types_render_field("audio") ?></div> <?php } ?>
 
 
-						<?php $audio=types_render_field( "video");
-						if ($audio){ ?> <div class="video"><?php echo types_render_field("video") ?></div> <?php } ?>
+						<?php if ($image){ ?> <div class="image"><?php echo types_render_field( "image", array("width" => "1200", "height" => "1200", "proportional" => "true" ) ) ; ?></div> <?php } ?>
+
+
+						<?php if ($audio){ ?> <div class="audio"><?php echo types_render_field("audio") ?></div> <?php } ?>
+
+
+						<?php if ($video){ ?> <div class="video"><?php echo types_render_field("video") ?></div> <?php } ?>
 
 						<?php $pos=types_render_field( "position", array( ) );
 						if ($pos){ ?> <div class="pos_link"> <a href='' <?php echo types_render_field("position") ?> >VIEW POSITION</a> </div> <?php } ?>

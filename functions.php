@@ -480,7 +480,6 @@ function filter_search_results_by_time( $posts, $query, $c ) {
     if( $first[0] == 1) {
       $firstkey = $key;
     }
-    echo $first[0];
   }
 
   $start = array_slice($posts,0,$firstkey+1);
