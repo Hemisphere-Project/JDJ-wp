@@ -464,16 +464,31 @@ function filter_search_results_by_time( $posts, $query, $c ) {
 		return $posts;
 	}
 
-  if (!is_admin()){
-    $hour_array = array();
-    foreach($posts as $key => $post){
-      $source = get_post_meta($post->ID,"wpcf-time");
-      $time = date('Gi', $source[0]);
-    	$hour_array[$key] = $time;
-    }
-    array_multisort($hour_array, SORT_DESC, $posts);
+
+
+  $hour_array = array();
+  foreach($posts as $key => $post){
+    $source = get_post_meta($post->ID,"wpcf-time");
+    $time = date('Gi', $source[0]);
+  	$hour_array[$key] = $time;
   }
-	return $posts;
+  array_multisort($hour_array, SORT_DESC, $posts);
+
+
+  foreach($posts as $key => $post){
+    $first = get_post_meta($post->ID,"wpcf-first-post");
+    if( $first[0] == 1) {
+      $firstkey = $key;
+    }
+    echo $first[0];
+  }
+
+  $start = array_slice($posts,0,$firstkey+1);
+  $end = array_slice($posts,$firstkey+1);
+  $new =  array_merge($end,$start);
+
+
+	return $new;
 }
 add_filter( 'the_posts', 'filter_search_results_by_time' );
 
