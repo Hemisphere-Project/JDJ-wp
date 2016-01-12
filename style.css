@@ -121,7 +121,19 @@ input:focus {
 	left: 0;
 	right: 0;
 	bottom: 0;
+}
 
+#timeheader{
+		margin-top:10px;
+	position: absolute;
+	/*left: 9%;*/
+		left:100px;
+}
+#placeheader{
+		margin-top:10px;
+	position: absolute;
+	/*left: 16%;*/
+	left:200px;
 }
 
 .timeline{
@@ -130,8 +142,17 @@ input:focus {
 	margin-left: 25%;
 }
 
+.headerpost{
+	color: #FF5230;
+	font-family: AlfaSlabOneRegular;
+	font-size: 12pt;
+}
+
+
 .timepost{
-	/*width:25%;*/
+	color: #FF5230;
+	font-family: AlfaSlabOneRegular;
+	font-size: 12pt;
 }
 .audiopost{
 	width:50%;
