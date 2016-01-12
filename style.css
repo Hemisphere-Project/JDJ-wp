@@ -164,16 +164,81 @@ input:focus {
 	TYPOGRAPHY
 \*------------------------------------*/
 
+/*@font-face {
+	font-family:'FontName';
+	src:url('fonts/fontname.eot');
+	src:url('fonts/fontname.eot?#iefix') format('embedded-opentype'),
+		url('fonts/fontname.woff') format('woff'),
+		url('fonts/fontname.ttf') format('truetype'),
+		url('fonts/fontname.svg#fontname') format('svg');
+    font-weight:normal;
+    font-style:normal;
+}*/
+
 @font-face {
-	font-family:'Font-Name';
-	src:url('fonts/font-name.eot');
-	src:url('fonts/font-name.eot?#iefix') format('embedded-opentype'),
-		url('fonts/font-name.woff') format('woff'),
-		url('fonts/font-name.ttf') format('truetype'),
-		url('fonts/font-name.svg#font-name') format('svg');
+  font-family: 'AlfaSlabOneRegular';
+  src: url("fonts/AlfaSlabOneRegular.eot");
+  src: url("AlfaSlabOneRegular.eot?#iefix") format("embedded-opentype"),
+		url("fonts/AlfaSlabOneRegular.woff2") format("woff2"),
+		url("fonts/AlfaSlabOneRegular.woff") format("woff"),
+		url("fonts/AlfaSlabOneRegular.ttf") format("truetype"),
+		url("fonts/AlfaSlabOneRegular.svg#AlfaSlabOneRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+	font-family:'AmericanTypewriter';
+	src:url('fonts/AmericanTypewriter.eot');
+	src:url('fonts/AmericanTypewriter.eot?#iefix') format('embedded-opentype'),
+		url('fonts/AmericanTypewriter.woff') format('woff'),
+		url('fonts/AmericanTypewriter.ttf') format('truetype'),
+		url('fonts/AmericanTypewriter.svg#AmericanTypewriter') format('svg');
     font-weight:normal;
     font-style:normal;
 }
+
+@font-face {
+	font-family:'OpenSansRegular';
+	src:url('fonts/OpenSansRegular.eot');
+	src:url('fonts/OpenSansRegular.eot?#iefix') format('embedded-opentype'),
+		url('fonts/OpenSansRegular.woff') format('woff'),
+		url('fonts/OpenSansRegular.ttf') format('truetype'),
+		url('fonts/OpenSansRegular.svg#OpenSansRegular') format('svg');
+    font-weight:normal;
+    font-style:normal;
+}
+@font-face {
+	font-family:'OpenSansBold';
+	src:url('fonts/OpenSansBold.eot');
+	src:url('fonts/OpenSansBold.eot?#iefix') format('embedded-opentype'),
+		url('fonts/OpenSansBold.woff') format('woff'),
+		url('fonts/OpenSansBold.ttf') format('truetype'),
+		url('fonts/OpenSansBold.svg#OpenSansBold') format('svg');
+    font-weight:normal;
+    font-style:normal;
+}
+@font-face {
+	font-family:'OpenSansLight';
+	src:url('fonts/OpenSansLight.eot');
+	src:url('fonts/OpenSansLight.eot?#iefix') format('embedded-opentype'),
+		url('fonts/OpenSansLight.woff') format('woff'),
+		url('fonts/OpenSansLight.ttf') format('truetype'),
+		url('fonts/OpenSansLight.svg#OpenSansLight') format('svg');
+    font-weight:normal;
+    font-style:normal;
+}
+@font-face {
+	font-family:'OpenSansSemibold';
+	src:url('fonts/OpenSansSemibold.eot');
+	src:url('fonts/OpenSansSemibold.eot?#iefix') format('embedded-opentype'),
+		url('fonts/OpenSansSemibold.woff') format('woff'),
+		url('fonts/OpenSansSemibold.ttf') format('truetype'),
+		url('fonts/OpenSansSemibold.svg#OpenSansSemibold') format('svg');
+    font-weight:normal;
+    font-style:normal;
+}
+
 
 /*------------------------------------*\
     RESPONSIVE

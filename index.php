@@ -34,14 +34,13 @@
 				<div class="post <?php echo $post_type; if ($header==1){ echo ' headerpost';} else echo ' timepost'; ?>" hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>">
 					<h2 class='posttitle'>  <?php echo types_render_field( "time", array("format"=>"G\hi")); ?></h2>
 
-						<?php $header=types_render_field( "hourheader"); if($header==1){ echo 'HEADER'; } ?>
 
 						<?php $text=types_render_field( "text", array( ) );
 						if ($text){ ?> <div class="text"><?php echo types_render_field("text") ?></div> <?php } ?>
 
+						<?php if ($image && $header==1){ ?> <div class="headerimage"><?php echo types_render_field( "image", array("width" => "1200", "height" => "1200", "proportional" => "true" ) ) ; ?></div> <?php } ?>
 
-
-						<?php if ($image){ ?> <div class="image"><?php echo types_render_field( "image", array("width" => "1200", "height" => "1200", "proportional" => "true" ) ) ; ?></div> <?php } ?>
+						<?php if ($image && $header==0){ ?> <div class="image"><?php echo types_render_field( "image", array("width" => "1200", "height" => "1200", "proportional" => "true" ) ) ; ?></div> <?php } ?>
 
 
 						<?php if ($audio){ ?> <div class="audio"><?php echo types_render_field("audio") ?></div> <?php } ?>

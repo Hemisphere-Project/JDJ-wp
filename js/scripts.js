@@ -4,12 +4,9 @@
 
 		'use strict';
 
-		console.log('HELLO');
-
-
-
+		///////////////////////  ELEVATOR ////////////////////////
+		//////////////////////////////////////////////////////////
 		initElevator();
-		adjustImageSizes();
 
 		function initElevator(){
 			// get first hour
@@ -27,7 +24,7 @@
 			var end = hoursArray.slice(0,firstindex);
 			hoursArray = $.merge(start,end);
 			$.each(hoursArray,function(index,hour){
-				$(".elevator").append('<div class="elevator-item">'+hour+'h00'+'</div>');
+				$(".elevator").append('<div id='+hour+'h00'+' class="elevator-item">'+hour+'h00'+'</div>');
 			});
 		}
 
@@ -38,7 +35,7 @@
 			$('.headerpost').each(function(index,post){
 				if($(post).attr("hour")==hourClicked){activeDiv=$(post)}
 			});
-			$('html,body').animate({scrollTop: activeDiv.offset().top},{duration:400,easing:"swing"});
+			$('html,body').animate({scrollTop: activeDiv.offset().top-$('header').height()},{duration:400,easing:"swing"});
 			//style
 			$('.elevator-item').each(function(index,elevatoritem){
 				$(elevatoritem).removeClass('elevator-active');
@@ -48,16 +45,30 @@
 
 
 		//actu elevator on scroll
+		$(window).on('scroll', function() {
+		    var scrollTop = $(this).scrollTop()+$('header').height();
+				console.log(scrollTop);
+		    $('.headerpost').each(function() {
+		        var topDistance = $(this).offset().top;
+		        if ( (topDistance) < scrollTop ) {
+		            // console.log( $(this).attr('hour') + ' was scrolled to the top' );
+								var hourontop = $(this).attr('hour');
+								$('.elevator-item').removeClass('elevator-active');
+								$('#'+hourontop).addClass('elevator-active');
+		        }
+		    });
+		});
 
+		/////////////////////  POST ADJUST ///////////////////////
+		//////////////////////////////////////////////////////////
 
-
-
+		adjustImageSizes();
 		function adjustImageSizes(){
 
 		var globalW = $('.timeline').width();
 		console.log(globalW);
 
-			$('image').each(function(){ 
+			$('.image').each(function(){
 				var ww = $(this).children('img').width();
 				var hh = $(this).children('img').height();
 				if(ww>hh){
