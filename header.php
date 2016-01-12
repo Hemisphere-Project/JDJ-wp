@@ -33,9 +33,13 @@
 					<!-- logo -->
 					<div class="logo">
 						<a href="<?php echo home_url(); ?>">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/logo_jdj.png" alt="Logo" class="logo-img">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/JDJlogoheader.png" alt="Logo" class="logo-img">
 						</a>
+						<div class="logo-lgd">
+							Drame chorégraphique dans la ville en 24 heures
+						</div>
 					</div>
+
 					<!-- /logo -->
 
 					<!-- nav -->
