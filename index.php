@@ -10,8 +10,7 @@
 		<section class="elevator">
 		</section>
 
-		<div class="elevator-items-list">
-		</div>
+
 
 
 
@@ -60,14 +59,19 @@
 
 				<?php endwhile; ?>
 
+  		</section>
+  		<!-- /section -->
 
-
-
-
-
-		</section>
-		<!-- /section -->
 	</main>
 
+  <div class="infos">
+    <div class='closeinfos'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
+    <div class='infostitle'>A Propos</div>
+    <?php
+      $infospage = get_page_by_title('infos');
+      $post = $infospage->post_content;
+      echo $post;
+    ?>
+  </div>
 
 <?php get_footer(); ?>

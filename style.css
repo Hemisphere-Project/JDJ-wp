@@ -28,6 +28,7 @@
 /* html element 62.5% font-size for REM use */
 html {
 	font-size:62.5%;
+	overflow-y: scroll;
 }
 body {
 	font:300 11px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -80,12 +81,16 @@ input:focus {
 
 /* wrapper */
 .wrapper {
-	max-width:1280px;
+	/*max-width:1280px;*/
 	width:95%;
 	/*margin:0 auto;*/
 	position:relative;
 }
-/* header */
+
+
+/*------------------------------------*\
+    HEADER
+\*------------------------------------*/
 .header {
 	width:100%;
 	height: 80px;
@@ -96,7 +101,6 @@ input:focus {
 	z-index: 100;
 
 }
-/* logo */
 .logo {
 	text-align: center;
 }
@@ -113,7 +117,6 @@ input:focus {
 	bottom: 0;
 }
 .logo-lgd{
-
 	font-family: AmericanTypewriter;
 	font-size: 12pt;
 	color: #9E9E9E;
@@ -124,15 +127,10 @@ input:focus {
 	right: 0;
 	bottom: 0;
 }
-
 #timeheader{
 	margin-top:14px;
 	position: absolute;
 	left: 12%;
-	/*left:100px;*/
-}
-#timeheader img{
-	height: auto;/* 40px pour réduire taille*/
 }
 #timeheader img:active{
 	content: url(img/buttons/clock_orange.png);
@@ -141,21 +139,58 @@ input:focus {
 	margin-top:14px;
 	position: absolute;
 	left: 20%;
-	/*left:200px;*/
 }
 #placeheader img:active{
 	content: url(img/buttons/place_orange.png);
 }
 #infosheader{
+	cursor:pointer;
 	margin-top:25px;
 	position: absolute;
 	left: 84%;
-	/*left:1300px;*/
 }
-#infosheader img:active{
+#infosheader:active{
 	content: url(img/buttons/info_orange.png);
 }
+.infosactive{
+	content: url(img/buttons/info_orange.png);
+}
+.infosinactive{
+	content: url(img/buttons/info_grey.png);
+}
+/*------------------------------------*\
+    INFOS PAGE
+\*------------------------------------*/
 
+.infos{
+	display:none;
+	height:100%;
+	margin-top: 120px;
+	max-width: 50%;
+	margin-left: 25%;
+	margin-right: 0;
+	background-color: grey;
+	z-index: 10;
+	background-color: #B5B3B4;
+	border-radius: 10px;
+	padding: 2%;
+	font-family: OpenSansRegular;
+	font-size: 10pt;
+}
+.infostitle{
+	color: #FF5230;
+	font-family: AlfaSlabOneRegular;
+	font-size: 15pt;
+	margin-bottom: 20px;
+}
+
+.closeinfos{
+	float:right;
+}
+
+/*------------------------------------*\
+    TIMELINE PAGE
+\*------------------------------------*/
 .timeline{
 	margin-top: 80px;
 	max-width: 50%;
