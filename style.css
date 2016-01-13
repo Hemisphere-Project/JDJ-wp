@@ -127,22 +127,42 @@ input:focus {
 	right: 0;
 	bottom: 0;
 }
+
+
 #timeheader{
+	cursor:pointer;
 	margin-top:14px;
 	position: absolute;
 	left: 12%;
 }
-#timeheader img:active{
+#timeheader:active{
 	content: url(img/buttons/clock_orange.png);
 }
+.timeheaderactive{
+	content: url(img/buttons/clock_orange.png);
+}
+.timeheaderinactive{
+	content: url(img/buttons/clock_grey.png);
+}
+
+
 #placeheader{
+	cursor:pointer;
 	margin-top:14px;
 	position: absolute;
 	left: 20%;
 }
-#placeheader img:active{
+#placeheader:active{
 	content: url(img/buttons/place_orange.png);
 }
+.placeheaderactive{
+	content: url(img/buttons/place_orange.png);
+}
+.placeheaderinactive{
+	content: url(img/buttons/place_grey.png);
+}
+
+
 #infosheader{
 	cursor:pointer;
 	margin-top:25px;

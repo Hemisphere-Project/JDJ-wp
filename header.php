@@ -31,7 +31,7 @@
 			<!-- header -->
 			<header class="header clear" role="banner">
 					<div id='timeheader'>
-					<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/clock_orange.png">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/clock_grey.png">
 					</div>
 					<div id='placeheader'>
 						<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_grey.png">
