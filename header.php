@@ -31,32 +31,26 @@
 			<!-- header -->
 			<header class="header clear" role="banner">
 					<div id='timeheader'>
-						<a href="<?php echo home_url(); ?>">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/time.png">
-						</a>
+						<a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/clock_orange.png"></a>
 					</div>
 					<div id='placeheader'>
-						<a href="<?php echo home_url(); ?>">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/lieu.png">
-						</a>
+						<a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_grey.png"></a>
 					</div>
-
-					<!-- logo -->
 					<div class="logo">
 						<a href="<?php echo home_url(); ?>">
 							<img src="<?php echo get_template_directory_uri(); ?>/img/JDJlogoheader.png" alt="Logo" class="logo-img">
 						</a>
-						<div class="logo-lgd">
-							Drame chorégraphique dans la ville en 24 heures
-						</div>
+						<div class="logo-lgd">Drame chorégraphique dans la ville en 24 heures</div>
+					</div>
+					<div id='infosheader'>
+						<a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/info_grey.png"></a>
 					</div>
 
-					<!-- /logo -->
 
 					<!-- nav -->
-					<nav class="nav" role="navigation">
+					<!-- <nav class="nav" role="navigation">
 						<?php html5blank_nav(); ?>
-					</nav>
+					</nav> -->
 					<!-- /nav -->
 
 			</header>

@@ -4,6 +4,19 @@
 
 		'use strict';
 
+		/////////////////////  BACKGROUND  ///////////////////////
+		//////////////////////////////////////////////////////////
+		var minbg = 1;
+		var maxbg = 6;
+		// and the formula is:
+		var randombg = Math.floor(Math.random() * (maxbg - minbg + 1)) + minbg;
+
+		$('body').css("background", "url("+theme_directory+"/img/BG/"+randombg+".jpg) no-repeat center center fixed");
+		$('body').css("-webkit-background-size", "cover");
+		$('body').css("-webkit-background-size", "cover");
+		$('body').css("-moz-background-size", "cover");
+		$('body').css("background-size", "cover");
+
 		///////////////////////  ELEVATOR ////////////////////////
 		//////////////////////////////////////////////////////////
 		initElevator();
@@ -46,18 +59,22 @@
 
 		//actu elevator on scroll
 		$(window).on('scroll', function() {
-		    var scrollTop = $(this).scrollTop()+$('header').height();
-				console.log(scrollTop);
-		    $('.headerpost').each(function() {
-		        var topDistance = $(this).offset().top;
-		        if ( (topDistance) < scrollTop ) {
-		            // console.log( $(this).attr('hour') + ' was scrolled to the top' );
-								var hourontop = $(this).attr('hour');
-								$('.elevator-item').removeClass('elevator-active');
-								$('#'+hourontop).addClass('elevator-active');
-		        }
-		    });
+				actuElevator();
 		});
+
+		function actuElevator(){
+			var scrollTop = $(window).scrollTop()+$('header').height();
+			console.log(scrollTop);
+			$('.headerpost').each(function() {
+					var topDistance = $(this).offset().top;
+					if ( (topDistance) < scrollTop ) {
+							// console.log( $(this).attr('hour') + ' was scrolled to the top' );
+							var hourontop = $(this).attr('hour');
+							$('.elevator-item').removeClass('elevator-active');
+							$('#'+hourontop).addClass('elevator-active');
+					}
+			});
+		}
 
 		/////////////////////  POST ADJUST ///////////////////////
 		//////////////////////////////////////////////////////////
@@ -82,7 +99,6 @@
 			});
 
 		}
-
 
 
 

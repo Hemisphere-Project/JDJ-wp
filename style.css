@@ -32,11 +32,11 @@ html {
 body {
 	font:300 11px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color:#444;
-	background: url(img/BG_web/CIEACTE_JDJMDLD_02_copyright_PierreNamas.JPG) no-repeat center center fixed;
+	/*background: url(img/BG/1.JPG) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
 }
 /* clear */
 .clear:before,
@@ -105,6 +105,8 @@ input:focus {
 	position: absolute;
 	margin: auto;
 	margin-top:10px;
+	/*width:35%;
+	height:auto;*/
 	top: 0;
 	left: 0;
 	right: 0;
@@ -124,16 +126,34 @@ input:focus {
 }
 
 #timeheader{
-		margin-top:10px;
+	margin-top:14px;
 	position: absolute;
-	/*left: 9%;*/
-		left:100px;
+	left: 12%;
+	/*left:100px;*/
+}
+#timeheader img{
+	height: auto;/* 40px pour réduire taille*/
+}
+#timeheader img:active{
+	content: url(img/buttons/clock_orange.png);
 }
 #placeheader{
-		margin-top:10px;
+	margin-top:14px;
 	position: absolute;
-	/*left: 16%;*/
-	left:200px;
+	left: 20%;
+	/*left:200px;*/
+}
+#placeheader img:active{
+	content: url(img/buttons/place_orange.png);
+}
+#infosheader{
+	margin-top:25px;
+	position: absolute;
+	left: 84%;
+	/*left:1300px;*/
+}
+#infosheader img:active{
+	content: url(img/buttons/info_orange.png);
 }
 
 .timeline{

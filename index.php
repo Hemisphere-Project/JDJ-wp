@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 
+<script>
+    theme_directory = "<?php echo get_template_directory_uri() ?>";
+</script>
+
 	<main role="main">
 		<!-- section -->
 
