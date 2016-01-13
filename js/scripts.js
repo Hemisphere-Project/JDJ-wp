@@ -42,13 +42,18 @@
 		}
 
 		// click
+		var animating = false;
 		var activeDiv;
 		$('.elevator-item').on('click', function(){
+			animating = true;
 			var hourClicked=$(this).text();
 			$('.headerpost').each(function(index,post){
 				if($(post).attr("hour")==hourClicked){activeDiv=$(post)}
 			});
-			$('html,body').animate({scrollTop: activeDiv.offset().top-$('header').height()},{duration:400,easing:"swing"});
+			$('body').animate({scrollTop: activeDiv.offset().top-$('header').height()+1,easing:"swing"},400,function(){
+				// actuElevator();
+				animating = false;
+			});
 			//style
 			$('.elevator-item').each(function(index,elevatoritem){
 				$(elevatoritem).removeClass('elevator-active');
@@ -63,18 +68,26 @@
 		});
 
 		function actuElevator(){
-			var scrollTop = $(window).scrollTop()+$('header').height();
-			console.log(scrollTop);
-			$('.headerpost').each(function() {
-					var topDistance = $(this).offset().top;
-					if ( (topDistance) < scrollTop ) {
-							// console.log( $(this).attr('hour') + ' was scrolled to the top' );
-							var hourontop = $(this).attr('hour');
-							$('.elevator-item').removeClass('elevator-active');
-							$('#'+hourontop).addClass('elevator-active');
-					}
-			});
+			if (animating == false){
+				var scrollTop = $(window).scrollTop()+$('header').height();
+				// console.log(scrollTop);
+				$('.headerpost').each(function() {
+						var topDistance = $(this).offset().top;
+						if ( (topDistance) < scrollTop ) {
+								// console.log( $(this).attr('hour') + ' was scrolled to the top' );
+								var hourontop = $(this).attr('hour');
+								$('.elevator-item').removeClass('elevator-active');
+								$('#'+hourontop).addClass('elevator-active');
+						}
+				});
 		}
+		}
+
+
+		// function infinitecheck() {
+    // 	actuElevator();
+		// }
+	  // setInterval(infinitecheck, 1500 );
 
 		/////////////////////  POST ADJUST ///////////////////////
 		//////////////////////////////////////////////////////////

@@ -31,10 +31,10 @@
 			<!-- header -->
 			<header class="header clear" role="banner">
 					<div id='timeheader'>
-						<a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/clock_orange.png"></a>
+					<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/clock_orange.png">
 					</div>
 					<div id='placeheader'>
-						<a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_grey.png"></a>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_grey.png">
 					</div>
 					<div class="logo">
 						<a href="<?php echo home_url(); ?>">
@@ -43,7 +43,7 @@
 						<div class="logo-lgd">Drame chorégraphique dans la ville en 24 heures</div>
 					</div>
 					<div id='infosheader'>
-						<a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/info_grey.png"></a>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/info_grey.png">
 					</div>
 
 
