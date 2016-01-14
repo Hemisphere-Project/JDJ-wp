@@ -45,6 +45,9 @@ body {
 	-ms-user-select: none;
 	user-select: none;
 }
+*::-webkit-scrollbar {
+  width: 0px;
+}
 /* clear */
 .clear:before,
 .clear:after {
@@ -275,18 +278,48 @@ input:focus {
 
 #map{
 	display:none;
-	height:90vw;
+	height:600px;
 	margin-top: 80px;
 	max-width: 70%;
 	margin-left: 15%;
-	margin-right: 0;
-	background-color: grey;
+	/*margin-right: 0;*/
 	z-index: 10;
-	background-color: #FF5230;
-	border-radius: 0px;
-	padding: 2%;
 	font-family: OpenSansRegular;
 	font-size: 10pt;
+	position:relative;
+}
+
+#gmap{
+	background-color:#B5B3B4;
+	width:50%;
+	height:100%;
+	float: left;
+}
+#rmap{
+	float: left;
+	width:50%;
+	height:100%;
+}
+
+#slidemap{
+	padding-left:8px;
+	float: left;
+	width: 5%;
+	height: 100%;
+	background-color: #FF5230;
+	line-height:300px;
+}
+#slidemap img{
+	cursor:pointer;
+}
+
+#map_post{
+	float: left;
+	width:95%;
+	padding: 30px;
+	height:100%;
+	background-color: #FF5230;
+	overflow-y:scroll;
 }
 
 
@@ -325,7 +358,6 @@ input:focus {
 	margin-top: 120px;
 	width: 50%;
 	margin-left: 25%;
-	background-color: grey;
 	z-index: 10;
 	background-color: #B5B3B4;
 	border-radius: 10px;

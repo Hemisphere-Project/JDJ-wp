@@ -73,6 +73,11 @@
 			event.stopPropagation();
 		});
 
+		// SLIDE
+		$('#slidemap').click(function(){
+			// $("#rmap").animate({width:'0%'},1000);
+			$("#gmap").animate({width:'100%'},1000);
+		});
 
 		/////////////////////    TIME     ///////////////////////
 
@@ -107,6 +112,8 @@
 		$("#viewpostmap").click(function(){
 			openMap();
 		});
+
+
 
 
 	});
