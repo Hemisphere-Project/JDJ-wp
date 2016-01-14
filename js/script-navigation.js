@@ -7,10 +7,13 @@
 		/////////////////////    NAVIG     ///////////////////////
 		//////////////////////////////////////////////////////////
 
+
+
 		function allButtonsInactive(){
 			$('#timeheader').children('img').removeClass('timeheaderactive').addClass('timeheaderinactive');
 			$('#placeheader').children('img').removeClass('placeheaderactive').addClass('placeheaderinactive');
 			$('#infosheader').children('img').removeClass('infosactive').addClass('infosinactive');
+
 		}
 
 		$('#map').hide();
@@ -59,6 +62,7 @@
 			$('.timeline, .elevator').hide();
 			$('#map').fadeIn(200);
 			allButtonsInactive();
+			// $('#placeheader').children('img').attr("src", theme_directory+"/img/buttons/place_orange.png");
 			$('#placeheader').children('img').removeClass('placeheaderinactive').addClass('placeheaderactive');
 		}
 
