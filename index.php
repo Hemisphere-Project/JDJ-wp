@@ -64,8 +64,21 @@
 
 	</main>
 
-  <div class="infos">
-    <div class='closeinfos'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
+  <div id="map">
+
+  </div>
+
+
+  <div id="postoverlay">
+    <div id="postdetails">
+      <div id="closepost" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
+      POST
+      <div id="viewpostmap" class=''><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_orange.png"></div>
+    </div>
+  </div>
+
+  <div id="infos">
+    <div id="closeinfos" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
     <div class='infostitle'>A Propos</div>
     <?php
       $infospage = get_page_by_title('infos');
