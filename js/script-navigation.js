@@ -76,9 +76,27 @@
 		});
 
 		// SLIDE
-		$('#slidemap').click(function(){
-			// $("#rmap").animate({width:'0%'},1000);
-			$("#gmap").animate({width:'100%'},1000);
+		var fullmap = false;
+
+		$('#togglemap').click(function(){
+
+			if (fullmap==false){
+				console.log('open');
+				$(this).attr("src", theme_directory+"/img/buttons/map_open.png");
+				$("#rmap").animate({right:'-47%'},600);
+				$("#gmap").animate({width:'100%'},600, function(){
+					fullmap = true;
+				});
+			}
+
+			if (fullmap==true){
+				console.log('close');
+				$(this).attr("src", theme_directory+"/img/buttons/map_close.png");
+				$("#rmap").animate({right:'0%'},600);
+				$("#gmap").animate({width:'50%'},600,function(){
+					fullmap = false;
+				});
+			}
 		});
 
 		/////////////////////    TIME     ///////////////////////

@@ -66,8 +66,9 @@
 
   <div id="map">
     <div id="gmap"></div>
+
     <div id="rmap">
-      <div id="slidemap" class=''><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/map_close.png"></div>
+      <div id="slidemap"><img id="togglemap" src="<?php echo get_template_directory_uri(); ?>/img/buttons/map_close.png"></div>
       <div id="map_post">
       <?php
         $infospage = get_page_by_title('infos');
