@@ -143,14 +143,8 @@ input:focus {
 	position: absolute;
 	left: 12%;
 }
-#timeheader:active{
+#timeheader img:active{
 	content: url(img/buttons/clock_orange.png);
-}
-.timeheaderactive{
-	content: url(img/buttons/clock_orange.png);
-}
-.timeheaderinactive{
-	content: url(img/buttons/clock_grey.png);
 }
 
 
@@ -160,15 +154,10 @@ input:focus {
 	position: absolute;
 	left: 20%;
 }
-#placeheader:active{
+#placeheader img:active{
 	content: url(img/buttons/place_orange.png);
 }
-.placeheaderactive{
-	content: url(img/buttons/place_orange.png);
-}
-.placeheaderinactive{
-	content: url(img/buttons/place_grey.png);
-}
+
 
 
 #infosheader{
@@ -177,15 +166,10 @@ input:focus {
 	position: absolute;
 	left: 84%;
 }
-#infosheader:active{
+#infosheader img:active{
 	content: url(img/buttons/info_orange.png);
 }
-.infosactive{
-	content: url(img/buttons/info_orange.png);
-}
-.infosinactive{
-	content: url(img/buttons/info_grey.png);
-}
+
 /*------------------------------------*\
     INFOS PAGE
 \*------------------------------------*/

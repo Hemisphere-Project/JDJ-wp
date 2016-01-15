@@ -8,18 +8,16 @@
 		//////////////////////////////////////////////////////////
 
 
-
 		function allButtonsInactive(){
-			$('#timeheader').children('img').removeClass('timeheaderactive').addClass('timeheaderinactive');
-			$('#placeheader').children('img').removeClass('placeheaderactive').addClass('placeheaderinactive');
-			$('#infosheader').children('img').removeClass('infosactive').addClass('infosinactive');
-
+			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_grey.png");
+			$('#placeheader').children('img').attr("src", theme_directory+"/img/buttons/place_grey.png");
+			$('#infosheader').children('img').attr("src", theme_directory+"/img/buttons/info_grey.png");
 		}
 
 		$('#map').hide();
 		$('#infos').hide();
 		$("#postoverlay").hide();
-		$('#timeheader').children('img').removeClass('timeheaderinactive').addClass('timeheaderactive');
+		$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 
 		/////////////////////    INFOS     ///////////////////////
 
@@ -30,8 +28,9 @@
 			$('.timeline, .elevator').hide();
 			// $('.timeline, .elevator').css('visibility','hidden');
 			$('#infos').fadeIn(200);
+
 			allButtonsInactive();
-			$('#infosheader').children('img').removeClass('infosinactive').addClass('infosactive');
+			$('#infosheader').children('img').attr("src", theme_directory+"/img/buttons/info_orange.png");
 		});
 
 		// CLOSE
@@ -40,8 +39,8 @@
 				$('.timeline, .elevator').fadeIn(200);
 			});
 			// $('.timeline, .elevator').css('visibility','visible');
-			$('#infosheader').children('img').removeClass('infosactive').addClass('infosinactive');
-			$('#timeheader').children('img').removeClass('timeheaderinactive').addClass('timeheaderactive');
+			allButtonsInactive();
+			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 		});
 
 		$('#infos, #infosheader ,header').click(function(event){
@@ -62,15 +61,14 @@
 			$('.timeline, .elevator').hide();
 			$('#map').fadeIn(200);
 			allButtonsInactive();
-			// $('#placeheader').children('img').attr("src", theme_directory+"/img/buttons/place_orange.png");
-			$('#placeheader').children('img').removeClass('placeheaderinactive').addClass('placeheaderactive');
+			$('#placeheader').children('img').attr("src", theme_directory+"/img/buttons/place_orange.png");
 		}
 
 		// CLOSE
 		$('html, #closepost').click(function() {
 			$('#map').fadeOut(200);
 			allButtonsInactive();
-			$('#timeheader').children('img').removeClass('timeheaderinactive').addClass('timeheaderactive');
+			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 		});
 
 		$('#map, header').click(function(event){
@@ -92,7 +90,7 @@
 			$('#map').hide();
 			$('.timeline, .elevator').fadeIn(200)
 			allButtonsInactive();
-			$('#timeheader').children('img').removeClass('timeheaderinactive').addClass('timeheaderactive');
+			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 		});
 
 		/////////////////////    POST     ///////////////////////
