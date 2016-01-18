@@ -4,6 +4,7 @@
 
 		'use strict';
 
+		console.log("SCRIPT NAVIGATION");
 
 		//////////////////////////////////////////////////////////
 		/////////////////////    NAVIG     ///////////////////////
@@ -47,6 +48,44 @@
 
 		$('#infos, #infosheader ,header').click(function(event){
 		  event.stopPropagation();
+		});
+
+
+
+		/////////////////////    TIME     ///////////////////////
+
+		// OPEN
+		$('#timeheader').click(function(){
+			$('#infos').hide();
+			$("#postoverlay").hide();
+			$('#map').hide();
+			$('.timeline, .elevator').fadeIn(200)
+			allButtonsInactive();
+			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
+		});
+
+		/////////////////////    POST     ///////////////////////
+
+		// OPEN
+		$('.post').click(function(){
+				$('#postoverlay').fadeIn(300);
+				// var scrolltop = $(window).scrollTop()+40;
+				// $('#postdetails').css('margin-top', scrolltop);
+					// $('#postdetails').empty();
+
+		});
+
+		// CLOSE
+		$('html, #closepost').click(function() {
+			$('#postoverlay').fadeOut(200);
+		});
+		$('#postdetails, .post, header').click(function(event){
+			event.stopPropagation();
+		});
+
+
+		$("#viewpostmap").click(function(){
+			openMap();
 		});
 
 
@@ -109,70 +148,51 @@
 			}
 		});
 
-		/////////////////////    TIME     ///////////////////////
-
-		// OPEN
-		$('#timeheader').click(function(){
-			$('#infos').hide();
-			$("#postoverlay").hide();
-			$('#map').hide();
-			$('.timeline, .elevator').fadeIn(200)
-			allButtonsInactive();
-			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
-		});
-
-		/////////////////////    POST     ///////////////////////
-
-		// OPEN
-		$('.post').click(function(){
-				$('#postoverlay').fadeIn(300);
-				// var scrolltop = $(window).scrollTop()+40;
-				// $('#postdetails').css('margin-top', scrolltop);
-		});
-
-		// CLOSE
-		$('html, #closepost').click(function() {
-			$('#postoverlay').fadeOut(200);
-		});
-		$('#postdetails, .post, header').click(function(event){
-			event.stopPropagation();
-		});
-
-
-		$("#viewpostmap").click(function(){
-			openMap();
-		});
-
-
-
 
 
 		////////////////////////////////////////////////////////
 		/////////////////////    MAP     ///////////////////////
 		////////////////////////////////////////////////////////
 
-		var centerpoint = new google.maps.LatLng(45.761392, 4.861950);
 
+
+		/////////////////////    GET POINTS     ///////////////////////
+		var allPoints=[];
+		var latSum=0;
+		var lngSum=0;
+
+
+		$('.pos_link').each(function(index, poslink){
+
+			var positiondiv = $(poslink);
+			var postId = positiondiv.parent('.timepost').attr('id');
+			var position = positiondiv.attr('value');
+			var lat= parseFloat(position.substr(0, position.indexOf(',')));
+			var lng= parseFloat(position.substr(position.indexOf(',')+2));
+			allPoints.push({id: postId, lat: lat, lng: lng});
+
+			latSum+=lat;
+			lngSum+=lng;
+		});
+
+
+		var latAvg = latSum / allPoints.length;
+		var lngAvg = lngSum / allPoints.length;
+		var centerpoint = new google.maps.LatLng(latAvg, lngAvg);
+
+
+
+		/////////////////////    CREATE MAP     ///////////////////////
 		var options = {
 			zoom: 14,
 			center: centerpoint,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
+		var placeIconGrey = new google.maps.MarkerImage( theme_directory+"/img/buttons/place_small_grey.png");
+		var placeIconOrange = new google.maps.MarkerImage( theme_directory+"/img/buttons/place_small_orange.png");
+
 
 		var map = new google.maps.Map(document.getElementById("carte"), options);
-
-		var pinImage = new google.maps.MarkerImage( theme_directory+"/img/buttons/info_orange.png");
-
-		var marqueur = new google.maps.Marker({
-				position: new google.maps.LatLng(45.761392, 4.861950),
-				map: map,
-				icon: pinImage,
-		});
-
-
-
-
-
 
 		var styles = [
 			{
@@ -201,6 +221,70 @@
 		// google.maps.event.trigger(map, "resize");
 		// map.setCenter( map.getCenter());
 		// map.setZoom( map.getZoom() );
+
+
+
+		/////////////////////    CREATE POINTS     ///////////////////////
+
+		var allMarkers=[];
+
+		$.each(allPoints,function(index,point){
+
+
+			var googlepoint = new google.maps.Marker({
+					id: point.id,
+					position: new google.maps.LatLng(point.lat,point.lng),
+					map: map,
+					icon: placeIconGrey,
+			});
+
+			allMarkers.push(googlepoint);
+
+			google.maps.event.addListener(googlepoint, 'click', function() {
+				unselectAllMarkers();
+				this.setIcon(placeIconOrange);
+				map.panTo(this.position);
+				showGeoPost(this.id);
+	    });
+		});
+
+		function unselectAllMarkers(){
+			$.each(allMarkers, function(index,marker){
+				marker.setIcon(placeIconGrey);
+			});
+		}
+
+		function showGeoPost(id){
+			$("#map_post").empty();
+
+			jQuery.post(
+			    ajaxurl,
+			    {
+			        'action': 'singleload',
+			        'id': id
+			    },
+			    function(response){
+						console.log(response);
+			    	$('#map_post').html(response);
+			    }
+			);
+
+			// var thepostid = id;
+			//
+			// $.post(ajaxurl, {
+			// 		action: 'my_load_ajax_content ',
+			// 		postid: thepostid
+			// }, function(data) {
+			// 	console.log(data);
+			// 		var $response   =   $(data);
+			// 		var postdata    =   $response.filter('#postdata').html();
+			// 		$('#map_post').html(postdata);
+			// 		console.log(postdata);
+			// });
+
+		}
+
+
 
 
 

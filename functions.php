@@ -101,11 +101,11 @@ function html5blank_header_scripts()
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
 
-        wp_register_script('infos_script', get_template_directory_uri() . '/js/script-navigation.js', array('jquery'), '1.0.0'); // Custom scripts
-        wp_enqueue_script('infos_script'); // Enqueue it!
+        wp_register_script('nav_script', get_template_directory_uri() . '/js/script-navigation.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_enqueue_script('nav_script'); // Enqueue it!
+        // pass Ajax Url to script-navigation.js
+      	wp_localize_script('nav_script', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
 
-        wp_register_script('map_script', get_template_directory_uri() . '/js/script-map.js', array('jquery'), '1.0.0'); // Custom scripts
-        wp_enqueue_script('map_script'); // Enqueue it!
     }
 }
 
@@ -459,7 +459,7 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 
 
 /*------------------------------------*\
-	ShortCode Functions
+	ORDER RESULTS
 \*------------------------------------*/
 
 
@@ -497,5 +497,40 @@ function filter_search_results_by_time( $posts, $query, $c ) {
 }
 add_filter( 'the_posts', 'filter_search_results_by_time' );
 
+
+/*------------------------------------*\
+	GET SINGLE POST
+\*------------------------------------*/
+
+add_action('wp_ajax_nopriv_singleload', 'singleload');
+add_action('wp_ajax_singleload', 'singleload');
+
+function singleload() {
+
+	$id = $_POST['id'];
+
+	$args = array(
+	    'p' => $id,
+      'post_type' => 'any'
+	);
+
+	$ajax_query = new WP_Query($args);
+
+  if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+
+    echo "<div>". types_render_field( "time", array("format"=>"G\hi"))."</div>";
+    echo types_render_field("text");
+    echo types_render_field("image");
+    echo types_render_field("audio");
+    echo types_render_field("video");
+
+    include(locate_template('single-geopost.php'));
+
+    // get_template_part( 'single-geopost.php' );
+  endwhile;
+  endif;
+
+  die();
+}
 
 ?>

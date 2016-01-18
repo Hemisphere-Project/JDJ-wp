@@ -32,7 +32,9 @@
 
 				 ?>
 
-				<div class="post <?php echo $post_type; if ($header==1){ echo ' headerpost';} else echo ' timepost'; ?>" hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>">
+				<div class="post <?php echo $post_type; if ($header==1){ echo ' headerpost';} else echo ' timepost'; ?>"
+              hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>"
+              id="<?php the_ID(); ?>">
 					<h2 class='posttitle'>  <?php echo types_render_field( "time", array("format"=>"G\hi")); ?></h2>
 
 
@@ -50,7 +52,7 @@
 						<?php if ($video){ ?> <div class="video"><?php echo types_render_field("video") ?></div> <?php } ?>
 
 						<?php $pos=types_render_field( "position", array( ) );
-						if ($pos){ ?> <div class="pos_link"> <a href='' <?php echo types_render_field("position") ?> >VIEW POSITION</a> </div> <?php } ?>
+						if ($pos){ ?> <div class="pos_link" value="<?php echo types_render_field("position") ?>"> 	<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_small_orange.png"> </div> <?php } ?>
 
 				</div>
 
