@@ -1,5 +1,6 @@
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
+
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
@@ -20,7 +21,9 @@
             assets: '<?php echo get_template_directory_uri(); ?>',
             tests: {}
         });
-        </script>
+    </script>
+
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
 
 	</head>
 	<body <?php body_class(); ?>>

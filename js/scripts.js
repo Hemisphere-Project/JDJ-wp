@@ -96,17 +96,17 @@
 		function adjustImageSizes(){
 
 		var globalW = $('.timeline').width();
-		console.log(globalW);
+		// console.log(globalW);
 
 			$('.image').each(function(){
 				var ww = $(this).children('img').width();
 				var hh = $(this).children('img').height();
 				if(ww>hh){
-					console.log('LANDSCAPE');
+					// console.log('LANDSCAPE');
 					$(this).css('width', globalW/2);
 				}
 				if (hh>ww){
-					console.log('PORTRAIT');
+					// console.log('PORTRAIT');
 					$(this).css('width', globalW/4);
 				}
 			});
