@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script>
     theme_directory = "<?php echo get_template_directory_uri() ?>";
 </script>
@@ -65,7 +66,9 @@
 	</main>
 
   <div id="map">
-    <div id="gmap"></div>
+    <div id="gmap">
+      <div id="carte" style="width:100%; height:100%"></div>
+    </div>
 
     <div id="rmap">
       <div id="slidemap"><img id="togglemap" src="<?php echo get_template_directory_uri(); ?>/img/buttons/map_close.png"></div>

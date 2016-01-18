@@ -206,11 +206,13 @@ input:focus {
 \*------------------------------------*/
 .timeline{
 	margin-top: 80px;
-	max-width: 50%;
+	/*max-width: 50%;*/
+	width:50%;
 	margin-left: 25%;
 }
 
 .headerpost{
+	width:100%;
 	color: #FF5230;
 	font-family: AlfaSlabOneRegular;
 	font-size: 12pt;
