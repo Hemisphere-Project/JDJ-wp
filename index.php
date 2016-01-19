@@ -39,18 +39,22 @@
               id="<?php the_ID(); ?>">
 					<h2 class='posttitle'>  <?php echo types_render_field( "time", array("format"=>"G\hi")); ?></h2>
 
+          <?php if ($pos){ ?> <div class="pos_link" value="<?php echo $pos ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_small_orange.png"></div> <?php } ?>
 
-						<?php	if ($text){ ?> <div class="text"><?php echo types_render_field("text") ?></div> <?php } ?>
+          <div class="<?php echo $post_type; if ($header==1){ echo ' headercontent';} else echo ' postcontent'; ?>">
 
-						<?php if ($image && $header==1){ ?> <div class="headerimage"><?php echo types_render_field( "image", array("width" => "1200", "height" => "1200", "proportional" => "true" ) ) ; ?></div> <?php } ?>
+  						<?php	if ($text){ ?> <div class="text"><?php echo types_render_field("text") ?></div> <?php } ?>
 
-						<?php if ($image && $header==0){ ?> <div class="image"><?php echo types_render_field( "image", array("width" => "1200", "height" => "1200", "proportional" => "true" ) ) ; ?></div> <?php } ?>
+  						<?php if ($image && $header==1){ ?> <div class="headerimage"><?php echo types_render_field( "image", array("width" => "1200", "height" => "1200", "proportional" => "true" ) ) ; ?></div> <?php } ?>
 
-						<?php if ($audio){ ?> <div class="audio"><?php echo types_render_field("audio") ?></div> <?php } ?>
+  						<?php if ($image && $header==0){ ?> <div class="image"><?php echo types_render_field( "image", array("width" => "1200", "height" => "1200", "proportional" => "true" ) ) ; ?></div> <?php } ?>
 
-						<?php if ($video){ ?> <div class="video"><?php echo types_render_field("video") ?></div> <?php } ?>
+  						<?php if ($audio){ ?> <div class="audio"><?php echo types_render_field("audio") ?></div> <?php } ?>
 
-						<?php if ($pos){ ?> <div class="pos_link" value="<?php echo $pos ?>"> 	<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_small_orange.png"> </div> <?php } ?>
+  						<?php if ($video){ ?> <div class="video"><?php echo types_render_field("video") ?></div> <?php } ?>
+
+            </div>
+
 
 				</div>
 

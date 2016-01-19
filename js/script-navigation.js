@@ -23,6 +23,7 @@
 		$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 
 		/////////////////////    INFOS     ///////////////////////
+		//////////////////////////////////////////////////////////
 
 		// OPEN
 		$('#infosheader').click(function(){
@@ -53,6 +54,7 @@
 
 
 		/////////////////////    TIME     ///////////////////////
+		//////////////////////////////////////////////////////////
 
 		// OPEN
 		$('#timeheader').click(function(){
@@ -65,14 +67,14 @@
 		});
 
 		/////////////////////    POST     ///////////////////////
+		//////////////////////////////////////////////////////////
 
 		// OPEN
-		$('.post').click(function(){
-				$('#postoverlay').fadeIn(300);
-				// var scrolltop = $(window).scrollTop()+40;
-				// $('#postdetails').css('margin-top', scrolltop);
-					// $('#postdetails').empty();
-
+		$('.postcontent').click(function(){
+			$('#postoverlay').fadeIn(300);
+			// var scrolltop = $(window).scrollTop()+40;
+			// $('#postdetails').css('margin-top', scrolltop);
+				// $('#postdetails').empty();
 		});
 
 		// CLOSE
@@ -86,6 +88,22 @@
 
 		$("#viewpostmap").click(function(){
 			openMap();
+			// showGeoPost(id,time);
+		});
+
+		$('.pos_link').click(function(){
+			openMap();
+			var postId = $(this).parent('.timepost').attr('id');
+			var postTime = $(this).parent().find('.posttitle').html();
+			showGeoPost(postId,postTime);
+			unselectAllMarkers();
+			$.each(allMarkers,function(index,marker){
+				if (marker.id==postId){
+					$(marker).click();
+					map.panTo(marker.position);
+					marker.setIcon(placeIconOrange);
+				}
+			});
 		});
 
 
@@ -171,7 +189,6 @@
 			var lat= parseFloat(position.substr(0, position.indexOf(',')));
 			var lng= parseFloat(position.substr(position.indexOf(',')+2));
 			allPoints.push({id: postId, time:postTime, lat: lat, lng: lng});
-
 			latSum+=lat;
 			lngSum+=lng;
 		});
