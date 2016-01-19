@@ -211,15 +211,42 @@ input:focus {
 	margin-left: 25%;
 }
 
+
 .headerpost{
 	width:100%;
-	color: #FF5230;
+	color: white;
 	font-family: AlfaSlabOneRegular;
-	font-size: 12pt;
+	font-size: 30pt;
+}
+.headertitle{
+ position: absolute;
+ margin-top: 50px;
+ z-index:10;
+}
+.headersubtitle{
+ position: absolute;
+}
+
+.commentslink{
+ position: absolute;
+}
+.headerimage{
+	display:block;
+	height:150px;
+	line-height:200px;
+	overflow:hidden;
+}
+.headerimage img{
+	position: relative;
+	margin: -100% auto;
+	width: 100%;
+	height:auto;
+	vertical-align:middle;
 }
 
 .posttitle{
 }
+
 
 .pos_link{
 	cursor:pointer;

@@ -32,37 +32,35 @@
 				elseif ($audio){ $post_type='audiopost'; }
 				elseif ($video){ $post_type='videopost'; }
 
-				 ?>
+        if($header==1){ ?>
+          <div class="post headerpost" hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>" id="<?php the_ID(); ?>">
+            <div class='headertitle'><?php echo types_render_field("time", array("format"=>"G\hi"));?></div>
+            <div class="commentslink">Voir les commentaires à propos de ces événements</div>
+            <div class='headersubtitle'></div>
+            <?php if ($image){ ?> <div class="headerimage"><?php echo types_render_field( "image") ; ?></div> <?php } ?>
+          </div>
 
-				<div class="post <?php echo $post_type; if ($header==1){ echo ' headerpost';} else echo ' timepost'; ?>"
-              hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>"
-              id="<?php the_ID(); ?>">
+        <?php }
+
+        if($header==0){ ?>
+				<div class="post timepost" hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>" id="<?php the_ID(); ?>">
 					<h2 class='posttitle'><?php echo types_render_field("time", array("format"=>"G\hi"));?></h2>
-
           <?php if ($pos){ ?> <div class="pos_link" value="<?php echo $pos ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_small_orange.png"></div> <?php } ?>
 
-          <div class="<?php echo $post_type; if ($header==1){ echo ' headercontent';} else echo ' postcontent'; ?>">
-
+          <div class="postcontent">
   						<?php	if ($text){ ?> <div class="text"><?php echo types_render_field("text") ?></div> <?php } ?>
-
-  						<?php if ($image && $header==1){ ?> <div class="headerimage"><?php echo types_render_field( "image") ; ?></div> <?php } ?>
-
-  						<?php if ($image && $header==0){ ?> <div class="image"><?php echo types_render_field( "image") ; ?></div> <?php } ?>
-
+  						<?php if ($image){ ?> <div class="image"><?php echo types_render_field( "image") ; ?></div> <?php } ?>
   						<?php if ($audio){ ?> <div class="audio"><?php echo types_render_field("audio") ?></div> <?php } ?>
-
   						<?php if ($video){ ?> <div class="video"><?php echo types_render_field("video") ?></div> <?php } ?>
-
             </div>
-
 
 				</div>
 
+        <?php } ?>
 
 				<?php endwhile; ?>
 
   		</section>
-  		<!-- /section -->
 
 	</main>
 
