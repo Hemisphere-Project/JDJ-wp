@@ -351,20 +351,6 @@ input:focus {
 	background-color: rgba(0,0,0,0.7);
 }
 
-/*#postdetails{
-	margin-top: 40px;
-	max-width: 50%;
-	margin-left: 25%;
-	margin-right: 0;
-	background-color: grey;
-	z-index: 10;
-	background-color: #B5B3B4;
-	border-radius: 10px;
-	padding: 2%;
-	font-family: OpenSansRegular;
-	font-size: 10pt;
-}*/
-
 #postdetails{
 	position:relative;
 	margin-top: 120px;
@@ -376,6 +362,26 @@ input:focus {
 	padding: 2%;
 	font-family: OpenSansRegular;
 	font-size: 10pt;
+}
+
+.timepost_title{
+	color: white;
+	font-family: AlfaSlabOneRegular;
+	font-size: 30pt;
+	letter-spacing: 2px;
+	margin: 0px;
+	width:20%;
+	float:left;
+}
+
+#viewpostmap{
+	/*float:left;*/
+	margin-left: 150px;
+	margin-right: 0;
+}
+
+#postdetails_content{
+	width: 100%;
 }
 
 /*------------------------------------*\

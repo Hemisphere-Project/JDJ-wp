@@ -45,9 +45,9 @@
 
   						<?php	if ($text){ ?> <div class="text"><?php echo types_render_field("text") ?></div> <?php } ?>
 
-  						<?php if ($image && $header==1){ ?> <div class="headerimage"><?php echo types_render_field( "image", array("width" => "1200", "height" => "1200", "proportional" => "true" ) ) ; ?></div> <?php } ?>
+  						<?php if ($image && $header==1){ ?> <div class="headerimage"><?php echo types_render_field( "image") ; ?></div> <?php } ?>
 
-  						<?php if ($image && $header==0){ ?> <div class="image"><?php echo types_render_field( "image", array("width" => "1200", "height" => "1200", "proportional" => "true" ) ) ; ?></div> <?php } ?>
+  						<?php if ($image && $header==0){ ?> <div class="image"><?php echo types_render_field( "image") ; ?></div> <?php } ?>
 
   						<?php if ($audio){ ?> <div class="audio"><?php echo types_render_field("audio") ?></div> <?php } ?>
 
@@ -65,6 +65,8 @@
   		<!-- /section -->
 
 	</main>
+
+  <?php get_template_part('comments'); ?>
 
   <div id="map">
     <div id="gmap">
@@ -84,9 +86,7 @@
     	<h2 id='timepost_title' class='timepost_title'></h2>
       <div id="viewpostmap" class=''><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_orange.png"></div>
       <div id="closepost" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
-      <div id="postdetails_content">
-      </div>
-
+      <div id="postdetails_content"></div>
     </div>
   </div>
 
