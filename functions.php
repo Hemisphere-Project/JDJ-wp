@@ -502,10 +502,10 @@ add_filter( 'the_posts', 'filter_search_results_by_time' );
 	GET SINGLE POST
 \*------------------------------------*/
 
-add_action('wp_ajax_nopriv_singleload', 'singleload');
-add_action('wp_ajax_singleload', 'singleload');
+add_action('wp_ajax_nopriv_MAPsingleload', 'MAPsingleload');
+add_action('wp_ajax_MAPsingleload', 'MAPsingleload');
 
-function singleload() {
+function MAPsingleload() {
 
 	$id = $_POST['id'];
 
@@ -518,14 +518,30 @@ function singleload() {
 
   if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
 
-    // echo "<div>". types_render_field( "time", array("format"=>"G\hi"))."</div>";
-    // echo types_render_field("text");
-    // echo types_render_field("image");
-    // echo types_render_field("audio");
-    // echo types_render_field("video");
-    
-    // include(locate_template('single-geopost.php'));
     get_template_part( 'single-geopost' );
+  endwhile;
+  endif;
+
+  die();
+}
+
+add_action('wp_ajax_nopriv_TIMEsingleload', 'TIMEsingleload');
+add_action('wp_ajax_TIMEsingleload', 'TIMEsingleload');
+
+function TIMEsingleload() {
+
+	$id = $_POST['id'];
+
+	$args = array(
+	    'p' => $id,
+      'post_type' => 'any'
+	);
+
+	$ajax_query = new WP_Query($args);
+
+  if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+
+    get_template_part( 'single-timepost' );
   endwhile;
   endif;
 

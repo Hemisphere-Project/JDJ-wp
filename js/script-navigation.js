@@ -52,7 +52,7 @@
 		});
 
 
-
+		//////////////////////////////////////////////////////////
 		/////////////////////    TIME     ///////////////////////
 		//////////////////////////////////////////////////////////
 
@@ -75,6 +75,21 @@
 			// var scrolltop = $(window).scrollTop()+40;
 			// $('#postdetails').css('margin-top', scrolltop);
 				// $('#postdetails').empty();
+				var postId = $(this).parent('.timepost').attr('id');
+				var postTime = $(this).parent().find('.posttitle').html();
+				var postPosition = $(this).parent().find('.pos_link').attr('value');
+				console.log(postPosition);
+				showTimePost(postId, postTime);
+
+				$('#viewpostmap').hide();
+
+				if (postPosition!==undefined){
+					$('#viewpostmap').show();
+					$('#viewpostmap').attr('valuePos',postPosition);
+					$('#viewpostmap').attr('valueId',postId);
+					$('#viewpostmap').attr('valueTime',postTime);
+				}
+
 		});
 
 		// CLOSE
@@ -88,7 +103,18 @@
 
 		$("#viewpostmap").click(function(){
 			openMap();
-			// showGeoPost(id,time);
+			var postId = $(this).attr('valueId');
+			var postTime = $(this).attr('valueTime');
+			var postPosition = $(this).attr('valuePos');
+			showGeoPost(postId,postTime);
+			unselectAllMarkers();
+			$.each(allMarkers,function(index,marker){
+				if (marker.id==postId){
+					$(marker).click();
+					map.panTo(marker.position);
+					marker.setIcon(placeIconOrange);
+				}
+			});
 		});
 
 		$('.pos_link').click(function(){
@@ -106,8 +132,26 @@
 			});
 		});
 
+		function showTimePost(id,time){
+			$("#postdetails_content").empty();
+			$("#timepost_title").html(time);
 
-		/////////////////////    PLACE     ///////////////////////
+			jQuery.post(
+			    ajaxurl,
+			    {
+			        'action': 'TIMEsingleload',
+			        'id': id
+			    },
+			    function(response){
+			    	$('#postdetails_content').append(response);
+			    }
+			);
+
+		}
+
+		////////////////////////////////////////////////////////
+		/////////////////////    PLACE     /////////////////////
+		////////////////////////////////////////////////////////
 
 		// OPEN
 		$('#placeheader').click(function(){
@@ -282,7 +326,7 @@
 			jQuery.post(
 			    ajaxurl,
 			    {
-			        'action': 'singleload',
+			        'action': 'MAPsingleload',
 			        'id': id
 			    },
 			    function(response){

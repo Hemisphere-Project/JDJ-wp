@@ -37,7 +37,7 @@
 				<div class="post <?php echo $post_type; if ($header==1){ echo ' headerpost';} else echo ' timepost'; ?>"
               hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>"
               id="<?php the_ID(); ?>">
-					<h2 class='posttitle'>  <?php echo types_render_field( "time", array("format"=>"G\hi")); ?></h2>
+					<h2 class='posttitle'><?php echo types_render_field("time", array("format"=>"G\hi"));?></h2>
 
           <?php if ($pos){ ?> <div class="pos_link" value="<?php echo $pos ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_small_orange.png"></div> <?php } ?>
 
@@ -74,11 +74,6 @@
     <div id="rmap">
       <div id="slidemap"><img id="togglemap" src="<?php echo get_template_directory_uri(); ?>/img/buttons/map_close.png"></div>
       <div id="map_post">
-      <!-- <?php
-        $infospage = get_page_by_title('infos');
-        $post = $infospage->post_content;
-        echo $post;
-      ?> -->
       </div>
     </div>
   </div>
@@ -86,9 +81,12 @@
 
   <div id="postoverlay">
     <div id="postdetails">
-      <div id="closepost" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
-      POST
+    	<h2 id='timepost_title' class='timepost_title'></h2>
       <div id="viewpostmap" class=''><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_orange.png"></div>
+      <div id="closepost" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
+      <div id="postdetails_content">
+      </div>
+
     </div>
   </div>
 
