@@ -1,21 +1,21 @@
-<?php if (have_posts()): while (have_posts()) : the_post(); ?>
-	SINGLE GEO POST
-	<!-- article -->
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-SINGLE-GEOPOST.PHP 
-		<!-- post title -->
-		<h2>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-		</h2>
-		<!-- /post title -->
+<?php
+$image=types_render_field( "image");
+$audio=types_render_field( "audio");
+$video=types_render_field( "video");
+$text=types_render_field( "text", array( ) );
+?>
 
 
+<div class="post">
+	<!-- <h2 class='geopost_title'>  <?php echo types_render_field( "time", array("format"=>"G\hi")); ?></h2> -->
 
-	</article>
-	<!-- /article -->
+	<?php	if ($text){ ?> <div class="maptext"><?php echo types_render_field("text") ?></div> <img src="<?php echo get_template_directory_uri();?>/img/buttons/guill1.png"></div><img src="<?php echo get_template_directory_uri();?>/img/buttons/guill2.png"></div> <?php } ?>
 
-<?php endwhile; ?>
+	<?php if ($image){ ?> <div class="mapimage"><?php echo types_render_field( "image", array("width" => "1200", "height" => "1200", "proportional" => "true" ) ) ; ?></div> <?php } ?>
 
+	<?php if ($audio){ ?> <div class="mapaudio"><?php echo types_render_field("audio") ?></div> <?php } ?>
 
-<?php endif; ?>
+	<?php if ($video){ ?> <div class="mapvideo"><?php echo types_render_field("video") ?></div> <?php } ?>
+
+</div>

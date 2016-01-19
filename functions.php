@@ -518,15 +518,14 @@ function singleload() {
 
   if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
 
-    echo "<div>". types_render_field( "time", array("format"=>"G\hi"))."</div>";
-    echo types_render_field("text");
-    echo types_render_field("image");
-    echo types_render_field("audio");
-    echo types_render_field("video");
-
-    include(locate_template('single-geopost.php'));
-
-    // get_template_part( 'single-geopost.php' );
+    // echo "<div>". types_render_field( "time", array("format"=>"G\hi"))."</div>";
+    // echo types_render_field("text");
+    // echo types_render_field("image");
+    // echo types_render_field("audio");
+    // echo types_render_field("video");
+    
+    // include(locate_template('single-geopost.php'));
+    get_template_part( 'single-geopost' );
   endwhile;
   endif;
 

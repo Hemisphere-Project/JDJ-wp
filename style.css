@@ -307,6 +307,25 @@ input:focus {
 	overflow-y:scroll;
 	font-family: OpenSansRegular;
 	font-size: 10pt;
+	padding-left: 12px;
+}
+
+/*------------------------------------*\
+    MAP POST DETAILS
+\*------------------------------------*/
+
+.geopost_title{
+	color: white;
+	font-family: AlfaSlabOneRegular;
+	font-size: 30pt;
+	letter-spacing: 2px;
+	margin-bottom: 0px;
+}
+
+.maptext{
+	color: #FFFFFF;
+	font-family: OpenSansRegular;
+	font-size: 11pt;
 }
 
 

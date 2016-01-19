@@ -166,10 +166,11 @@
 
 			var positiondiv = $(poslink);
 			var postId = positiondiv.parent('.timepost').attr('id');
+			var postTime = positiondiv.parent().find('.posttitle').html();
 			var position = positiondiv.attr('value');
 			var lat= parseFloat(position.substr(0, position.indexOf(',')));
 			var lng= parseFloat(position.substr(position.indexOf(',')+2));
-			allPoints.push({id: postId, lat: lat, lng: lng});
+			allPoints.push({id: postId, time:postTime, lat: lat, lng: lng});
 
 			latSum+=lat;
 			lngSum+=lng;
@@ -236,6 +237,7 @@
 					position: new google.maps.LatLng(point.lat,point.lng),
 					map: map,
 					icon: placeIconGrey,
+					time: point.time
 			});
 
 			allMarkers.push(googlepoint);
@@ -244,7 +246,7 @@
 				unselectAllMarkers();
 				this.setIcon(placeIconOrange);
 				map.panTo(this.position);
-				showGeoPost(this.id);
+				showGeoPost(this.id, this.time);
 	    });
 		});
 
@@ -254,8 +256,11 @@
 			});
 		}
 
-		function showGeoPost(id){
+		function showGeoPost(id,time){
 			$("#map_post").empty();
+
+			$("#map_post").append("<h2 class='geopost_title'>"+time+"</h2>");
+			// var loader = $("<img src="+theme_directory+"/img/ajax-loader.gif></img>").appendTo('#map_post');
 
 			jQuery.post(
 			    ajaxurl,
@@ -264,23 +269,10 @@
 			        'id': id
 			    },
 			    function(response){
-						console.log(response);
-			    	$('#map_post').html(response);
+						// loader.remove();
+			    	$('#map_post').append(response);
 			    }
 			);
-
-			// var thepostid = id;
-			//
-			// $.post(ajaxurl, {
-			// 		action: 'my_load_ajax_content ',
-			// 		postid: thepostid
-			// }, function(data) {
-			// 	console.log(data);
-			// 		var $response   =   $(data);
-			// 		var postdata    =   $response.filter('#postdata').html();
-			// 		$('#map_post').html(postdata);
-			// 		console.log(postdata);
-			// });
 
 		}
 
