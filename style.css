@@ -219,29 +219,51 @@ input:focus {
 	font-size: 30pt;
 }
 .headertitle{
- position: absolute;
- margin-top: 50px;
- z-index:10;
+	margin-left: 1%;
+	position: absolute;
+	margin-top: 50px;
+
 }
 .headersubtitle{
- position: absolute;
+	top: 100px;
+	position: relative;
+	height: 2px;
+	background-color: white;
+	width: 98%;
+	margin: auto;
 }
 
 .commentslink{
- position: absolute;
+	position: relative;
+	float:right;
+	margin-right: 1%;
+	top: 80px;
+	font-family: OpenSansRegular;
+	font-size: 10pt;
+	color: white;
+}
+.commentslink:hover{
+	color:white;
 }
 .headerimage{
-	display:block;
+	/*display:block;*/
+	position:relative;
+	width: 100%;
+	z-index:-100;
 	height:150px;
-	line-height:200px;
+	/*line-height:200px;*/
 	overflow:hidden;
+
 }
 .headerimage img{
-	position: relative;
-	margin: -100% auto;
 	width: 100%;
-	height:auto;
-	vertical-align:middle;
+	height: auto;
+
+	/*position: relative;*/
+	/*margin: -100% auto;*/
+	/*width: 100%;
+	height:auto;*/
+	/*vertical-align:middle;*/
 }
 
 .posttitle{

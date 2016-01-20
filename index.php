@@ -35,7 +35,9 @@
         if($header==1){ ?>
           <div class="post headerpost" hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>" id="<?php the_ID(); ?>">
             <div class='headertitle'><?php echo types_render_field("time", array("format"=>"G\hi"));?></div>
-            <div class="commentslink">Voir les commentaires à propos de ces événements</div>
+
+            <a class="commentslink" href="">Voir les commentaires</a>
+            <!-- <div class="commentslink">Voir les commentaires</div> -->
             <div class='headersubtitle'></div>
             <?php if ($image){ ?> <div class="headerimage"><?php echo types_render_field( "image") ; ?></div> <?php } ?>
           </div>
@@ -64,7 +66,7 @@
 
 	</main>
 
-  <?php get_template_part('comments'); ?>
+  <!-- <?php get_template_part('comments'); ?> -->
 
   <div id="map">
     <div id="gmap">
