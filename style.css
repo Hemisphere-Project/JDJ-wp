@@ -169,7 +169,7 @@ input:focus {
     INFOS PAGE
 \*------------------------------------*/
 
-#infos{
+.popup{
 	position: static;
 	display:none;
 	height:100%;
@@ -185,7 +185,7 @@ input:focus {
 	font-family: OpenSansRegular;
 	font-size: 10pt;
 }
-.infostitle{
+.popuptitle{
 	color: #FF5230;
 	font-family: AlfaSlabOneRegular;
 	font-size: 15pt;
@@ -195,6 +195,11 @@ input:focus {
 .closebtn{
 	float:right;
 }
+
+/*------------------------------------*\
+    COMMENTS PAGE
+\*------------------------------------*/
+
 
 /*------------------------------------*\
     TIMELINE PAGE
@@ -238,11 +243,9 @@ input:focus {
 	top: 80px;
 	font-family: OpenSansRegular;
 	font-size: 10pt;
-	color: white;
+	cursor:pointer;
 }
-.commentslink:hover{
-	color:white;
-}
+
 .headerimage{
 	/*display:block;*/
 	position:relative;

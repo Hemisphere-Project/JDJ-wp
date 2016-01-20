@@ -51,9 +51,33 @@
 		  event.stopPropagation();
 		});
 
+		//////////////////////////////////////////////////////////
+		/////////////////////    COMMENTS     ////////////////////
+		//////////////////////////////////////////////////////////
+
+		// OPEN
+		$('.commentslink').click(function(){
+			$('#map').hide();
+			$('.timeline, .elevator').hide();
+			$('#comments').fadeIn(200);
+			allButtonsInactive();
+		});
+
+		// CLOSE
+		$('html, #closecomments').click(function() {
+			$('#comments').fadeOut(200, function(){
+				$('.timeline, .elevator').fadeIn(200);
+			});
+			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
+		});
+
+		$('#comments').click(function(event){
+			event.stopPropagation();
+		});
+
 
 		//////////////////////////////////////////////////////////
-		/////////////////////    TIME     ///////////////////////
+		/////////////////////    TIME     ////////////////////////
 		//////////////////////////////////////////////////////////
 
 		// OPEN
@@ -66,6 +90,7 @@
 			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 		});
 
+		//////////////////////////////////////////////////////////
 		/////////////////////    POST     ///////////////////////
 		//////////////////////////////////////////////////////////
 
@@ -171,7 +196,7 @@
 		}
 
 		// CLOSE
-		$('html, #closepost').click(function() {
+		$('html, #closepost').click(function(event) {
 			$('#map').fadeOut(200);
 			allButtonsInactive();
 			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
@@ -180,6 +205,7 @@
 		$('#map, header').click(function(event){
 			event.stopPropagation();
 		});
+
 
 		// SLIDE
 		var fullmap = false;

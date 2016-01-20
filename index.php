@@ -7,7 +7,6 @@
 
 	<main role="main">
 		<!-- section -->
-
 		<section class="elevator">
 		</section>
 
@@ -36,7 +35,7 @@
           <div class="post headerpost" hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>" id="<?php the_ID(); ?>">
             <div class='headertitle'><?php echo types_render_field("time", array("format"=>"G\hi"));?></div>
 
-            <a class="commentslink" href="">Voir les commentaires</a>
+            <div class="commentslink">Voir les commentaires</div>
             <!-- <div class="commentslink">Voir les commentaires</div> -->
             <div class='headersubtitle'></div>
             <?php if ($image){ ?> <div class="headerimage"><?php echo types_render_field( "image") ; ?></div> <?php } ?>
@@ -59,7 +58,7 @@
               <?php } ?>
 
   						<?php if ($video){ ?> <div class="videopost"><?php echo types_render_field("video") ?></div> <?php } ?>
-              
+
   						<?php	if ($text && !$image && !$audio){ ?> <div class="onlytextpost"><?php echo types_render_field("text") ?></div> <?php } ?>
 
 
@@ -75,13 +74,11 @@
 
 	</main>
 
-  <!-- <?php get_template_part('comments'); ?> -->
 
   <div id="map">
     <div id="gmap">
       <div id="carte" style="width:100%; height:100%"></div>
     </div>
-
     <div id="rmap">
       <div id="slidemap"><img id="togglemap" src="<?php echo get_template_directory_uri(); ?>/img/buttons/map_close.png"></div>
       <div id="map_post">
@@ -99,12 +96,22 @@
     </div>
   </div>
 
-  <div id="infos">
+  <div id="infos" class="popup">
     <div id="closeinfos" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
-    <div class='infostitle'>A Propos</div>
+    <div class='popuptitle'>A Propos</div>
     <?php
       $infospage = get_page_by_title('infos');
       $post = $infospage->post_content;
       echo $post;
     ?>
+  </div>
+
+  <div id="comments" class="popup">
+    <div id="closecomments" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
+    <div class='popuptitle'>Commentaires</div>
+    <?php $withcomments = 1;?>
+    <?php get_template_part('comments');?>
+    <?php comments_template();?>
+    <?php get_template_part('page');?>
+
   </div>

@@ -1,13 +1,13 @@
-<div class="comments">
-	comments
+comments.php
+<div id="comments" class="comments">
 	<?php if (post_password_required()) : ?>
 	<p><?php _e( 'Post is password protected. Enter the password to view any comments.', 'html5blank' ); ?></p>
 </div>
-
+	password
 	<?php return; endif; ?>
 
 <?php if (have_comments()) : ?>
-
+	have comments
 	<h2><?php comments_number(); ?></h2>
 
 	<ul>
@@ -15,11 +15,12 @@
 	</ul>
 
 <?php elseif ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-
+	is page
 	<p><?php _e( 'Comments are closed here.', 'html5blank' ); ?></p>
 
 <?php endif; ?>
-
+comment form
 <?php comment_form(); ?>
+
 
 </div>
