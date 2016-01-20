@@ -92,7 +92,7 @@
 		/////////////////////  POST ADJUST ///////////////////////
 		//////////////////////////////////////////////////////////
 
-		adjustImageSizes();
+		// adjustImageSizes();
 		function adjustImageSizes(){
 
 		var globalW = $('.timeline').width();

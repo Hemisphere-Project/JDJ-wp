@@ -33,11 +33,6 @@ html {
 body {
 	font:300 11px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color:#444;
-	/*background: url(img/BG/1.JPG) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -211,6 +206,9 @@ input:focus {
 	margin-left: 25%;
 }
 
+/*------------------------------------*\
+    HEADERS
+\*------------------------------------*/
 
 .headerpost{
 	width:100%;
@@ -258,7 +256,6 @@ input:focus {
 .headerimage img{
 	width: 100%;
 	height: auto;
-
 	/*position: relative;*/
 	/*margin: -100% auto;*/
 	/*width: 100%;
@@ -266,15 +263,22 @@ input:focus {
 	/*vertical-align:middle;*/
 }
 
-.posttitle{
-}
 
+/*------------------------------------*\
+    POSTS
+\*------------------------------------*/
+
+.posttitle{
+	font-size: 24pt;
+	width: 70%;
+}
 
 .pos_link{
 	cursor:pointer;
 }
 
 .timepost{
+	/*width: 25%;*/
 	color: #FF5230;
 	font-family: AlfaSlabOneRegular;
 	font-size: 12pt;
@@ -285,6 +289,41 @@ input:focus {
 .videopost{
 	width:50%;
 }
+
+.wp-video{
+	position:relative;
+}
+.wp-video-shortcode {
+	max-width: 100%;
+}
+.imagepost{
+	width: 25%;
+}
+.onlytextpost{
+	padding: 10px;
+	width: 25%;
+	background-color: #ABABAB;
+	font-family: OpenSansRegular;
+	font-size: 10pt;
+	color: black;
+	max-height: 300px;
+	overflow: hidden;
+}
+.littletext{
+	background-color: #ABABAB;
+	font-family: OpenSansRegular;
+	font-size: 10pt;
+	color: black;
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    ELEVATOR
+\*------------------------------------*/
 
 .elevator{
 	font-family: AlfaSlabOneRegular;
@@ -300,18 +339,6 @@ input:focus {
 	color: #FF5230;
 }
 
-
-/* nav */
-.nav {
-}
-/* sidebar */
-.sidebar {
-
-}
-/* footer */
-.footer {
-
-}
 
 /*------------------------------------*\
     PAGE MAP
