@@ -110,8 +110,9 @@
     <div class='popuptitle'>Commentaires</div>
 
     <?php $commentspage = new WP_Query('pagename=commentaires'); while ($commentspage->have_posts()) : $commentspage->the_post();?>
+      <?php get_template_part('page-comments'); ?>
       <?php comments_template(); ?>
     <?php endwhile; ?>
-    <!-- <?php $withcomments = 1; ?> -->
+    <?php $withcomments = 1; ?>
     <?php comments_template(); ?>
   </div>
