@@ -104,6 +104,7 @@
 				var postTime = $(this).parent().find('.posttitle').html();
 				var postPosition = $(this).parent().find('.pos_link').attr('value');
 				console.log(postPosition);
+				console.log(postPosition);
 				showTimePost(postId, postTime);
 
 				$('#viewpostmap').hide();

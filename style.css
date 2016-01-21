@@ -274,26 +274,44 @@ input:focus {
     POSTS
 \*------------------------------------*/
 
-.posttitle{
-	font-size: 24pt;
-	width: 70%;
-}
-
-.pos_link{
-	cursor:pointer;
-}
-
 .timepost{
-	/*width: 25%;*/
 	color: #FF5230;
 	font-family: AlfaSlabOneRegular;
 	font-size: 12pt;
+	display:inline-block;
+	float:top;
+	margin:-2px;
 }
+
+
+.postsubtitle{
+	font-family: OpenSansRegular;
+}
+.posttitle{
+	font-size: 24pt;
+	/*width: 50%;*/
+	/*margin: 0px;*/
+	/*width:20%;*/
+	/*margin-right:10%;*/
+	float:left;
+}
+.pos_link{
+	cursor:pointer;
+	/*clear:left;*/
+	float:right;
+	/*margin-left: 10px;*/
+
+}
+
+
 .audiopost{
 	width:50%;
 }
 .videopost{
 	width:50%;
+}
+.textpost{
+	width:25%;
 }
 
 .wp-video{
@@ -303,23 +321,28 @@ input:focus {
 	max-width: 100%;
 }
 .imagepost{
-	width: 25%;
+	width: 50%;
 }
 .onlytextpost{
 	padding: 10px;
-	width: 25%;
 	background-color: #ABABAB;
 	font-family: OpenSansRegular;
 	font-size: 10pt;
 	color: black;
 	max-height: 300px;
-	overflow: hidden;
+	overflow-y: hidden;
 }
 .littletext{
 	background-color: #ABABAB;
 	font-family: OpenSansRegular;
 	font-size: 10pt;
 	color: black;
+}
+
+.postcontent{
+	border-top: 2px solid #FF5230;
+	background-color: #ABABAB;
+	clear:both;
 }
 
 

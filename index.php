@@ -26,6 +26,7 @@
  				$video=types_render_field( "video");
         $text=types_render_field( "text", array( ) );
         $pos=types_render_field( "position", array( ) );
+        $sub=types_render_field( "soustitre");
 
 				if($image){ $post_type='imagepost'; }
 				elseif ($audio){ $post_type='audiopost'; }
@@ -44,20 +45,24 @@
         <?php }
 
         if($header==0){ ?>
-				<div class="post timepost" hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>" id="<?php the_ID(); ?>">
-          <h2 class='posttitle'><?php echo types_render_field("time", array("format"=>"G\hi"));?></h2>
-          <?php if ($pos){ ?> <div class="pos_link" value="<?php echo $pos ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_small_orange.png"></div> <?php } ?>
+				<div class="post timepost <?php if($image){echo 'imagepost';} if($audio){echo 'audiopost';} if($video){echo 'videopost';} if($text && !$image && !$audio){echo 'textpost';}?>"
+          hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>" id="<?php the_ID(); ?>">
 
+          <!-- <div class="postheader"> -->
+            <?php if($sub){?><div class='postsubtitle'><?php echo types_render_field("soustitre"); ?></div> <?php } ?>
+            <div class='posttitle'><?php echo types_render_field("time", array("format"=>"G\hi"));?></div>
+            <?php if ($pos){ ?> <div class="pos_link" value="<?php echo $pos ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_small_orange.png"></div> <?php } ?>
+          <!-- </div> -->
           <div class="postcontent">
 
-  						<?php if ($image){ ?> <div class="imagepost"><?php echo types_render_field( "image") ; ?></div>
+  						<?php if ($image){ ?> <div class="imagepost_content"><?php echo types_render_field( "image") ; ?></div>
                 <?php	if ($text){ ?> <div class="littletext"><?php echo types_render_field("text") ?></div> <?php } ?>
               <?php } ?>
-  						<?php if ($audio){ ?> <div class="audiopost"><?php echo types_render_field("audio") ?></div>
+  						<?php if ($audio){ ?> <div class="audiopost_content"><?php echo types_render_field("audio") ?></div>
                 <?php	if ($text){ ?> <div class="littletext"><?php echo types_render_field("text") ?></div> <?php } ?>
               <?php } ?>
 
-  						<?php if ($video){ ?> <div class="videopost"><?php echo types_render_field("video") ?></div> <?php } ?>
+  						<?php if ($video){ ?> <div class="videopost_content"><?php echo types_render_field("video") ?></div> <?php } ?>
 
   						<?php	if ($text && !$image && !$audio){ ?> <div class="onlytextpost"><?php echo types_render_field("text") ?></div> <?php } ?>
 
