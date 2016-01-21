@@ -81,6 +81,9 @@
     <div id="rmap">
       <div id="slidemap"><img id="togglemap" src="<?php echo get_template_directory_uri(); ?>/img/buttons/map_close.png"></div>
       <div id="map_post">
+        <div id="map_post_title" class="geopost_title"></div>
+        <div id="map_post_adress" class="geopost_content"></div>
+        <div id="map_post_content" class="geopost_content"></div>
       </div>
     </div>
   </div>

@@ -398,6 +398,7 @@ input:focus {
 	padding-left: 12px;
 }
 
+
 /*------------------------------------*\
     MAP POST DETAILS
 \*------------------------------------*/
@@ -408,13 +409,14 @@ input:focus {
 	font-size: 30pt;
 	letter-spacing: 2px;
 	margin-bottom: 0px;
+	margin-top:20px;
 }
-
-.maptext{
+.geopost_content{
 	color: #FFFFFF;
 	font-family: OpenSansRegular;
 	font-size: 11pt;
 }
+
 
 
 /*------------------------------------*\

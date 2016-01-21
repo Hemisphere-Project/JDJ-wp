@@ -310,6 +310,16 @@
 		// map.setCenter( map.getCenter());
 		// map.setZoom( map.getZoom() );
 
+		var geocoder = new google.maps.Geocoder;
+
+	// 	var lat = 50.406994;
+	// 	var lng = 2.634328;
+	//   var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
+	//   geocoder.geocode({'location': latlng}, function(results, status) {
+	//     if (status === google.maps.GeocoderStatus.OK) {
+	//         console.log(results[0].formatted_address);
+	//   }
+	// });
 
 
 		/////////////////////    CREATE POINTS     ///////////////////////
@@ -344,11 +354,24 @@
 		}
 
 		function showGeoPost(id,time){
-			$("#map_post").empty();
-
-			$("#map_post").append("<h2 class='geopost_title'>"+time+"</h2>");
+			$("#map_post_content").empty();
+			$("#map_post_title").html(time);
+			// get position from id
+			$.each(allPoints,function(index,point){
+				if (point.id == id){
+					console.log("check");
+					var lat = point.lat;
+					var lng = point.lng;
+					var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
+					geocoder.geocode({'location': latlng}, function(results, status) {
+						if (status === google.maps.GeocoderStatus.OK) {
+								var streetAdress = results[0].formatted_address;
+								$("#map_post_adress").html(streetAdress);
+						}
+					});
+				}
+			});
 			// var loader = $("<img src="+theme_directory+"/img/ajax-loader.gif></img>").appendTo('#map_post');
-
 			jQuery.post(
 			    ajaxurl,
 			    {
@@ -357,10 +380,9 @@
 			    },
 			    function(response){
 						// loader.remove();
-			    	$('#map_post').append(response);
+			    	$('#map_post_content').append(response);
 			    }
 			);
-
 		}
 
 
