@@ -276,7 +276,7 @@
 			center: centerpoint,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
-		var placeIconGrey = new google.maps.MarkerImage( theme_directory+"/img/buttons/place_small_grey.png");
+		var placeIconGrey = new google.maps.MarkerImage( theme_directory+"/img/buttons/place_small_black.png");
 		var placeIconOrange = new google.maps.MarkerImage( theme_directory+"/img/buttons/place_small_orange.png");
 
 

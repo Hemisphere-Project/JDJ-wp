@@ -108,11 +108,10 @@
   <div id="comments" class="popup">
     <div id="closecomments" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
     <div class='popuptitle'>Commentaires</div>
-
     <?php $commentspage = new WP_Query('pagename=commentaires'); while ($commentspage->have_posts()) : $commentspage->the_post();?>
-      <?php get_template_part('page-comments'); ?>
+      <?php get_template_part('page'); ?>
       <?php comments_template(); ?>
     <?php endwhile; ?>
-    <?php $withcomments = 1; ?>
-    <?php comments_template(); ?>
+
+
   </div>
