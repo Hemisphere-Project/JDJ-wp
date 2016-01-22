@@ -92,27 +92,39 @@
 		/////////////////////  POST ADJUST ///////////////////////
 		//////////////////////////////////////////////////////////
 
-		// adjustImageSizes();
+		adjustImageSizes();
 		function adjustImageSizes(){
+			var globalW = $('.timeline').width();
+			console.log(globalW);
 
-		var globalW = $('.timeline').width();
-		// console.log(globalW);
+				$('.imagepost_content').each(function(){
+					var ww = $(this).children('img').width();
+					var hh = $(this).children('img').height();
+					if(ww>hh){
+						console.log('LANDSCAPE');
+						// $(this).css('width', globalW/2);
+						$(this).parent().parent('.imagepost').css('width', globalW/2);
+					}
+					if (hh>ww){
+						console.log('PORTRAIT');
+						// $(this).css('width', globalW/4);
+						$(this).parent().parent('.imagepost').css('width', globalW/4);
+					}
+				});
+		}
 
-			$('.image').each(function(){
-				var ww = $(this).children('img').width();
-				var hh = $(this).children('img').height();
-				if(ww>hh){
-					// console.log('LANDSCAPE');
-					$(this).css('width', globalW/2);
-				}
-				if (hh>ww){
-					// console.log('PORTRAIT');
-					$(this).css('width', globalW/4);
-				}
+		randomMarginTop();
+		function randomMarginTop(){
+			$('.timepost').each(function(index,post){
+				console.log($(this).position());
+				var posLeft = $(this).position().left;
+				// get RANGE 1, 2 3 ou 4
+
+				// random 40px - 160px
+
 			});
 
 		}
-
 
 
 

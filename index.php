@@ -48,11 +48,11 @@
 				<div class="post timepost <?php if($image){echo 'imagepost';} if($audio){echo 'audiopost';} if($video){echo 'videopost';} if($text && !$image && !$audio){echo 'textpost';}?>"
           hour="<?php echo types_render_field( "time", array("format"=>"G\hi")); ?>" id="<?php the_ID(); ?>">
 
-          <!-- <div class="postheader"> -->
-            <?php if($sub){?><div class='postsubtitle'><?php echo types_render_field("soustitre"); ?></div> <?php } ?>
+            <!-- <?php if($sub){?><div class='postsubtitle'><?php echo types_render_field("soustitre"); ?></div> <?php } ?> -->
+            <div class='postsubtitle'><?php echo types_render_field("soustitre"); ?></div>
             <div class='posttitle'><?php echo types_render_field("time", array("format"=>"G\hi"));?></div>
             <?php if ($pos){ ?> <div class="pos_link" value="<?php echo $pos ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_small_orange.png"></div> <?php } ?>
-          <!-- </div> -->
+
           <div class="postcontent">
 
   						<?php if ($image){ ?> <div class="imagepost_content"><?php echo types_render_field( "image") ; ?></div>

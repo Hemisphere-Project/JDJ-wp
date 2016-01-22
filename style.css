@@ -210,8 +210,8 @@ input:focus {
 .timeline{
 	margin-top: 80px;
 	/*max-width: 50%;*/
-	width:50%;
-	margin-left: 25%;
+	width:65%;
+	margin-left: 20%;
 }
 
 /*------------------------------------*\
@@ -279,13 +279,15 @@ input:focus {
 	font-family: AlfaSlabOneRegular;
 	font-size: 12pt;
 	display:inline-block;
-	/*float:top;*/
 	margin:-2px;
+	vertical-align:top;
+	margin-top: 10px;
 }
 
 
 .postsubtitle{
 	font-family: OpenSansRegular;
+	height: 18px;
 }
 .posttitle{
 	font-size: 24pt;
@@ -317,6 +319,9 @@ input:focus {
 }
 .imagepost{
 	width: 50%;
+}
+.imagepost img{
+	width: 100%;
 }
 .onlytextpost{
 	padding: 10px;
