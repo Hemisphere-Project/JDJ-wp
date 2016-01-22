@@ -116,7 +116,7 @@
 		randomMarginTop();
 		function randomMarginTop(){
 			$('.timepost').each(function(index,post){
-				console.log($(this).position());
+				// console.log($(this).position());
 				var posLeft = $(this).position().left;
 				// get RANGE 1, 2 3 ou 4
 
@@ -125,6 +125,21 @@
 			});
 
 		}
+
+
+	//  $('.onlytextpost p').each(function(index,div){
+	// 	 var txtArray = $(div).html().split('');
+ // 		 $(div).empty();
+	// 	 $.each(txtArray,function(index,char){
+	// 		 $(div).append('<span class="singleChar">'+char+'</span>');
+	// 	 });
+	// 	 $('.singleChar').each(function(index,char){
+	// 		 var top = $(char).offset().top - $(char).parent().offset().top;
+	// 		 var postH = $(char).parent().height();
+	// 		 console.log(top+' '+postH);
+	// 		 if (top>postH){ $(char).remove(); }
+	// 	 });
+	//  });
 
 
 

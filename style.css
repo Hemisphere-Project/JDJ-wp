@@ -304,40 +304,58 @@ input:focus {
 .audiopost{
 	width:50%;
 }
-.videopost{
-	width:50%;
+.audiopost_content{
+	padding: 20px;
+	padding-bottom: 0px;
 }
+.audiopost .wp-audio-shortcode{
+
+}
+
+
 .textpost{
 	width:25%;
 }
 
+.videopost{
+	width:50%;
+}
 .wp-video{
 	position:relative;
 }
 .wp-video-shortcode {
 	max-width: 100%;
 }
+
+
 .imagepost{
 	width: 50%;
 }
 .imagepost img{
 	width: 100%;
 }
+
+
+
 .onlytextpost{
 	padding: 10px;
 	background-color: #ABABAB;
 	font-family: OpenSansRegular;
 	font-size: 10pt;
 	color: black;
-	max-height: 300px;
-	overflow-y: hidden;
+	max-height: 217px;
+	/*overflow-y: hidden;*/
+	/*border-bottom: 10px solid #ABABAB;*/
 }
 .littletext{
 	background-color: #ABABAB;
 	font-family: OpenSansRegular;
 	font-size: 10pt;
 	color: black;
+	padding:20px;
+	padding-top: 10px;
 }
+
 
 .postcontent{
 	border-top: 2px solid #FF5230;
