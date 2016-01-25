@@ -222,16 +222,16 @@ input:focus {
 	width:100%;
 	color: white;
 	font-family: AlfaSlabOneRegular;
-	font-size: 30pt;
+	font-size: 37pt;
 }
 .headertitle{
 	margin-left: 1%;
 	position: absolute;
-	margin-top: 50px;
+	margin-top: 85px;
 
 }
 .headersubtitle{
-	top: 100px;
+	top: 140px;
 	position: relative;
 	height: 2px;
 	background-color: white;
@@ -243,7 +243,7 @@ input:focus {
 	position: relative;
 	float:right;
 	margin-right: 1%;
-	top: 80px;
+	top: 120px;
 	font-family: OpenSansRegular;
 	font-size: 10pt;
 	cursor:pointer;
@@ -254,7 +254,7 @@ input:focus {
 	position:relative;
 	width: 100%;
 	z-index:-100;
-	height:150px;
+	height:200px;
 	/*line-height:200px;*/
 	overflow:hidden;
 
@@ -306,7 +306,7 @@ input:focus {
 }
 .audiopost_content{
 	padding: 20px;
-	padding-bottom: 0px;
+	/*padding-bottom: 0px;*/
 }
 .audiopost .wp-audio-shortcode{
 
@@ -343,9 +343,16 @@ input:focus {
 	font-family: OpenSansRegular;
 	font-size: 10pt;
 	color: black;
-	max-height: 217px;
-	/*overflow-y: hidden;*/
-	/*border-bottom: 10px solid #ABABAB;*/
+	max-height: 617px;
+	overflow-y: hidden;
+	border-bottom: 10px solid #ABABAB;
+	background:url(img/buttons/guill1.png) no-repeat 5% 5px,
+		url(img/buttons/guill2.png) no-repeat 95% bottom;
+}
+
+.onlytextpost p{
+	padding: 5%;
+	padding-top: 30px;
 }
 .littletext{
 	background-color: #ABABAB;
@@ -353,9 +360,14 @@ input:focus {
 	font-size: 10pt;
 	color: black;
 	padding:20px;
-	padding-top: 10px;
+	padding-top: 0px;
+	padding-bottom: 10px;
 }
-
+.littletext p{
+	margin-top:10px;
+	vertical-align: top;
+	float:top;
+}
 
 .postcontent{
 	border-top: 2px solid #FF5230;
