@@ -209,7 +209,7 @@
 
 
 		// SLIDE
-		var fullmap = false;
+		var fullmap = true;
 
 		$('#togglemap').click(function(){
 			slidemap();
@@ -245,6 +245,7 @@
 				$("#gmap").animate({width:'50%'},300,function(){
 					fullmap = false;
 					google.maps.event.trigger(map, "resize");
+					map.panTo(selectedpoint.position);
 				});
 			}
 		}
@@ -338,6 +339,7 @@
 		/////////////////////    CREATE POINTS     ///////////////////////
 
 		var allMarkers=[];
+		var selectedpoint;
 
 		$.each(allPoints,function(index,point){
 
@@ -355,7 +357,8 @@
 			google.maps.event.addListener(googlepoint, 'click', function() {
 				unselectAllMarkers();
 				this.setIcon(placeIconOrange);
-				map.panTo(this.position);
+				if(fullmap == false){map.panTo(this.position);}
+				selectedpoint = this;
 				showGeoPost(this.id, this.time);
 	    });
 		});

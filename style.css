@@ -405,17 +405,18 @@ input:focus {
 
 #gmap{
 	background-color:#B5B3B4;
-	width:50%;
 	height:100%;
 	float: left;
+	/*width:50%;*/
+	width: 97%;
 }
 #rmap{
 	position:absolute;
-	right:0%;
-	width:50%;
 	height:100%;
+	/*right:0%;*/
+	width:50%;
+	right: -47%;
 }
-
 #slidemap{
 	padding-left:1%;
 	float: left;
