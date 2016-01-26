@@ -99,7 +99,7 @@
     	<h2 id='timepost_title' class='timepost_title'></h2>
       <div id="viewpostmap" class=''><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/place_orange.png"></div>
       <div id="closepost" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
-      <div id="postdetails_content"></div>
+      <div id="postdetails_content" class='fullpostcontent'></div>
     </div>
   </div>
 

@@ -179,7 +179,7 @@ input:focus {
 	margin-right: 0;
 	background-color: grey;
 	z-index: 10;
-	background-color: #B5B3B4;
+	background-color: #ABABAB;
 	border-radius: 10px;
 	padding: 2%;
 	font-family: OpenSansRegular;
@@ -188,7 +188,7 @@ input:focus {
 .popuptitle{
 	color: #FF5230;
 	font-family: AlfaSlabOneRegular;
-	font-size: 15pt;
+	font-size: 30pt;
 	margin-bottom: 20px;
 }
 
@@ -349,7 +349,7 @@ input:focus {
 	overflow-y: hidden;
 	border-bottom: 10px solid #ABABAB;
 	background:url(img/buttons/guill1.png) no-repeat 5% 5px,
-		url(img/buttons/guill2.png) no-repeat 95% bottom;
+						 url(img/buttons/guill2.png) no-repeat 95% bottom;
 }
 
 .onlytextpost p{
@@ -376,6 +376,95 @@ input:focus {
 	background-color: #ABABAB;
 	clear:both;
 }
+
+
+
+/*------------------------------------*\
+    POST DETAILS
+\*------------------------------------*/
+
+#postoverlay{
+	display:none;
+	/*position: absolute;*/
+	position:fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	background-color: rgba(0,0,0,0.7);
+}
+
+#postdetails{
+	position:relative;
+	margin-top: 120px;
+	width: 60%;
+	margin-left: 25%;
+	z-index: 10;
+	background-color: #ABABAB;
+	border-radius: 10px;
+	padding: 2%;
+}
+
+.timepost_title{
+	color: #FF5230;
+	font-family: AlfaSlabOneRegular;
+	font-size: 30pt;
+	letter-spacing: 2px;
+	margin: 0px;
+	margin-left: 2%;
+	float:left;
+}
+
+#viewpostmap{
+	float:left;
+	margin-left: 2px;
+	margin-top: -8px;
+	width: 20%;
+	cursor:pointer;
+
+}
+#viewpostmap img{
+}
+
+.closebtn{
+float: right;
+}
+
+
+
+	/*FULL POST CONTENT*/
+
+#postdetails_content{
+	clear: both;
+	width: 100%;
+
+}
+
+.fullpostcontent .onlytextpost{
+	background:url(img/buttons/guill1.png) no-repeat top left,
+						 url(img/buttons/guill2.png) no-repeat right bottom;
+}
+.fullpostcontent .onlytextpost p{
+	padding: 0px;
+	padding-top: 25px;
+	margin-left: 1%;
+}
+
+.fullpostcontent .imagepost_content{
+	margin-top: 70px;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+.fullpostcontent .imagepost_content img{
+	margin: auto;
+display: block;
+/*margin-left: auto;
+margin-right: auto;*/
+}
+
+
+
 
 
 
@@ -407,7 +496,7 @@ input:focus {
 
 #map{
 	display:none;
-	height:600px;
+	height:800px;
 	margin-top: 80px;
 	width: 70%;
 	margin-left: 15%;
@@ -476,6 +565,11 @@ input:focus {
 .mapimage{
 	padding-top: 40px;
 }
+.mapimage img{
+	width:100%;
+	margin: auto;
+	display: block;
+}
 .mapaudio{
 	padding-top: 40px;
 
@@ -506,54 +600,6 @@ input:focus {
 
 
 
-/*------------------------------------*\
-    POST DETAILS
-\*------------------------------------*/
-
-#postoverlay{
-	display:none;
-	/*position: absolute;*/
-	position:fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 10;
-	background-color: rgba(0,0,0,0.7);
-}
-
-#postdetails{
-	position:relative;
-	margin-top: 120px;
-	width: 50%;
-	margin-left: 25%;
-	z-index: 10;
-	background-color: #B5B3B4;
-	border-radius: 10px;
-	padding: 2%;
-	font-family: OpenSansRegular;
-	font-size: 10pt;
-}
-
-.timepost_title{
-	color: white;
-	font-family: AlfaSlabOneRegular;
-	font-size: 30pt;
-	letter-spacing: 2px;
-	margin: 0px;
-	width:20%;
-	float:left;
-}
-
-#viewpostmap{
-	/*float:left;*/
-	margin-left: 150px;
-	margin-right: 0;
-}
-
-#postdetails_content{
-	width: 100%;
-}
 
 /*------------------------------------*\
 	TYPOGRAPHY

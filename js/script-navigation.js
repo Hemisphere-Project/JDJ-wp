@@ -104,7 +104,6 @@
 				var postTime = $(this).parent().find('.posttitle').html();
 				var postPosition = $(this).parent().find('.pos_link').attr('value');
 				console.log(postPosition);
-				console.log(postPosition);
 				showTimePost(postId, postTime);
 
 				$('#viewpostmap').hide();
@@ -162,17 +161,27 @@
 			$("#postdetails_content").empty();
 			$("#timepost_title").html(time);
 
-			jQuery.post(
-			    ajaxurl,
-			    {
-			        'action': 'TIMEsingleload',
-			        'id': id
-			    },
-			    function(response){
-			    	$('#postdetails_content').append(response);
-			    }
-			);
+			var postcontent = $('#'+id).children('.postcontent').html()
 
+			$('#postdetails_content').append(postcontent);
+
+			$('#postdetails_content').children('.imagepost_content').each(function(){
+				var ww = $(this).children('img').width();
+				var hh = $(this).children('img').height();
+				if(ww>hh){ $(this).children('img').css('width', '100%' );	}
+				if (hh>ww){ $(this).children('img').css('width', '40%' ); }
+			});
+
+			// jQuery.post(
+			//     ajaxurl,
+			//     {
+			//         'action': 'TIMEsingleload',
+			//         'id': id
+			//     },
+			//     function(response){
+			//     	$('#postdetails_content').append(response);
+			//     }
+			// );
 		}
 
 		////////////////////////////////////////////////////////
@@ -396,9 +405,17 @@
 			    function(response){
 						// loader.remove();
 			    	$('#map_post_content').append(response);
+						$('#map_post_content').children('.post').children('.mapimage').each(function(){
+							var ww = $(this).children('img').width();
+							var hh = $(this).children('img').height();
+							if(ww>hh){ $(this).children('img').css('width', '100%' );	}
+							if (hh>ww){ $(this).children('img').css('width', '60%' ); }
+						});
 			    }
 			);
 			slidemap_Open();
+
+
 		}
 
 
