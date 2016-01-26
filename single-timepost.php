@@ -8,7 +8,6 @@ $text=types_render_field( "text", array( ) );
 
 
 <div class="geopost">
-	<!-- <h2 class='geopost_title'>  <?php echo types_render_field( "time", array("format"=>"G\hi")); ?></h2> -->
 
 	<?php	if ($text){ ?> <div class="timetext"><?php echo types_render_field("text") ?></div> <img src="<?php echo get_template_directory_uri();?>/img/buttons/guill1.png"></div><img src="<?php echo get_template_directory_uri();?>/img/buttons/guill2.png"></div> <?php } ?>
 

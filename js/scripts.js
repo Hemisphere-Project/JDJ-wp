@@ -95,32 +95,50 @@
 		adjustImageSizes();
 		function adjustImageSizes(){
 			var globalW = $('.timeline').width();
-			console.log(globalW);
-
 				$('.imagepost_content').each(function(){
 					var ww = $(this).children('img').width();
 					var hh = $(this).children('img').height();
 					if(ww>hh){
-						console.log('LANDSCAPE');
-						// $(this).css('width', globalW/2);
-						$(this).parent().parent('.imagepost').css('width', globalW/2);
+						// $(this).parent().parent('.imagepost').css('width', globalW/2 );
+						$(this).parent().parent('.imagepost').css('width', '50%' );
 					}
 					if (hh>ww){
-						console.log('PORTRAIT');
-						// $(this).css('width', globalW/4);
-						$(this).parent().parent('.imagepost').css('width', globalW/4);
+						// $(this).parent().parent('.imagepost').css('width', globalW/4 );
+						$(this).parent().parent('.imagepost').css('width', '25%' );
 					}
 				});
 		}
 
 		randomMarginTop();
-		function randomMarginTop(){
-			$('.timepost').each(function(index,post){
-				// console.log($(this).position());
-				var posLeft = $(this).position().left;
-				// get RANGE 1, 2 3 ou 4
 
-				// random 40px - 160px
+		function randomMarginTop(){
+			var globalW = $('.timeline').width();
+			var scale = globalW/4;
+			var min = 40;
+			var max = 120;
+			$('.timepost').each(function(index,post){
+				var posLeft = $(this).position().left-$('.timeline').position().left-$('.timeline').offset().left;
+				var random = Math.floor(Math.random()*(max-min+1)+min);
+				var margin = 0;
+				var previousMargin = $(this).prev('.timepost').css('margin-top');
+				if (previousMargin !== undefined){ margin=random+parseInt(previousMargin); }
+				if (posLeft < 10){
+				}
+				if ((posLeft>10)&&(posLeft < scale+10)){
+					// $(this).attr('scale', '1');
+					$(this).css('margin-top', margin);
+				}
+				if ((posLeft > scale+10)&&(posLeft < 2*scale+10)){
+					$(this).css('margin-top', margin);
+				}
+				if ((posLeft > 2*scale+10)&&(posLeft < 3*scale+10)){
+					$(this).css('margin-top', margin);
+				}
+				if (!$(this).prev().hasClass('headerpost')&&(posLeft < 10)){
+					$(this).css('margin-top', '-50px');
+					// A CHANGER, COLLER A LA LIGNE DU DESSUS
+				}
+
 
 			});
 

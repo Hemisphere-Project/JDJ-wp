@@ -209,9 +209,10 @@ input:focus {
 \*------------------------------------*/
 .timeline{
 	margin-top: 80px;
-	/*max-width: 50%;*/
 	width:65%;
 	margin-left: 20%;
+	font-size : 0; /* eviter les white space entre les timeposts inlineblock */
+
 }
 
 /*------------------------------------*\
@@ -279,7 +280,8 @@ input:focus {
 	font-family: AlfaSlabOneRegular;
 	font-size: 12pt;
 	display:inline-block;
-	margin:-2px;
+	/*float:left;*/
+	/*margin:-2px;*/
 	vertical-align:top;
 	margin-top: 10px;
 }
@@ -343,7 +345,7 @@ input:focus {
 	font-family: OpenSansRegular;
 	font-size: 10pt;
 	color: black;
-	max-height: 617px;
+	max-height: 300px;
 	overflow-y: hidden;
 	border-bottom: 10px solid #ABABAB;
 	background:url(img/buttons/guill1.png) no-repeat 5% 5px,
@@ -469,6 +471,37 @@ input:focus {
 	color: #FFFFFF;
 	font-family: OpenSansRegular;
 	font-size: 11pt;
+	margin-right: 35px;
+}
+.mapimage{
+	padding-top: 40px;
+}
+.mapaudio{
+	padding-top: 40px;
+
+}
+.mapaudio .wp-audio-shortcode{
+	width: 50%;
+	visibility: visible !important;
+}
+.mapvideo{
+	padding-top: 40px;
+}
+.mapvideo .wp-video-shortcode{
+	width: 100%;
+	height: auto;
+}
+.maplittletext{
+	padding-top: 20px;
+}
+.maponlytextpost{
+	background:url(img/buttons/guill1.png) no-repeat top left,
+		url(img/buttons/guill2.png) no-repeat 95% bottom;
+}
+
+.maponlytextpost p{
+	padding-top: 40px;
+	padding-bottom: 40px;
 }
 
 
