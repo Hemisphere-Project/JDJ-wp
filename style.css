@@ -183,7 +183,7 @@ input:focus {
 	border-radius: 10px;
 	padding: 2%;
 	font-family: OpenSansRegular;
-	font-size: 10pt;
+	font-size: 11pt;
 }
 .popuptitle{
 	color: #FF5230;
@@ -194,6 +194,9 @@ input:focus {
 
 .closebtn{
 	float:right;
+}
+.infoscontent{
+
 }
 
 /*------------------------------------*\

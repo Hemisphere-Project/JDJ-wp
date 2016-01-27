@@ -17,39 +17,86 @@
 			$('#infosheader').children('img').attr("src", theme_directory+"/img/buttons/info_grey.png");
 		}
 
+
 		$('#map').hide();
 		$('#infos').hide();
 		$("#postoverlay").hide();
 		$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 
+
+		////////////////////////////////////////////////////////
+		/////////////////    HTML   CLOSE     //////////////////
+		////////////////////////////////////////////////////////
+
+		var page='time'; // comments, infos, time, post, map
+
+		$('html').mousedown(function(e) {
+			if (page=='map'){
+				console.log('html map hide');
+				$('#map').fadeOut(200, function(){
+					$('.timeline, .elevator').fadeIn(200);
+				});
+			}
+			if (page=='comments'){
+				$('#comments').fadeOut(200, function(){
+					$('.timeline, .elevator').fadeIn(200);
+				});
+			}
+			if (page=='infos'){
+				$('#infos').fadeOut(200, function(){
+					$('.timeline, .elevator').fadeIn(200);
+				});
+			}
+			if (page=='post'){
+				$('#postoverlay').fadeOut(200);
+			}
+			page='time';
+			allButtonsInactive();
+			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
+		});
+
+		$('#map, header').mousedown(function(e){
+			e.stopPropagation();
+		});
+		$('#infos, #infosheader ,header').click(function(e){
+			e.stopPropagation();
+		});
+		$('#comments').click(function(e){
+			e.stopPropagation();
+		});
+		$('#postdetails, .post, header').click(function(e){
+			e.stopPropagation();
+		});
+		// $('#viewpostmap, .pos_link').mousedown(function(e){
+		// 	e.stopPropagation();
+		// });
+
+
+		//////////////////////////////////////////////////////////
 		/////////////////////    INFOS     ///////////////////////
 		//////////////////////////////////////////////////////////
 
 		// OPEN
 		$('#infosheader').click(function(){
+			page = 'infos';
 			$("#postoverlay").hide();
 			$('#map').hide();
 			$('.timeline, .elevator').hide();
-			// $('.timeline, .elevator').css('visibility','hidden');
 			$('#infos').fadeIn(200);
-
 			allButtonsInactive();
 			$('#infosheader').children('img').attr("src", theme_directory+"/img/buttons/info_orange.png");
 		});
-
 		// CLOSE
-		$('html, #closeinfos').click(function() {
+		$('#closeinfos').click(function() {
+			page='time';
 			$('#infos').fadeOut(200, function(){
 				$('.timeline, .elevator').fadeIn(200);
 			});
-			// $('.timeline, .elevator').css('visibility','visible');
 			allButtonsInactive();
 			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 		});
 
-		$('#infos, #infosheader ,header').click(function(event){
-		  event.stopPropagation();
-		});
+
 
 		//////////////////////////////////////////////////////////
 		/////////////////////    COMMENTS     ////////////////////
@@ -57,22 +104,19 @@
 
 		// OPEN
 		$('.commentslink').click(function(){
+			page='comments';
 			$('#map').hide();
 			$('.timeline, .elevator').hide();
 			$('#comments').fadeIn(200);
 			allButtonsInactive();
 		});
-
 		// CLOSE
-		$('html, #closecomments').click(function() {
+		$('#closecomments').click(function() {
+			page='time';
 			$('#comments').fadeOut(200, function(){
 				$('.timeline, .elevator').fadeIn(200);
 			});
 			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
-		});
-
-		$('#comments').click(function(event){
-			event.stopPropagation();
 		});
 
 
@@ -82,6 +126,7 @@
 
 		// OPEN
 		$('#timeheader').click(function(){
+			page='time';
 			$('#infos').hide();
 			$("#postoverlay").hide();
 			$('#map').hide();
@@ -96,6 +141,7 @@
 
 		// OPEN
 		$('.postcontent').click(function(){
+			page = 'post';
 			$('#postoverlay').fadeIn(300);
 			// var scrolltop = $(window).scrollTop()+40;
 			// $('#postdetails').css('margin-top', scrolltop);
@@ -103,26 +149,19 @@
 				var postId = $(this).parent('.timepost').attr('id');
 				var postTime = $(this).parent().find('.posttitle').html();
 				var postPosition = $(this).parent().find('.pos_link').attr('value');
-				console.log(postPosition);
 				showTimePost(postId, postTime);
-
 				$('#viewpostmap').hide();
-
 				if (postPosition!==undefined){
 					$('#viewpostmap').show();
 					$('#viewpostmap').attr('valuePos',postPosition);
 					$('#viewpostmap').attr('valueId',postId);
 					$('#viewpostmap').attr('valueTime',postTime);
 				}
-
 		});
-
 		// CLOSE
-		$('html, #closepost').click(function() {
+		$('#closepost').click(function() {
+			page = 'time';
 			$('#postoverlay').fadeOut(200);
-		});
-		$('#postdetails, .post, header').click(function(event){
-			event.stopPropagation();
 		});
 
 
@@ -144,8 +183,6 @@
 			unselectAllMarkers();
 			selectMarker(postId);
 		});
-
-
 
 		function showTimePost(id,time){
 			$("#postdetails_content").empty();
@@ -180,28 +217,17 @@
 		});
 
 		function openMap(){
+			page='map';
 			$('#infos').hide();
 			$("#postoverlay").hide();
 			$('.timeline, .elevator').hide();
 			$('#map').fadeIn(200);
 			allButtonsInactive();
 			$('#placeheader').children('img').attr("src", theme_directory+"/img/buttons/place_orange.png");
-			// initmap();
 			google.maps.event.trigger(map, "resize");
 			map.setCenter(centerpoint);
+			map.setZoom(13);
 		}
-
-		// CLOSE
-		$('html, #closepost').click(function(event) {
-			$('#map').fadeOut(200);
-			allButtonsInactive();
-			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
-		});
-
-		$('#map, header').click(function(event){
-			event.stopPropagation();
-		});
-
 
 		// SLIDE
 		var fullmap = true;
@@ -243,9 +269,11 @@
 					map.panTo(selectedpoint.position);
 				});
 			}
+			if (fullmap==false){
+				map.panTo(selectedpoint.position);
+			}
+
 		}
-
-
 
 		////////////////////////////////////////////////////////
 		/////////////////////    MAP     ///////////////////////
@@ -283,6 +311,8 @@
 		var options = {
 			zoom: 13,
 			center: centerpoint,
+    	mapTypeControl: false,
+			// streetViewControl: false,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 		var placeIconGrey = new google.maps.MarkerImage( theme_directory+"/img/buttons/place_small_black.png");
@@ -314,13 +344,10 @@
 		];
 		map.set('styles',styles);
 
-
 		// google.maps.event.trigger(map, "resize");
 		// map.setCenter( map.getCenter());
-		// map.setZoom( map.getZoom() );
 
 		var geocoder = new google.maps.Geocoder;
-
 
 
 		/////////////////////    CREATE POINTS     ///////////////////////
@@ -399,9 +426,6 @@
 						});
 			    }
 			);
-
-
-
 		}
 
 

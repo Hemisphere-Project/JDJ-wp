@@ -106,11 +106,13 @@
   <div id="infos" class="popup">
     <div id="closeinfos" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
     <div class='popuptitle'>A Propos</div>
+    <div class='infoscontent'>
     <?php
       $infospage = get_page_by_title('infos');
       $post = $infospage->post_content;
       echo $post;
     ?>
+    </div>
   </div>
 
   <div id="comments" class="popup">
