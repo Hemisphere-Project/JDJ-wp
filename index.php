@@ -62,7 +62,8 @@
                 <?php	if ($text){ ?> <div class="littletext"><?php echo types_render_field("text") ?></div> <?php } ?>
               <?php } ?>
 
-  						<?php if ($video){ ?> <div class="videopost_content"><?php echo types_render_field("video") ?></div> <?php } ?>
+  						<?php if ($video){ ?> <div class="videopost_content"><?php echo types_render_field("video") ?>
+              </div> <?php } ?>
 
   						<?php	if ($text && !$image && !$audio){ ?> <div class="onlytextpost"><?php echo types_render_field("text") ?></div> <?php } ?>
 

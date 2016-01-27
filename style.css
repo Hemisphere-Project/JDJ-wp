@@ -470,10 +470,6 @@ margin-right: auto;*/
 
 
 
-
-
-
-
 /*------------------------------------*\
     ELEVATOR
 \*------------------------------------*/
@@ -614,6 +610,14 @@ margin-right: auto;*/
 .mejs-control{
 	display:none;
 }*/
+
+#postdetails_content .videopost_content{
+	width:100%;
+}
+
+.bigvid{
+	display:none;
+}
 
 
 /*------------------------------------*\
