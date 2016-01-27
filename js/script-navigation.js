@@ -48,6 +48,7 @@
 				});
 			}
 			if (page=='post'){
+				console.log('closepost');
 				$('#postoverlay').fadeOut(200);
 			}
 			page='time';
@@ -61,15 +62,15 @@
 		$('#infos, #infosheader ,header').click(function(e){
 			e.stopPropagation();
 		});
-		$('#comments').click(function(e){
+		$('#comments').mousedown(function(e){
 			e.stopPropagation();
 		});
-		$('#postdetails, .post, header').click(function(e){
+		$('#postdetails, .post, header').mousedown(function(e){
 			e.stopPropagation();
 		});
-		// $('#viewpostmap, .pos_link').mousedown(function(e){
-		// 	e.stopPropagation();
-		// });
+		$('#viewpostmap, .pos_link').mousedown(function(e){
+			e.stopPropagation();
+		});
 
 
 		//////////////////////////////////////////////////////////
@@ -141,7 +142,7 @@
 
 		// OPEN
 		$('.postcontent').click(function(){
-			page = 'post';
+			page='post';
 			$('#postoverlay').fadeIn(300);
 			// var scrolltop = $(window).scrollTop()+40;
 			// $('#postdetails').css('margin-top', scrolltop);
@@ -160,7 +161,7 @@
 		});
 		// CLOSE
 		$('#closepost').click(function() {
-			page = 'time';
+			page='time';
 			$('#postoverlay').fadeOut(200);
 		});
 
@@ -219,6 +220,7 @@
 		function openMap(){
 			page='map';
 			$('#infos').hide();
+			$('#comments').hide();
 			$("#postoverlay").hide();
 			$('.timeline, .elevator').hide();
 			$('#map').fadeIn(200);
