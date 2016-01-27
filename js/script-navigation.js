@@ -133,13 +133,7 @@
 			var postPosition = $(this).attr('valuePos');
 			showGeoPost(postId,postTime);
 			unselectAllMarkers();
-			$.each(allMarkers,function(index,marker){
-				if (marker.id==postId){
-					$(marker).click();
-					map.panTo(marker.position);
-					marker.setIcon(placeIconOrange);
-				}
-			});
+			selectMarker(postId);
 		});
 
 		$('.pos_link').click(function(){
@@ -148,30 +142,22 @@
 			var postTime = $(this).parent().find('.posttitle').html();
 			showGeoPost(postId,postTime);
 			unselectAllMarkers();
-			$.each(allMarkers,function(index,marker){
-				if (marker.id==postId){
-					$(marker).click();
-					map.panTo(marker.position);
-					marker.setIcon(placeIconOrange);
-				}
-			});
+			selectMarker(postId);
 		});
+
+
 
 		function showTimePost(id,time){
 			$("#postdetails_content").empty();
 			$("#timepost_title").html(time);
-
 			var postcontent = $('#'+id).children('.postcontent').html()
-
 			$('#postdetails_content').append(postcontent);
-
 			$('#postdetails_content').children('.imagepost_content').each(function(){
 				var ww = $(this).children('img').width();
 				var hh = $(this).children('img').height();
 				if(ww>hh){ $(this).children('img').css('width', '100%' );	}
 				if (hh>ww){ $(this).children('img').css('width', '40%' ); }
 			});
-
 			// jQuery.post(
 			//     ajaxurl,
 			//     {
@@ -245,7 +231,7 @@
 				});
 			}
 		}
-
+		// OPEN OR STAY OPENED
 		function slidemap_Open(){
 			if (fullmap==true){
 				console.log('open');
@@ -295,7 +281,7 @@
 
 		/////////////////////    CREATE MAP     ///////////////////////
 		var options = {
-			zoom: 14,
+			zoom: 13,
 			center: centerpoint,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
@@ -335,14 +321,6 @@
 
 		var geocoder = new google.maps.Geocoder;
 
-	// 	var lat = 50.406994;
-	// 	var lng = 2.634328;
-	//   var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
-	//   geocoder.geocode({'location': latlng}, function(results, status) {
-	//     if (status === google.maps.GeocoderStatus.OK) {
-	//         console.log(results[0].formatted_address);
-	//   }
-	// });
 
 
 		/////////////////////    CREATE POINTS     ///////////////////////
@@ -351,8 +329,6 @@
 		var selectedpoint;
 
 		$.each(allPoints,function(index,point){
-
-
 			var googlepoint = new google.maps.Marker({
 					id: point.id,
 					position: new google.maps.LatLng(point.lat,point.lng),
@@ -360,21 +336,31 @@
 					icon: placeIconGrey,
 					time: point.time
 			});
-
 			allMarkers.push(googlepoint);
-
 			google.maps.event.addListener(googlepoint, 'click', function() {
 				unselectAllMarkers();
 				this.setIcon(placeIconOrange);
-				if(fullmap == false){map.panTo(this.position);}
+				if(fullmap == false){ map.panTo(this.position);}
 				selectedpoint = this;
 				showGeoPost(this.id, this.time);
+				slidemap_Open();
 	    });
 		});
 
 		function unselectAllMarkers(){
 			$.each(allMarkers, function(index,marker){
 				marker.setIcon(placeIconGrey);
+			});
+		}
+
+		function selectMarker(id){
+			$.each(allMarkers,function(index,marker){
+				if (marker.id==id){
+					// $(marker).click();
+					marker.setIcon(placeIconOrange);
+					selectedpoint = marker;
+					slidemap_Open();
+				}
 			});
 		}
 
@@ -413,7 +399,7 @@
 						});
 			    }
 			);
-			slidemap_Open();
+
 
 
 		}
