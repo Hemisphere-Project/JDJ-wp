@@ -35,6 +35,7 @@
 				console.log('html map hide');
 				$('#map').fadeOut(200, function(){
 					$('.timeline, .elevator').fadeIn(200);
+					stopPlayers();
 				});
 			}
 			if (page=='comments'){
@@ -50,6 +51,7 @@
 			if (page=='post'){
 				console.log('closepost');
 				$('#postoverlay').fadeOut(200);
+				stopPlayers();
 			}
 			page='time';
 			allButtonsInactive();
@@ -80,6 +82,7 @@
 		// OPEN
 		$('#infosheader').click(function(){
 			page = 'infos';
+			stopPlayers();
 			$("#postoverlay").hide();
 			$('#map').hide();
 			$('.timeline, .elevator').hide();
@@ -106,6 +109,7 @@
 		// OPEN
 		$('.commentslink').click(function(){
 			page='comments';
+			stopPlayers();
 			$('#map').hide();
 			$('.timeline, .elevator').hide();
 			$('#comments').fadeIn(200);
@@ -163,6 +167,7 @@
 		$('#closepost').click(function() {
 			page='time';
 			$('#postoverlay').fadeOut(200);
+			stopPlayers();
 		});
 
 
@@ -185,28 +190,6 @@
 			selectMarker(postId);
 		});
 
-		function showTimePost(id,time){
-			$("#postdetails_content").empty();
-			$("#timepost_title").html(time);
-			var postcontent = $('#'+id).children('.postcontent').html()
-			$('#postdetails_content').append(postcontent);
-			$('#postdetails_content').children('.imagepost_content').each(function(){
-				var ww = $(this).children('img').width();
-				var hh = $(this).children('img').height();
-				if(ww>hh){ $(this).children('img').css('width', '100%' );	}
-				if (hh>ww){ $(this).children('img').css('width', '40%' ); }
-			});
-			// jQuery.post(
-			//     ajaxurl,
-			//     {
-			//         'action': 'TIMEsingleload',
-			//         'id': id
-			//     },
-			//     function(response){
-			//     	$('#postdetails_content').append(response);
-			//     }
-			// );
-		}
 
 		////////////////////////////////////////////////////////
 		/////////////////////    PLACE     /////////////////////
@@ -219,6 +202,7 @@
 
 		function openMap(){
 			page='map';
+			stopPlayers();
 			$('#infos').hide();
 			$('#comments').hide();
 			$("#postoverlay").hide();
@@ -433,25 +417,62 @@
 
 
 		////////////////////////////////////////////////////////
-		/////////////////////    PLACE     /////////////////////
+		/////////////////////   PLAYERS    /////////////////////
 		////////////////////////////////////////////////////////
 
+		// MediaElementPlayer.remove();
 
 
-		$('.wp-video').click(function(e){
-
-			if (page=='time'){
-				console.log('pagetime');
-
-				$(this).find('video')[0].stop();
-			}
-			if (page=='post'){
-				console.log('pagepost');
-				$(this).css('width','100%')
-			}
-
+		$('.wp-audio-shortcode').each(function(index,div){
+			$(div).css('visibility', 'visible');
 		});
 
+		$('.wp-video-shortcode').each(function(index,div){
+			$(div).prop("controls", false);
+		});
+
+		$('.wp-audio-shortcode').click(function(e){
+			e.stopPropagation();
+		});
+
+		// $('.wp-video-shortcode').click(function(e){
+		// 	e.stopPropagation();
+		// });
+
+
+		function showTimePost(id,time){
+			stopPlayers();
+			$("#postdetails_content").empty();
+			$("#timepost_title").html(time);
+			var postcontent = $('#'+id).children('.postcontent').html()
+			$('#postdetails_content').append(postcontent);
+
+			if($('#postdetails_content').children().hasClass('imagepost_content')){
+				$('#postdetails_content').children('.imagepost_content').each(function(){
+					var ww = $(this).children('img').width();
+					var hh = $(this).children('img').height();
+					if(ww>hh){ $(this).children('img').css('width', '100%' );	}
+					if (hh>ww){ $(this).children('img').css('width', '40%' ); }
+				});
+			}
+
+			if ($("#postdetails_content").children().hasClass('videopost_content')){
+				$("#postdetails_content").find('.playvid')[0].remove();
+				var player = $("#postdetails_content").find('.wp-video-shortcode')[0];
+				$(player).get(0).play();
+				$(player).prop("controls", true);
+			}
+		}
+
+		function stopPlayers(){
+			$('.wp-video-shortcode').each(function(index,div){
+				$(div).get(0).pause();
+			});
+			$('.wp-audio-shortcode').each(function(index,div){
+				$(div).get(0).pause();
+			});
+
+		}
 
 
 

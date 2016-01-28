@@ -528,27 +528,43 @@ function MAPsingleload() {
   die();
 }
 
-add_action('wp_ajax_nopriv_TIMEsingleload', 'TIMEsingleload');
-add_action('wp_ajax_TIMEsingleload', 'TIMEsingleload');
+// add_action('wp_ajax_nopriv_TIMEsingleload', 'TIMEsingleload');
+// add_action('wp_ajax_TIMEsingleload', 'TIMEsingleload');
+//
+// function TIMEsingleload() {
+//
+// 	$id = $_POST['id'];
+//
+// 	$args = array(
+// 	    'p' => $id,
+//       'post_type' => 'any'
+// 	);
+//
+// 	$ajax_query = new WP_Query($args);
+//
+//   if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+//
+//     get_template_part( 'single-timepost' );
+//   endwhile;
+//   endif;
+//
+//   die();
+// }
 
-function TIMEsingleload() {
+add_action( 'wp_print_scripts', 'no_mediaelement_scripts', 100 );
+add_filter('wp_video_shortcode_library','no_mediaelement');
 
-	$id = $_POST['id'];
-
-	$args = array(
-	    'p' => $id,
-      'post_type' => 'any'
-	);
-
-	$ajax_query = new WP_Query($args);
-
-  if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
-
-    get_template_part( 'single-timepost' );
-  endwhile;
-  endif;
-
-  die();
+function no_mediaelement_scripts() {
+    wp_dequeue_script( 'wp-mediaelement' );
+    wp_deregister_script( 'wp-mediaelement' );
 }
+
+function no_mediaelement() {
+    return '';
+}
+
+
+
+
 
 ?>
