@@ -31,7 +31,7 @@
 
 			// build elevator
 			var hoursArray = [];
-			for(var k=23;k>0;k--){ hoursArray.push(k); }
+			for(var k=23;k>=0;k--){ hoursArray.push(k); }
 			var firstindex = 24-firsthour;
 			var start = hoursArray.slice(firstindex);
 			var end = hoursArray.slice(0,firstindex);

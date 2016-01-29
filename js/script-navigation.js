@@ -27,6 +27,14 @@
 		////////////////////////////////////////////////////////
 		/////////////////    HTML   CLOSE     //////////////////
 		////////////////////////////////////////////////////////
+		function hideTimeline(){
+			// $('.timeline, .elevator').hide();
+			$('.timeline, .elevator, .wp-audio-shortcode').css('visibility', 'hidden');
+		}
+		function showTimeline(){
+			// $('.timeline, .elevator').fadeIn(200);
+			$('.timeline, .elevator, .wp-audio-shortcode').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1}, 100);
+		}
 
 		var page='time'; // comments, infos, time, post, map
 
@@ -34,21 +42,18 @@
 			if (page=='map'){
 				console.log('html map hide');
 				$('#map').fadeOut(200, function(){
-					// $('.timeline, .elevator').fadeIn(200);
-					$('.timeline, .elevator').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1}, 100);
+					showTimeline();
 					stopPlayers();
 				});
 			}
 			if (page=='comments'){
 				$('#comments').fadeOut(200, function(){
-					// $('.timeline, .elevator').fadeIn(200);
-					$('.timeline, .elevator').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1}, 100);
+					showTimeline();
 				});
 			}
 			if (page=='infos'){
 				$('#infos').fadeOut(200, function(){
-					// $('.timeline, .elevator').fadeIn(200);
-					$('.timeline, .elevator').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1}, 100);
+					showTimeline();
 				});
 			}
 			if (page=='post'){
@@ -88,8 +93,7 @@
 			stopPlayers();
 			$("#postoverlay").hide();
 			$('#map').hide();
-			// $('.timeline, .elevator').hide();
-			$('.timeline, .elevator').css('visibility', 'hidden');
+			hideTimeline();
 			$('#infos').fadeIn(200);
 			allButtonsInactive();
 			$('#infosheader').children('img').attr("src", theme_directory+"/img/buttons/info_orange.png");
@@ -98,8 +102,7 @@
 		$('#closeinfos').click(function() {
 			page='time';
 			$('#infos').fadeOut(200, function(){
-				// $('.timeline, .elevator').fadeIn(200);
-				$('.timeline, .elevator').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1}, 100);
+				showTimeline();
 			});
 			allButtonsInactive();
 			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
@@ -116,8 +119,7 @@
 			page='comments';
 			stopPlayers();
 			$('#map').hide();
-			// $('.timeline, .elevator').hide();
-			$('.timeline, .elevator').css('visibility', 'hidden');
+			hideTimeline();
 			$('#comments').fadeIn(200);
 			allButtonsInactive();
 		});
@@ -125,8 +127,7 @@
 		$('#closecomments').click(function() {
 			page='time';
 			$('#comments').fadeOut(200, function(){
-				// $('.timeline, .elevator').fadeIn(200);
-				$('.timeline, .elevator').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1}, 100);
+				showTimeline();
 			});
 			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 		});
@@ -142,8 +143,7 @@
 			$('#infos').hide();
 			$("#postoverlay").hide();
 			$('#map').hide();
-			// $('.timeline, .elevator').fadeIn(200);
-			$('.timeline, .elevator').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1}, 100);
+			showTimeline();
 			allButtonsInactive();
 			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 		});
@@ -214,8 +214,7 @@
 			$('#infos').hide();
 			$('#comments').hide();
 			$("#postoverlay").hide();
-			// $('.timeline, .elevator').hide();
-			$('.timeline, .elevator').css('visibility', 'hidden');
+			hideTimeline();
 			$('#map').fadeIn(200);
 			allButtonsInactive();
 			$('#placeheader').children('img').attr("src", theme_directory+"/img/buttons/place_orange.png");
