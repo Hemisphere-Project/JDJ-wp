@@ -207,6 +207,7 @@
 			$('#comments').hide();
 			$("#postoverlay").hide();
 			$('.timeline, .elevator').hide();
+			// $('.timeline, .elevator').css('visibility', 'hidden');
 			$('#map').fadeIn(200);
 			allButtonsInactive();
 			$('#placeheader').children('img').attr("src", theme_directory+"/img/buttons/place_orange.png");
