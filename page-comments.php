@@ -3,7 +3,7 @@
 	<main role="main">
 		<!-- section -->
 		<section>
-			page
+			page-comments
 			<h1><?php the_title(); ?></h1>
 
 		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
@@ -37,6 +37,9 @@
 		</section>
 		<!-- /section -->
 	</main>
+
+
+	<?php comment_form(); ?>
 
 <?php get_sidebar(); ?>
 
