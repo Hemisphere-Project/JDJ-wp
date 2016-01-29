@@ -555,8 +555,10 @@ add_action( 'wp_print_scripts', 'no_mediaelement_scripts', 100 );
 add_filter('wp_video_shortcode_library','no_mediaelement');
 
 function no_mediaelement_scripts() {
+  if(!is_admin()){
     wp_dequeue_script( 'wp-mediaelement' );
     wp_deregister_script( 'wp-mediaelement' );
+  }
 }
 
 function no_mediaelement() {
