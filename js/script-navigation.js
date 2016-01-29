@@ -462,6 +462,11 @@
 				$(player).get(0).play();
 				$(player).prop("controls", true);
 			}
+
+			if ($("#postdetails_content").children().hasClass('audiopost_content')){
+				var player = $("#postdetails_content").find('.wp-audio-shortcode')[0];
+				$(player).get(0).play();
+			}
 		}
 
 		function stopPlayers(){

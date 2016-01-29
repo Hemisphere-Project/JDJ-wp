@@ -311,31 +311,35 @@ input:focus {
 }
 .audiopost_content{
 	padding: 20px;
-	/*padding-bottom: 0px;*/
 }
 .wp-audio-shortcode{
 	visibility: visible;
 }
 
 
-.videopost_content{
 
+
+.videopost_content{
+	/*position: relative;
+	width: 100%;
+	height:100%;*/
 }
 .playvid{
-	z-index:100;
-	 min-height:400px;
-	 position: absolute;
-	 /*background: url(img/buttons/play.png) no-repeat 20% 30%;*/
+	z-index:1;
+	position: absolute;
+	margin: 8% 0 0 16%;
+
+	/*z-index:1;
+	position:absolute;
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;*/
+
 }
-
-.playvid:before{
-
-}
-
 .playvid img{
-
+	margin-left: -50%;
+	margin-top: -50%;
 }
-
 
 .textpost{
 	width:25%;
@@ -363,11 +367,13 @@ input:focus {
 	width: 100%;
 }
 
+.onlytextpost, .imagepost_content, .audiopost_content, .littletext{
+		background-color: #ABABAB !important;
+}
 
 
 .onlytextpost{
 	padding: 10px;
-	background-color: #ABABAB;
 	font-family: OpenSansRegular;
 	font-size: 10pt;
 	color: black;
@@ -388,20 +394,25 @@ input:focus {
 	font-size: 10pt;
 	color: black;
 	padding:20px;
-	padding-top: 0px;
+	padding-top: 2px;
 	padding-bottom: 10px;
+	max-height: 145px;
+		overflow-y: hidden;
+		border-bottom: 10px solid #ABABAB;
 }
 .littletext p{
 	margin-top:10px;
 	vertical-align: top;
 	float:top;
+
 }
 
 .postcontent{
 	border-top: 2px solid #FF5230;
-	background-color: #ABABAB;
 	clear:both;
 }
+
+
 
 
 

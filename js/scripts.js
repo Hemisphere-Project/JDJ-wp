@@ -99,10 +99,12 @@
 					var ww = $(this).children('img').width();
 					var hh = $(this).children('img').height();
 					if(ww>hh){
+						console.log('PAYSAGE');
 						// $(this).parent().parent('.imagepost').css('width', globalW/2 );
 						$(this).parent().parent('.imagepost').css('width', '50%' );
 					}
 					if (hh>ww){
+						console.log('PORTRAIT');
 						// $(this).parent().parent('.imagepost').css('width', globalW/4 );
 						$(this).parent().parent('.imagepost').css('width', '25%' );
 					}
