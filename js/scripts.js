@@ -93,6 +93,7 @@
 		//////////////////////////////////////////////////////////
 
 		adjustImageSizes();
+
 		function adjustImageSizes(){
 			var globalW = $('.timeline').width();
 				$('.imagepost_content').each(function(){
@@ -111,9 +112,7 @@
 				});
 		}
 
-
 		randomMarginTop();
-
 		function randomMarginTop(){
 			var globalW = $('.timeline').width();
 			var scale = globalW/4;
@@ -142,7 +141,6 @@
 					// A CHANGER, COLLER A LA LIGNE DU DESSUS
 				}
 
-
 			});
 
 		}
@@ -165,8 +163,18 @@
 
 
 
-
-
 	});
+
+
+	$(window).on("load", function() {
+
+    console.log("LOADED");
+
+});
+
+
+
+
+
 
 })(jQuery, this);
