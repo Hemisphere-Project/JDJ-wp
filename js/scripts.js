@@ -4,13 +4,13 @@
 
 		'use strict';
 
+
 		/////////////////////  BACKGROUND  ///////////////////////
 		//////////////////////////////////////////////////////////
 		var minbg = 1;
 		var maxbg = 6;
 		// and the formula is:
 		var randombg = Math.floor(Math.random() * (maxbg - minbg + 1)) + minbg;
-
 		$('body').css("background", "url("+theme_directory+"/img/BG/"+randombg+".jpg) no-repeat center center fixed");
 		$('body').css("-webkit-background-size", "cover");
 		$('body').css("-webkit-background-size", "cover");
@@ -89,6 +89,34 @@
 		// }
 	  // setInterval(infinitecheck, 1500 );
 
+
+
+
+	//  $('.onlytextpost p').each(function(index,div){
+	// 	 var txtArray = $(div).html().split('');
+ // 		 $(div).empty();
+	// 	 $.each(txtArray,function(index,char){
+	// 		 $(div).append('<span class="singleChar">'+char+'</span>');
+	// 	 });
+	// 	 $('.singleChar').each(function(index,char){
+	// 		 var top = $(char).offset().top - $(char).parent().offset().top;
+	// 		 var postH = $(char).parent().height();
+	// 		 console.log(top+' '+postH);
+	// 		 if (top>postH){ $(char).remove(); }
+	// 	 });
+	//  });
+
+
+	// $('#startoverlay').fadeOut(100,function(){});
+
+	});
+
+
+	$(window).on("load", function() {
+
+    console.log("LOADED");
+		$('#startoverlay').fadeOut(200,function(){});
+
 		/////////////////////  POST ADJUST ///////////////////////
 		//////////////////////////////////////////////////////////
 
@@ -144,31 +172,6 @@
 			});
 
 		}
-
-
-	//  $('.onlytextpost p').each(function(index,div){
-	// 	 var txtArray = $(div).html().split('');
- // 		 $(div).empty();
-	// 	 $.each(txtArray,function(index,char){
-	// 		 $(div).append('<span class="singleChar">'+char+'</span>');
-	// 	 });
-	// 	 $('.singleChar').each(function(index,char){
-	// 		 var top = $(char).offset().top - $(char).parent().offset().top;
-	// 		 var postH = $(char).parent().height();
-	// 		 console.log(top+' '+postH);
-	// 		 if (top>postH){ $(char).remove(); }
-	// 	 });
-	//  });
-
-
-
-
-	});
-
-
-	$(window).on("load", function() {
-
-    console.log("LOADED");
 
 });
 

@@ -6,6 +6,10 @@
 </script>
 
 	<main role="main">
+
+
+    <div id="startoverlay"></div>
+    
 		<!-- section -->
 		<section class="elevator">
 		</section>

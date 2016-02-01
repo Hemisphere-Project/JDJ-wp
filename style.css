@@ -33,6 +33,7 @@ html {
 body {
 	font:300 11px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color:#444;
+	background-color:#1D1D1D;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -91,6 +92,15 @@ input:focus {
 	position:relative;
 }
 
+#startoverlay{
+	position:fixed;
+	top: 80px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	background-color: #1D1D1D;
+}
 
 /*------------------------------------*\
     HEADER
