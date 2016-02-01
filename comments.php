@@ -1,6 +1,7 @@
 <div id="comments" class="comments">
-
+comments.php
 <?php if (have_comments()) : ?>
+	dsdsdsdsd
 	<h2><?php comments_number(); ?></h2>
 	<ul>
 		<?php wp_list_comments('type=comment&callback=html5blankcomments'); // Custom callback in functions.php ?>
