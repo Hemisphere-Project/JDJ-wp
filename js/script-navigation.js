@@ -6,6 +6,7 @@
 
 		console.log("SCRIPT NAVIGATION");
 
+
 		//////////////////////////////////////////////////////////
 		/////////////////////    NAVIG     ///////////////////////
 		//////////////////////////////////////////////////////////
@@ -89,6 +90,9 @@
 
 		// OPEN
 		$('#infosheader').click(function(){
+			openInfos();
+		});
+		function openInfos(){
 			page = 'infos';
 			stopPlayers();
 			$("#postoverlay").hide();
@@ -97,7 +101,7 @@
 			$('#infos').fadeIn(200);
 			allButtonsInactive();
 			$('#infosheader').children('img').attr("src", theme_directory+"/img/buttons/info_orange.png");
-		});
+		}
 		// CLOSE
 		$('#closeinfos').click(function() {
 			page='time';
@@ -502,6 +506,17 @@
 		}
 
 
+		//////////////////////////////////////////////////////////
+		/////////////////////    HASH      ///////////////////////
+		//////////////////////////////////////////////////////////
+
+		var hash = window.location.hash.substr(1);
+		console.log(hash);
+		if (hash =='map'){
+			openMap();
+		}else if (hash=='infos') {
+			openInfos();
+		}
 
 
 

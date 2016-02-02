@@ -18,6 +18,23 @@
 		$('body').css("-moz-background-size", "cover");
 		$('body').css("background-size", "cover");
 
+
+
+		$('#timeheader, #closecomments').on('click',function(){
+			document.location.href="/";
+		});
+		$('#infosheader').on('click',function(){
+			document.location.href="/#infos";
+		});
+		$('#placeheader').on('click',function(){
+			document.location.href="/#map";
+		});
+
+
+
+
+
+
 });
 
 })(jQuery, this);
