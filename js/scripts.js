@@ -115,6 +115,11 @@
 	$(window).on("load", function() {
 
     console.log("LOADED");
+
+		// setTimeout(function(){
+		// 	$('#startoverlay').fadeOut(300,function(){});
+		// }, 300);
+
 		$('#startoverlay').fadeOut(200,function(){});
 
 		/////////////////////  POST ADJUST ///////////////////////

@@ -8,7 +8,9 @@
 	<main role="main">
 
 
-    <div id="startoverlay"></div>
+    <div id="startoverlay">
+        <img src="<?php echo get_template_directory_uri(); ?>/img/rolling.svg">
+    </div>
 
 		<!-- section -->
 		<section class="elevator">

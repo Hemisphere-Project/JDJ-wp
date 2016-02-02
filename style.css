@@ -101,6 +101,15 @@ input:focus {
 	z-index: 100;
 	background-color: #1D1D1D;
 }
+#startoverlay img{
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -50px;
+	width: 100px;
+	height: 100px;
+}
 
 /*------------------------------------*\
     HEADER
