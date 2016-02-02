@@ -1,21 +1,33 @@
 <?php get_header(); ?>
+<script>
+    theme_directory = "<?php echo get_template_directory_uri() ?>";
+</script>
 
 	<main role="main">
 		<!-- section -->
 		<section>
 			page
-			<h1><?php the_title(); ?></h1>
+
 
 		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 			<!-- article -->
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				PAGE
-				<?php the_content(); ?>
-				<?php comments_template( '', true ); // Remove if you don't want comments ?>
+				<!-- <?php the_content(); ?> -->
+
+
+				<div id="comments" class="popup" style="display:block">
+			    <div id="closecomments" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
+			    <div class='popuptitle'>COMMENTAIRES</div>
+						<!-- <?php comments_template( '', true );?> -->
+
+						$comments = get_comments(array('post_id'=> get_the_ID()));
+						wp_list_comments('',$comments);
+			  </div>
+
 
 				<br class="clear">
 
-				<?php edit_post_link(); ?>
 
 			</article>
 			<!-- /article -->
@@ -24,20 +36,8 @@
 
 		<?php else: ?>
 
-			<!-- article -->
-			<article>
-
-				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
-
-			</article>
-			<!-- /article -->
-
 		<?php endif; ?>
 
 		</section>
 		<!-- /section -->
 	</main>
-
-<?php get_sidebar(); ?>
-
-<?php get_footer(); ?>

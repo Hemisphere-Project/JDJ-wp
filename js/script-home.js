@@ -120,7 +120,11 @@
 		// 	$('#startoverlay').fadeOut(300,function(){});
 		// }, 300);
 
-		$('#startoverlay').fadeOut(200,function(){});
+		$('.timeline, .elevator').hide();
+
+		$('#startoverlay').fadeOut(200,function(){
+			$('.timeline, .elevator').fadeIn(200);
+		});
 
 		/////////////////////  POST ADJUST ///////////////////////
 		//////////////////////////////////////////////////////////
