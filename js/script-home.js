@@ -120,10 +120,10 @@
 		// 	$('#startoverlay').fadeOut(300,function(){});
 		// }, 300);
 
-		$('.timeline, .elevator').hide();
+		// $('.timeline, .elevator').hide(); // non sinon adjustImageSizes() et randomMarginTop() n'ont pas accès aux dimensions
 
 		$('#startoverlay').fadeOut(200,function(){
-			$('.timeline, .elevator').fadeIn(200);
+			// $('.timeline, .elevator').fadeIn(200);
 		});
 
 		/////////////////////  POST ADJUST ///////////////////////
