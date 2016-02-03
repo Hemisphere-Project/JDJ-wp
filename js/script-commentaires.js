@@ -30,6 +30,13 @@
 			document.location.href="/#map";
 		});
 
+		$('html').mousedown(function(e) {
+			document.location.href="/";
+		});
+		$('.popup').mousedown(function(e){
+			e.stopPropagation();
+		});
+
 
 
 

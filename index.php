@@ -128,7 +128,13 @@
     <div id="closecomments" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
     <div class='popuptitle'>COMMENTAIRES</div>
     <?php $commentspage = new WP_Query('pagename=commentaires'); while ($commentspage->have_posts()) : $commentspage->the_post();?>
-      <?php get_template_part('page-comments'); ?>
+      <?php
+      // $comments = get_comments(array('post_id'=> get_the_ID() ));
+      // wp_list_comments('',$comments);
+      // comment_form();
+      get_template_part('page-comments');
+      ?>
+
     <?php endwhile; ?>
   </div>
 

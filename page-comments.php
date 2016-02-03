@@ -3,7 +3,8 @@
 	<?php
 
 	$comments = get_comments(array('post_id'=> get_the_ID() ));
-	wp_list_comments('',$comments);
+	$comments2 = array_reverse($comments);
+	wp_list_comments('',$comments2);
 
 
 	?>
