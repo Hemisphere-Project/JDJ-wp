@@ -472,7 +472,7 @@ function filter_search_results_by_time( $posts, $query, $c ) {
 		return $posts;
 	}
 
-  // if (is_admin()){	return $posts; }
+  // if (is_admin()||is_home()){	 }
 
   $hour_array = array();
   foreach($posts as $key => $post){
@@ -494,7 +494,10 @@ function filter_search_results_by_time( $posts, $query, $c ) {
   $end = array_slice($posts,$firstkey+1);
   $new =  array_merge($end,$start);
 
+
 	return $new;
+
+
 
 }
 add_filter( 'the_posts', 'filter_search_results_by_time' );
