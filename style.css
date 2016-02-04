@@ -136,6 +136,7 @@ input:focus {
 	margin-top:10px;
 	/*width:35%;
 	height:auto;*/
+	min-width:400px;
 	top: 0;
 	left: 0;
 	right: 0;
