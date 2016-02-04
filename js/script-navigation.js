@@ -147,6 +147,7 @@
 			$('#infos').hide();
 			$("#postoverlay").hide();
 			$('#map').hide();
+			stopPlayers();
 			showTimeline();
 			allButtonsInactive();
 			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
@@ -418,6 +419,8 @@
 			    function(response){
 						// loader.fadeOut(200);
 						loader.attr('src', theme_directory+"/img/buttons/clock_white.png");
+						loader.attr('idofpost', id);
+						mapToTime();
 			    	$('#map_post_content').append(response);
 						$('#map_post_content').fadeOut(0).fadeIn(200);
 						$('#map_post_content').children('.post').children('.mapimage').each(function(){
@@ -428,6 +431,22 @@
 						});
 			    }
 			);
+		}
+
+		function mapToTime(){
+			$('.maploader').click(function(){
+				var id = $(this).attr('idofpost');
+				$('#map').fadeOut(200, function(){
+					showTimeline();
+					stopPlayers();
+					page='time';
+				});
+				var postdiv =  $('#'+id);
+				$('body').animate({scrollTop: postdiv.offset().top-$('header').height()+1,easing:"swing"},400,function(){
+					// animating = false;
+				});
+
+			});
 		}
 
 
@@ -457,14 +476,26 @@
 		}, true);
 
 
-
-
 		$('.wp-video-shortcode').each(function(index,div){
 			$(div).prop("controls", false);
 		});
 		// $('.wp-video-shortcode').click(function(e){
 		// 	e.stopPropagation();
 		// });
+
+		function stopPlayers(){
+			$('.wp-video-shortcode').each(function(index,div){
+				$(div).get(0).pause();
+			});
+			$('.wp-audio-shortcode').each(function(index,div){
+				$(div).get(0).pause();
+			});
+		}
+
+		////////////////////////////////////////////////////////
+		/////////////////////    SHOW      /////////////////////
+		////////////////////////////////////////////////////////
+
 
 		function showTimePost(id,time){
 			stopPlayers();
@@ -495,15 +526,7 @@
 			}
 		}
 
-		function stopPlayers(){
-			$('.wp-video-shortcode').each(function(index,div){
-				$(div).get(0).pause();
-			});
-			$('.wp-audio-shortcode').each(function(index,div){
-				$(div).get(0).pause();
-			});
 
-		}
 
 
 		//////////////////////////////////////////////////////////
