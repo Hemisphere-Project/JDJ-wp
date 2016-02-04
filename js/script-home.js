@@ -122,12 +122,7 @@
 
     console.log("LOADED");
 
-		// setTimeout(function(){
-		// 	$('#startoverlay').fadeOut(300,function(){});
-		// }, 300);
-
 		// $('.timeline, .elevator').hide(); // non sinon adjustImageSizes() et randomMarginTop() n'ont pas accès aux dimensions
-
 		$('#startoverlay').fadeOut(200,function(){
 			// $('.timeline, .elevator').fadeIn(200);
 		});
@@ -135,27 +130,25 @@
 		/////////////////////  POST ADJUST ///////////////////////
 		//////////////////////////////////////////////////////////
 
-		adjustImageSizes();
-
-		function adjustImageSizes(){
-			var globalW = $('.timeline').width();
+		function adjustImageSizes_BIG(){
 				$('.imagepost_content').each(function(){
 					var ww = $(this).children('img').width();
 					var hh = $(this).children('img').height();
 					if(ww>hh){
-						console.log('PAYSAGE');
-						// $(this).parent().parent('.imagepost').css('width', globalW/2 );
+						// console.log('PAYSAGE');
 						$(this).parent().parent('.imagepost').css('width', '50%' );
 					}
 					if (hh>ww){
-						console.log('PORTRAIT');
-						// $(this).parent().parent('.imagepost').css('width', globalW/4 );
+						// console.log('PORTRAIT');
 						$(this).parent().parent('.imagepost').css('width', '25%' );
 					}
 				});
+			$('.textpost').css('width', '25%' );
+			$('.audiopost, .videopost').css('width', '50%' );
+			$('.post').css('margin-top', '0px');
 		}
 
-		randomMarginTop();
+
 		function randomMarginTop(){
 			var globalW = $('.timeline').width();
 			var scale = globalW/4;
@@ -187,16 +180,33 @@
 		}
 
 
+		// INIT SIZES
+		var checkBig = true;
+		var windowWidth = $(window).width();
+		actuSizes();
 
+		// RESIZE SIZES
+		window.onresize = actuSizes;
 
-		window.onresize = resize;
+		function actuSizes(){
+			windowWidth = $(window).width();
+			if(windowWidth > 768){
+				if (checkBig==true){
+					console.log('big');
+					adjustImageSizes_BIG();
+					randomMarginTop();
+					checkBig = false;
+				}
 
-		function resize(){
-			console.log("événement de redimensionnement détecté !");
-			adjustImageSizes();
-			randomMarginTop();
-			var windowWidth = $(window).width();
-			console.log(windowWidth);
+			}else if (windowWidth < 768){
+				console.log('little');
+				// in css on start
+				$('.post').css('width', '100%');
+				$('.post').css('margin-top', '50px');
+				checkBig = true;
+
+			}
+
 		}
 
 
