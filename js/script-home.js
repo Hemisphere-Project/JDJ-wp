@@ -109,6 +109,12 @@
 
 	// $('#startoverlay').fadeOut(100,function(){});
 
+
+
+
+
+
+
 	});
 
 
@@ -177,10 +183,22 @@
 					$(this).css('margin-top', '-50px');
 					// A CHANGER, COLLER A LA LIGNE DU DESSUS
 				}
-
 			});
-
 		}
+
+
+
+
+		window.onresize = resize;
+
+		function resize(){
+			console.log("événement de redimensionnement détecté !");
+			adjustImageSizes();
+			randomMarginTop();
+			var windowWidth = $(window).width();
+			console.log(windowWidth);
+		}
+
 
 });
 
