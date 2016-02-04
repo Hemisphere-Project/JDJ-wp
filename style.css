@@ -696,10 +696,14 @@ margin-right: auto;*/
 	width: 6%;
 	height: 100%;
 	background-color: #FF5230;
-	line-height:300px;
+	line-height:50%;
+	/*vertical-align: middle;*/
 }
 #slidemap img{
 	cursor:pointer;
+	position: absolute;
+	top:50%;
+	margin-top:-8%;
 }
 
 #map_post{
@@ -734,6 +738,7 @@ margin-right: auto;*/
 }
 
 .maploader{
+	cursor:pointer;
 	width: 30px;
 	vertical-align: top;
 	margin-top: 12px;
