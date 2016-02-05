@@ -16,31 +16,44 @@
 		var screenSize = 'desktop';
 		var screenCheck = true;
 		var desktop = false;
+		var init  = true;
 
 		checkSizes();
 		$( window ).resize(function() {
-			checkSizes()
+			checkSizes();
 		});
 
 		function checkSizes(){
 			windowWidth = $(window).width();
-			if((windowWidth > 768)&&(desktop==false)){
+			if((windowWidth > 768)&&((desktop==false)||(init==true))){
 				setDesktop();
 				desktop=true;
-			}else if ((windowWidth < 768)&&(desktop==true)){
+				init=false;
+			}else if ((windowWidth < 768)&&((desktop==true)||(init==true))){
 				setSmartphone();
 				desktop=false;
+				init=false;
 			}
 		}
 
 		function setDesktop(){
-			// CSS MAP GMAP RMAP
-			// console.log('window is desktop');
+			console.log('window is desktop');
+			$('#togglemap').attr("src", theme_directory+"/img/buttons/map_open.png");
+			$('#gmap').css({height: '100%', width:'97%',float:'left'});
+			$('#rmap').css({height: '100%', width:'50%',top:'0', right:'-47%'});
+			fullmap=true;
+			// $('#slidemap').css({'padding-left': '1%', width: '6%', height: '100%'});
+
 		}
 
 		function setSmartphone(){
-			// CSS MAP GMAP RMAP
-			// console.log('window is mobile');
+			console.log('window is mobile');
+			$('#togglemap').attr("src", theme_directory+"/img/buttons/map_resp_open.png");
+			$('#gmap').css({	width:'100%',height: '90%',float: 'top'});
+			$('#rmap').css({width:'100%',height: '100%',top:'90%',right:'0'});
+			fullmap=true;
+			// $('#slidemap').css({'padding-left': '0', width: '100%', height: '20px'});
+
 		}
 
 
@@ -273,16 +286,18 @@
 		});
 
 		function slidemap(){
+			console.log(desktop);
 			if (fullmap==false){
 				console.log('close');
-				$('#togglemap').attr("src", theme_directory+"/img/buttons/map_open.png");
 				if (desktop==true){
+					$('#togglemap').attr("src", theme_directory+"/img/buttons/map_open.png");
 					$("#rmap").animate({right:'-47%'},300);
 					$("#gmap").animate({width:'97%'},300, function(){
 						fullmap = true;
 						google.maps.event.trigger(map, "resize");
 					});
 				}else if(desktop==false){
+					$('#togglemap').attr("src", theme_directory+"/img/buttons/map_resp_open.png");
 					$("#rmap").animate({top:'90%'},300);
 					$("#gmap").animate({height:'90%'},300, function(){
 						fullmap = true;
@@ -300,7 +315,7 @@
 						google.maps.event.trigger(map, "resize");
 					});
 				}else if (desktop==false){
-					$('#togglemap').attr("src", theme_directory+"/img/buttons/map_close.png");
+					$('#togglemap').attr("src", theme_directory+"/img/buttons/map_resp_close.png");
 					$("#rmap").animate({top:'20%'},300);
 					$("#gmap").animate({height:'20%'},300,function(){
 						fullmap = false;
@@ -322,7 +337,7 @@
 						map.panTo(selectedpoint.position);
 					});
 				}else if (desktop==false){
-					$('#togglemap').attr("src", theme_directory+"/img/buttons/map_close.png");
+					$('#togglemap').attr("src", theme_directory+"/img/buttons/map_resp_close.png");
 					$("#rmap").animate({top:'20%'},300);
 					$("#gmap").animate({height:'20%'},300,function(){
 						fullmap = false;
