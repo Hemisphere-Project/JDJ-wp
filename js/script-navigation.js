@@ -8,6 +8,43 @@
 
 
 		//////////////////////////////////////////////////////////
+		///////////////////   RESPONSIVE   ///////////////////////
+		//////////////////////////////////////////////////////////
+		// INIT SIZES
+
+		var windowWidth = $(window).width();
+		var screenSize = 'desktop';
+		var screenCheck = true;
+		var desktop = false;
+
+		checkSizes();
+		$( window ).resize(function() {
+			checkSizes()
+		});
+
+		function checkSizes(){
+			windowWidth = $(window).width();
+			if((windowWidth > 768)&&(desktop==false)){
+				setDesktop();
+				desktop=true;
+			}else if ((windowWidth < 768)&&(desktop==true)){
+				setSmartphone();
+				desktop=false;
+			}
+		}
+
+		function setDesktop(){
+			// CSS MAP GMAP RMAP
+			// console.log('window is desktop');
+		}
+
+		function setSmartphone(){
+			// CSS MAP GMAP RMAP
+			// console.log('window is mobile');
+		}
+
+
+		//////////////////////////////////////////////////////////
 		/////////////////////    NAVIG     ///////////////////////
 		//////////////////////////////////////////////////////////
 
@@ -231,7 +268,7 @@
 		// SLIDE
 		var fullmap = true;
 
-		$('#togglemap').click(function(){
+		$('#slidemap').click(function(){ //ANCIENNEMENT #togglemap
 			slidemap();
 		});
 
@@ -239,34 +276,60 @@
 			if (fullmap==false){
 				console.log('close');
 				$('#togglemap').attr("src", theme_directory+"/img/buttons/map_open.png");
-				$("#rmap").animate({right:'-47%'},300);
-				$("#gmap").animate({width:'97%'},300, function(){
-					fullmap = true;
-					google.maps.event.trigger(map, "resize");
-				});
+				if (desktop==true){
+					$("#rmap").animate({right:'-47%'},300);
+					$("#gmap").animate({width:'97%'},300, function(){
+						fullmap = true;
+						google.maps.event.trigger(map, "resize");
+					});
+				}else if(desktop==false){
+					$("#rmap").animate({top:'90%'},300);
+					$("#gmap").animate({height:'90%'},300, function(){
+						fullmap = true;
+						google.maps.event.trigger(map, "resize");
+					});
+				}
 			}
 			if (fullmap==true){
 				console.log('open');
-				$('#togglemap').attr("src", theme_directory+"/img/buttons/map_close.png");
-				$("#rmap").animate({right:'0%'},300);
-				$("#gmap").animate({width:'50%'},300,function(){
-					fullmap = false;
-					google.maps.event.trigger(map, "resize");
-					// map.setCenter(centerpoint);
-				});
+				if (desktop==true){
+					$('#togglemap').attr("src", theme_directory+"/img/buttons/map_close.png");
+					$("#rmap").animate({right:'0%'},300);
+					$("#gmap").animate({width:'50%'},300,function(){
+						fullmap = false;
+						google.maps.event.trigger(map, "resize");
+					});
+				}else if (desktop==false){
+					$('#togglemap').attr("src", theme_directory+"/img/buttons/map_close.png");
+					$("#rmap").animate({top:'20%'},300);
+					$("#gmap").animate({height:'20%'},300,function(){
+						fullmap = false;
+						google.maps.event.trigger(map, "resize");
+					});
+				}
 			}
 		}
 		// OPEN OR STAY OPENED
 		function slidemap_Open(){
 			if (fullmap==true){
 				console.log('open');
-				$('#togglemap').attr("src", theme_directory+"/img/buttons/map_close.png");
-				$("#rmap").animate({right:'0%'},300);
-				$("#gmap").animate({width:'50%'},300,function(){
-					fullmap = false;
-					google.maps.event.trigger(map, "resize");
-					map.panTo(selectedpoint.position);
-				});
+				if (desktop==true){
+					$('#togglemap').attr("src", theme_directory+"/img/buttons/map_close.png");
+					$("#rmap").animate({right:'0%'},300);
+					$("#gmap").animate({width:'50%'},300,function(){
+						fullmap = false;
+						google.maps.event.trigger(map, "resize");
+						map.panTo(selectedpoint.position);
+					});
+				}else if (desktop==false){
+					$('#togglemap').attr("src", theme_directory+"/img/buttons/map_close.png");
+					$("#rmap").animate({top:'20%'},300);
+					$("#gmap").animate({height:'20%'},300,function(){
+						fullmap = false;
+						google.maps.event.trigger(map, "resize");
+						map.panTo(selectedpoint.position);
+					});
+				}
 			}
 			if (fullmap==false){
 				map.panTo(selectedpoint.position);

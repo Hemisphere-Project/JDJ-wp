@@ -120,7 +120,7 @@
 
 	$(window).on("load", function() {
 
-    console.log("LOADED");
+    // console.log("LOADED");
 
 		// $('.timeline, .elevator').hide(); // non sinon adjustImageSizes() et randomMarginTop() n'ont pas accès aux dimensions
 		$('#startoverlay').fadeOut(200,function(){
@@ -192,14 +192,14 @@
 			windowWidth = $(window).width();
 			if(windowWidth > 768){
 				if (checkBig==true){
-					console.log('big');
+					// console.log('big');
 					adjustImageSizes_BIG();
 					randomMarginTop();
 					checkBig = false;
 				}
 
 			}else if (windowWidth < 768){
-				console.log('little');
+				// console.log('small');
 				// in css on start
 				$('.post').css('width', '100%');
 				$('.post').css('margin-top', '50px');
