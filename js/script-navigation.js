@@ -42,8 +42,6 @@
 			$('#gmap').css({height: '100%', width:'97%',float:'left'});
 			$('#rmap').css({height: '100%', width:'50%',top:'0', right:'-47%'});
 			fullmap=true;
-			// $('#slidemap').css({'padding-left': '1%', width: '6%', height: '100%'});
-
 		}
 
 		function setSmartphone(){
@@ -52,8 +50,6 @@
 			$('#gmap').css({	width:'100%',height: '90%',float: 'top'});
 			$('#rmap').css({width:'100%',height: '100%',top:'90%',right:'0'});
 			fullmap=true;
-			// $('#slidemap').css({'padding-left': '0', width: '100%', height: '20px'});
-
 		}
 
 
