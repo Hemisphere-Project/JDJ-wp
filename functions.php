@@ -546,10 +546,11 @@ function no_mediaelement() {
 }
 
 /*------------------------------------*\
-	CHANGE COMMENT FORM LABEL
+	CHANGE COMMENT FORM
 \*------------------------------------*/
 function wpsites_modify_comment_form_text_area($arg) {
-    $arg['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Partagez votre expérience', 'noun' ) . '</label><textarea id="comment" name="comment" cols="45" rows="10" aria-required="true"></textarea></p>';
+    $arg['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Commentaire', 'noun' ) . '</label><textarea id="comment" name="comment" cols="45" rows="10" aria-required="true"></textarea></p>';
+    $arg['title_reply'] = 'Partager votre expérience';
     return $arg;
 }
 add_filter('comment_form_defaults', 'wpsites_modify_comment_form_text_area');

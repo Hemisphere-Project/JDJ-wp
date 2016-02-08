@@ -69,7 +69,7 @@
               <?php } ?>
 
   						<?php if ($video){ ?>
-                <div class="playvid"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/play.png"></div>
+                <div class="playvid"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/play2.png"></div>
                 <div class="videopost_content"><?php echo types_render_field("video") ?></div>
               <?php } ?>
 
