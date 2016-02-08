@@ -28,6 +28,7 @@
 
 	</head>
 	<body <?php body_class(); ?>>
+	<div id="bodyBG"></div>
 
 		<!-- wrapper -->
 		<div class="wrapper">
