@@ -296,6 +296,10 @@ input:focus {
 	border-top: 1px dashed white;
 }
 
+#comments .comment-form-comment label{
+	text:'iehslkjh';
+}
+
 
 /*------ RESPOND -------*/
 

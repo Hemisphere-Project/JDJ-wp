@@ -530,42 +530,29 @@ function MAPsingleload() {
   die();
 }
 
-// add_action('wp_ajax_nopriv_TIMEsingleload', 'TIMEsingleload');
-// add_action('wp_ajax_TIMEsingleload', 'TIMEsingleload');
-//
-// function TIMEsingleload() {
-//
-// 	$id = $_POST['id'];
-//
-// 	$args = array(
-// 	    'p' => $id,
-//       'post_type' => 'any'
-// 	);
-//
-// 	$ajax_query = new WP_Query($args);
-//
-//   if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
-//
-//     get_template_part( 'single-timepost' );
-//   endwhile;
-//   endif;
-//
-//   die();
-// }
-
+/*------------------------------------*\
+	REMOVE MEDIA ELEMENTS
+\*------------------------------------*/
 add_action( 'wp_print_scripts', 'no_mediaelement_scripts', 100 );
 add_filter('wp_video_shortcode_library','no_mediaelement');
-
 function no_mediaelement_scripts() {
   if(!is_admin()){
     wp_dequeue_script( 'wp-mediaelement' );
     wp_deregister_script( 'wp-mediaelement' );
   }
 }
-
 function no_mediaelement() {
     return '';
 }
+
+/*------------------------------------*\
+	CHANGE COMMENT FORM LABEL
+\*------------------------------------*/
+function wpsites_modify_comment_form_text_area($arg) {
+    $arg['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Partagez votre expérience', 'noun' ) . '</label><textarea id="comment" name="comment" cols="45" rows="10" aria-required="true"></textarea></p>';
+    return $arg;
+}
+add_filter('comment_form_defaults', 'wpsites_modify_comment_form_text_area');
 
 
 
