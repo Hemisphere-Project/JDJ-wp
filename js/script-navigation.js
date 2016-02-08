@@ -13,6 +13,7 @@
 		// INIT SIZES
 
 		var windowWidth = $(window).width();
+		var windowHeight = $(window).height();
 		var screenSize = 'desktop';
 		var screenCheck = true;
 		var desktop = false;
@@ -210,7 +211,6 @@
 			var postId = $(this).parent('.timepost').attr('id');
 			var postTime = $(this).parent().find('.posttitle').html();
 			var postPosition = $(this).parent().find('.pos_link').attr('value');
-			showTimePost(postId, postTime);
 			$('#viewpostmap').hide();
 			if (postPosition!==undefined){
 				$('#viewpostmap').show();
@@ -218,6 +218,7 @@
 				$('#viewpostmap').attr('valueId',postId);
 				$('#viewpostmap').attr('valueTime',postTime);
 			}
+			showTimePost(postId, postTime);
 		});
 		// CLOSE
 		$('#closepost').click(function() {
@@ -598,14 +599,21 @@
 				$(player).prop("controls", true);
 				if (desktop==false){
 					$("#timepost_title").hide();
-					$(player).css({
-			     '-moz-transform':'rotate(90deg)',
-			     '-webkit-transform':'rotate(90deg)',
-			     '-o-transform':'rotate(90deg)',
-			     '-ms-transform':'rotate(90deg)',
-			     'transform':'rotate(90deg)'
-					});
-					// $(player).css({'position':'fixed','height':'100%','width':'100%','top':'80px', 'left':'0px', 'z-index':'100'});
+					$('#viewpostmap').hide();
+					// if(windowWidth>WindowHeight)
+					// player.requestFullScreen();
+
+					// $(player).css({
+			    //  '-moz-transform':'rotate(90deg)',
+			    //  '-webkit-transform':'rotate(90deg)',
+			    //  '-o-transform':'rotate(90deg)',
+			    //  '-ms-transform':'rotate(90deg)',
+			    //  'transform':'rotate(90deg)'
+					// });
+					$('.header').hide();
+					var video = $("#postdetails_content").find('.wp-video')[0];
+					// $(video).css({'position':'fixed','height':'100%','width':'100%','top':'0px', 'left':'0px', 'z-index':'1000'});
+					$(player).css({'position':'fixed','height':'100%','width':'100%','top':'0px', 'left':'0px', 'z-index':'1000'});
 				}
 			}
 
