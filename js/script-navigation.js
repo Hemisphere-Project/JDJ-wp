@@ -605,7 +605,7 @@
 			     '-ms-transform':'rotate(90deg)',
 			     'transform':'rotate(90deg)'
 					});
-					$(player).css({'height':'100%','width':'100%'});
+					// $(player).css({'position':'fixed','height':'100%','width':'100%','top':'80px', 'left':'0px', 'z-index':'100'});
 				}
 			}
 
