@@ -517,7 +517,7 @@
 					page='time';
 				});
 				var postdiv =  $('#'+id);
-				$('body').animate({scrollTop: postdiv.offset().top-$('header').height()+1,easing:"swing"},400,function(){
+				$('body, html').animate({scrollTop: postdiv.offset().top-$('header').height()+1,easing:"swing"},400,function(){
 					// animating = false;
 				});
 

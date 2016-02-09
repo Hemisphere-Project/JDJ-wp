@@ -52,8 +52,7 @@
 			$('.headerpost').each(function(index,post){
 				if($(post).attr("hour")==hourClicked){activeDiv=$(post)}
 			});
-			$('body').animate({scrollTop: activeDiv.offset().top-$('header').height()+1,easing:"swing"},400,function(){
-				// actuElevator();
+			$('body,html').animate({scrollTop: activeDiv.offset().top-$('header').height()+1,easing:"swing"},400,function(){
 				animating = false;
 			});
 			//style
@@ -86,14 +85,6 @@
 		}
 
 
-		// function infinitecheck() {
-    // 	actuElevator();
-		// }
-	  // setInterval(infinitecheck, 1500 );
-
-
-
-
 	//  $('.onlytextpost p').each(function(index,div){
 	// 	 var txtArray = $(div).html().split('');
  // 		 $(div).empty();
@@ -107,9 +98,6 @@
 	// 		 if (top>postH){ $(char).remove(); }
 	// 	 });
 	//  });
-
-
-	// $('#startoverlay').fadeOut(100,function(){});
 
 
 
