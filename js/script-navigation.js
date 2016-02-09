@@ -18,6 +18,7 @@
 		var screenCheck = true;
 		var desktop = false;
 		var init  = true;
+		var reset_postdetailsCSS = false;
 
 		checkSizes();
 		$( window ).resize(function() {
@@ -83,6 +84,7 @@
 			// $('.timeline, .elevator').fadeIn(200);
 			console.log('show timeline');
 			$('.timeline, .elevator, .wp-audio-shortcode').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1}, 100);
+			$('html').css('overflow-y','scroll');
 		}
 
 		var page='time'; // comments, infos, time, post, map
@@ -106,7 +108,6 @@
 				});
 			}
 			if (page=='post'){
-				console.log('closepost');
 				$('#postoverlay').fadeOut(200);
 				$('html').css('overflow-y','scroll');
 				stopPlayers();
@@ -228,6 +229,16 @@
 			$('#postoverlay').fadeOut(200);
 			$('html').css('overflow-y','scroll');
 			stopPlayers();
+			// Reset CSS of post detail if it was responsive fullscreen video
+			if (reset_postdetailsCSS==true){
+				$("#timepost_title").show();
+				$('#viewpostmap').show();
+				$('.header').show();
+				$('#postdetails').css({'height':'90%','width':'100%','margin-top':'100px', 'padding':'2%'});
+				$('#closepost').css({'position':'relative', 'float':'right'});
+				reset_postdetailsCSS = false;
+			}
+
 		});
 
 
@@ -604,20 +615,10 @@
 				if (desktop==false){
 					$("#timepost_title").hide();
 					$('#viewpostmap').hide();
-					// if(windowWidth>WindowHeight)
-					// player.requestFullScreen();
-
-					// $(player).css({
-			    //  '-moz-transform':'rotate(90deg)',
-			    //  '-webkit-transform':'rotate(90deg)',
-			    //  '-o-transform':'rotate(90deg)',
-			    //  '-ms-transform':'rotate(90deg)',
-			    //  'transform':'rotate(90deg)'
-					// });
 					$('.header').hide();
-					var video = $("#postdetails_content").find('.wp-video')[0];
-					// $(video).css({'position':'fixed','height':'100%','width':'100%','top':'0px', 'left':'0px', 'z-index':'1000'});
-					$(player).css({'position':'fixed','height':'100%','width':'100%','top':'0px', 'left':'0px', 'z-index':'1000'});
+					$('#postdetails').css({'height':'100%','width':'100%','margin-top':'0px', 'padding':'0px'});
+					$('#closepost').css({'position':'absolute'});
+					reset_postdetailsCSS = true;
 				}
 			}
 
