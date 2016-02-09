@@ -44,6 +44,7 @@
 			$('#gmap').css({height: '100%', width:'97%',float:'left'});
 			$('#rmap').css({height: '100%', width:'50%',top:'0', right:'-47%'});
 			fullmap=true;
+			$('.logo').unbind();
 		}
 
 		function setSmartphone(){
@@ -52,6 +53,11 @@
 			$('#gmap').css({	width:'100%',height: '90%',float: 'top'});
 			$('#rmap').css({width:'100%',height: '100%',top:'90%',right:'0'});
 			fullmap=true;
+			$('.logo').unbind();
+			$('.logo').click(function(e){
+				e.preventDefault();
+				$('#timeheader').click();
+			});
 		}
 
 
