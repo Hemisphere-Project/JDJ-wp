@@ -81,6 +81,7 @@
 		}
 		function showTimeline(){
 			// $('.timeline, .elevator').fadeIn(200);
+			console.log('show timeline');
 			$('.timeline, .elevator, .wp-audio-shortcode').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1}, 100);
 		}
 
@@ -107,6 +108,7 @@
 			if (page=='post'){
 				console.log('closepost');
 				$('#postoverlay').fadeOut(200);
+				$('html').css('overflow-y','scroll');
 				stopPlayers();
 			}
 			page='time';
@@ -224,6 +226,7 @@
 		$('#closepost').click(function() {
 			page='time';
 			$('#postoverlay').fadeOut(200);
+			$('html').css('overflow-y','scroll');
 			stopPlayers();
 		});
 
@@ -582,6 +585,7 @@
 
 			$('#postoverlay').fadeIn(300);
 			page='post';
+			$('html').css('overflow-y','hidden');
 
 			if($('#postdetails_content').children().hasClass('imagepost_content')&&(desktop==true)){
 				$('#postdetails_content').children('.imagepost_content').each(function(){
