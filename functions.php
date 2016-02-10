@@ -465,6 +465,51 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 \*------------------------------------*/
 
 
+// function filter_search_results_by_time( $posts, $query, $c ) {
+// 	global $wp_query, $wpdb;
+//
+// 	if ( !count( $posts ) ){
+// 		return $posts;
+// 	}
+//
+//   $type = $posts[0]->post_type;
+//   // foreach ($posts as $key => $post) { $type = $post->post_type; } // WHAT'S BETTER ???
+//
+//   if (($type == 'timepost')){
+//     $hour_array = array();
+//     foreach($posts as $key => $post){
+//       $source = get_post_meta($post->ID,"wpcf-time");
+//       $time = date('Gi', $source[0]);
+//     	$hour_array[$key] = $time;
+//     }
+//     array_multisort($hour_array, SORT_DESC, $posts);
+//     foreach($posts as $key => $post){
+//       $first = get_post_meta($post->ID,"wpcf-first-post");
+//       if( $first[0] == 1) {
+//         $firstkey = $key;
+//       }
+//     }
+//     $start = array_slice($posts,0,$firstkey+1);
+//     $end = array_slice($posts,$firstkey+1);
+//     $new =  array_merge($end,$start);
+//   	return $new;
+//   }
+//   elseif(($type == 'prepost')||is_admin()){
+//     $hour_array = array();
+//     foreach($posts as $key => $post){
+//       $source = get_post_meta($post->ID,"wpcf-time");
+//       $time = date('Gi', $source[0]);
+//     	$hour_array[$key] = $time;
+//     }
+//     array_multisort($hour_array, SORT_DESC, $posts);
+//     return $posts;
+//   }
+//   // A AMELIORER
+//   // La on fait le tri 2 fois dans l'admin
+//
+// }
+// add_filter( 'the_posts', 'filter_search_results_by_time' );
+
 function filter_search_results_by_time( $posts, $query, $c ) {
 	global $wp_query, $wpdb;
 
@@ -472,41 +517,73 @@ function filter_search_results_by_time( $posts, $query, $c ) {
 		return $posts;
 	}
 
-  // if (is_admin()||is_home()){	 }
-
-
   $type = $posts[0]->post_type;
   // foreach ($posts as $key => $post) { $type = $post->post_type; } // WHAT'S BETTER ???
 
-  if ($type == 'timepost'){
-    $hour_array = array();
-    foreach($posts as $key => $post){
-      $source = get_post_meta($post->ID,"wpcf-time");
-      $time = date('Gi', $source[0]);
-    	$hour_array[$key] = $time;
-    }
-    array_multisort($hour_array, SORT_DESC, $posts);
-    foreach($posts as $key => $post){
-      $first = get_post_meta($post->ID,"wpcf-first-post");
-      if( $first[0] == 1) {
-        $firstkey = $key;
+  if(!is_admin()){
+    if (($type == 'timepost')){
+      $hour_array = array();
+      foreach($posts as $key => $post){
+        $source = get_post_meta($post->ID,"wpcf-time");
+        $time = date('Gi', $source[0]);
+      	$hour_array[$key] = $time;
       }
+      array_multisort($hour_array, SORT_DESC, $posts);
+      foreach($posts as $key => $post){
+        $first = get_post_meta($post->ID,"wpcf-first-post");
+        if( $first[0] == 1) {
+          $firstkey = $key;
+        }
+      }
+      $start = array_slice($posts,0,$firstkey+1);
+      $end = array_slice($posts,$firstkey+1);
+      $new =  array_merge($end,$start);
+    	return $new;
     }
-    $start = array_slice($posts,0,$firstkey+1);
-    $end = array_slice($posts,$firstkey+1);
-    $new =  array_merge($end,$start);
-  	return $new;
+    elseif(($type == 'prepost')||is_admin()){
+      $hour_array = array();
+      foreach($posts as $key => $post){
+        $source = get_post_meta($post->ID,"wpcf-time");
+        $time = date('Gi', $source[0]);
+      	$hour_array[$key] = $time;
+      }
+      array_multisort($hour_array, SORT_DESC, $posts);
+      return $posts;
+    }
   }
 
-  else if($type == 'prepost'){
-    $hour_array = array();
-    foreach($posts as $key => $post){
-      $source = get_post_meta($post->ID,"wpcf-time");
-      $time = date('Gi', $source[0]);
-    	$hour_array[$key] = $time;
+
+  
+  if(is_admin()){
+    if (($type == 'timepost')){
+      $hour_array = array();
+      foreach($posts as $key => $post){
+        $source = get_post_meta($post->ID,"wpcf-time");
+        $time = date('Gi', $source[0]);
+      	$hour_array[$key] = $time;
+      }
+      array_multisort($hour_array, SORT_DESC, $posts);
+      foreach($posts as $key => $post){
+        $first = get_post_meta($post->ID,"wpcf-first-post");
+        if( $first[0] == 1) {
+          $firstkey = $key;
+        }
+      }
+      $start = array_slice($posts,0,$firstkey+1);
+      $end = array_slice($posts,$firstkey+1);
+      $new =  array_merge($end,$start);
+    	return $new;
     }
-    array_multisort($hour_array, SORT_DESC, $posts);
-    return $posts;
+    elseif(($type == 'prepost')||is_admin()){
+      $hour_array = array();
+      foreach($posts as $key => $post){
+        $source = get_post_meta($post->ID,"wpcf-time");
+        $time = date('Gi', $source[0]);
+      	$hour_array[$key] = $time;
+      }
+      array_multisort($hour_array, SORT_DESC, $posts);
+      return $posts;
+    }
   }
 
 }
