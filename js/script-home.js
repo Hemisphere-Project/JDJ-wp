@@ -47,7 +47,7 @@
 			$.each(hoursArray,function(index,hour){
 				$(".elevator").append('<div id='+hour+'h00'+' class="elevator-item">'+hour+'h00'+'</div>');
 			});
-			$(".elevator").append('<div id=elevator-preposts class="elevator-item">...</div>');
+			$(".elevator").append('<div id=elevator-preposts class="elevator-item elevator-clickable">...</div>');
 		}
 
 		function colorElevator(){
@@ -77,10 +77,10 @@
 					animating = false;
 				});
 			}else if(hourClicked =='...'){
-				// activeDiv =	$('.prepost').first();
-				// $('body,html').animate({scrollTop: activeDiv.offset().top-$('header').height()+1,easing:"swing"},400,function(){
-				// 	animating = false;
-				// });
+				activeDiv =	$('.prepost').first();
+				$('body,html').animate({scrollTop: activeDiv.offset().top-$('header').height()+1,easing:"swing"},400,function(){
+					animating = false;
+				});
 			}
 
 			//style
@@ -170,11 +170,11 @@
 			var scale = globalW/4;
 			var min = 40;
 			var max = 120;
-			$('.timepost').each(function(index,post){
+			$('.post').each(function(index,post){
 				var posLeft = $(this).position().left-$('.timeline').position().left-$('.timeline').offset().left;
 				var random = Math.floor(Math.random()*(max-min+1)+min);
 				var margin = 0;
-				var previousMargin = $(this).prev('.timepost').css('margin-top');
+				var previousMargin = $(this).prev('.post').css('margin-top');
 				if (previousMargin !== undefined){ margin=random+parseInt(previousMargin); }
 				if (posLeft < 10){
 				}
@@ -189,10 +189,11 @@
 					$(this).css('margin-top', margin);
 				}
 				if (!$(this).prev().hasClass('headerpost')&&(posLeft < 10)){
-					$(this).css('margin-top', '-50px');
+					$(this).css('margin-top', '0px');
 					// A CHANGER, COLLER A LA LIGNE DU DESSUS
 				}
 			});
+
 		}
 
 

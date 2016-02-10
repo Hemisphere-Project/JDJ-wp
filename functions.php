@@ -474,29 +474,40 @@ function filter_search_results_by_time( $posts, $query, $c ) {
 
   // if (is_admin()||is_home()){	 }
 
-  $hour_array = array();
-  foreach($posts as $key => $post){
-    $source = get_post_meta($post->ID,"wpcf-time");
-    $time = date('Gi', $source[0]);
-  	$hour_array[$key] = $time;
-  }
-  array_multisort($hour_array, SORT_DESC, $posts);
 
-  foreach($posts as $key => $post){
-    $first = get_post_meta($post->ID,"wpcf-first-post");
-    if( $first[0] == 1) {
-      $firstkey = $key;
+  $type = $posts[0]->post_type;
+  // foreach ($posts as $key => $post) { $type = $post->post_type; } // WHAT'S BETTER ???
+
+  if ($type == 'timepost'){
+    $hour_array = array();
+    foreach($posts as $key => $post){
+      $source = get_post_meta($post->ID,"wpcf-time");
+      $time = date('Gi', $source[0]);
+    	$hour_array[$key] = $time;
     }
+    array_multisort($hour_array, SORT_DESC, $posts);
+    foreach($posts as $key => $post){
+      $first = get_post_meta($post->ID,"wpcf-first-post");
+      if( $first[0] == 1) {
+        $firstkey = $key;
+      }
+    }
+    $start = array_slice($posts,0,$firstkey+1);
+    $end = array_slice($posts,$firstkey+1);
+    $new =  array_merge($end,$start);
+  	return $new;
   }
 
-  $start = array_slice($posts,0,$firstkey+1);
-  $end = array_slice($posts,$firstkey+1);
-  $new =  array_merge($end,$start);
-
-
-	return $new;
-
-
+  else if($type == 'prepost'){
+    $hour_array = array();
+    foreach($posts as $key => $post){
+      $source = get_post_meta($post->ID,"wpcf-time");
+      $time = date('Gi', $source[0]);
+    	$hour_array[$key] = $time;
+    }
+    array_multisort($hour_array, SORT_DESC, $posts);
+    return $posts;
+  }
 
 }
 add_filter( 'the_posts', 'filter_search_results_by_time' );
