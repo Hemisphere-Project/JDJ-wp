@@ -403,8 +403,14 @@ margin-left: 7%;
 	font-family: AlfaSlabOneRegular;
 	font-size: 12pt;
 	display:inline-block;
-	/*float:left;*/
-	/*margin:-2px;*/
+	vertical-align:top;
+	margin-top: 10px;
+}
+.prepost{
+	color: #FF5230;
+	font-family: AlfaSlabOneRegular;
+	font-size: 12pt;
+	display:inline-block;
 	vertical-align:top;
 	margin-top: 10px;
 }
@@ -637,12 +643,25 @@ margin-right: auto;*/
 	max-width: 20%;
 	margin-left: 12%;
 	cursor: pointer;
-	font-size: 12pt;
+}
+
+.elevator-item{
+		font-size: 12pt;
+}
+.elevator-clickable{
+		color: #E8E7E7
 }
 
 .elevator-active{
 	font-size: 12pt;
 	color: #FF5230;
+}
+
+#elevator-preposts{
+	color: #E8E7E7;
+	font-size: 20pt;
+	line-height: 3px;
+	height:20px;
 }
 
 

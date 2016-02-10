@@ -482,7 +482,6 @@ function filter_search_results_by_time( $posts, $query, $c ) {
   }
   array_multisort($hour_array, SORT_DESC, $posts);
 
-
   foreach($posts as $key => $post){
     $first = get_post_meta($post->ID,"wpcf-first-post");
     if( $first[0] == 1) {

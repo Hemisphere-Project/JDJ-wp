@@ -21,15 +21,21 @@
 
 		///////////////////////  ELEVATOR ////////////////////////
 		//////////////////////////////////////////////////////////
+		// get time of SERVER // CHECK
+		var nowdate = new Date();
+		var nowhour = nowdate.getHours();
+		var nowmin = nowdate.getMinutes();
+
 		initElevator();
+		colorElevator();
 
 		function initElevator(){
 			// get first hour
 			$('.headerpost').each(function(index,post){
 				var hour=$(post).attr("hour");
 			});
-			var firstheader = $( ".headerpost" ).last();
-			var firsthour = parseInt(firstheader.attr("hour").substr(0, 2));
+			var firsttimepost = $( ".timepost" ).last();
+			var firsthour = parseInt(firsttimepost.attr("hour").substr(0, 2))+1;
 
 			// build elevator
 			var hoursArray = [];
@@ -41,7 +47,21 @@
 			$.each(hoursArray,function(index,hour){
 				$(".elevator").append('<div id='+hour+'h00'+' class="elevator-item">'+hour+'h00'+'</div>');
 			});
+			$(".elevator").append('<div id=elevator-preposts class="elevator-item">...</div>');
 		}
+
+		function colorElevator(){
+			// $('.elevator-item').each(function(index,div){
+			// });
+			// INUTILE DE REFAIRE UNE 2E FOIS CE QU'ON FAIT EN PHP, SE BASER SUR LA PRESENCE OU NON DE HEADERPOSTS
+			$('.headerpost').each(function(index,post){
+				var hour=$(post).attr("hour");
+				$('#'+hour).addClass('elevator-clickable');
+			});
+
+
+		}
+
 
 		// click
 		var animating = false;
@@ -49,12 +69,20 @@
 		$('.elevator-item').on('click', function(){
 			animating = true;
 			var hourClicked=$(this).text();
-			$('.headerpost').each(function(index,post){
-				if($(post).attr("hour")==hourClicked){activeDiv=$(post)}
-			});
-			$('body,html').animate({scrollTop: activeDiv.offset().top-$('header').height()+1,easing:"swing"},400,function(){
-				animating = false;
-			});
+			if (hourClicked !='...'){
+				$('.headerpost').each(function(index,post){
+					if($(post).attr("hour")==hourClicked){activeDiv=$(post)}
+				});
+				$('body,html').animate({scrollTop: activeDiv.offset().top-$('header').height()+1,easing:"swing"},400,function(){
+					animating = false;
+				});
+			}else if(hourClicked =='...'){
+				// activeDiv =	$('.prepost').first();
+				// $('body,html').animate({scrollTop: activeDiv.offset().top-$('header').height()+1,easing:"swing"},400,function(){
+				// 	animating = false;
+				// });
+			}
+
 			//style
 			$('.elevator-item').each(function(index,elevatoritem){
 				$(elevatoritem).removeClass('elevator-active');
