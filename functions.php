@@ -598,6 +598,8 @@ function filter_search_results_by_time( $posts, $query, $c ) {
     }
   }
 
+  return $posts;
+
 }
 add_filter( 'the_posts', 'filter_search_results_by_time' );
 
