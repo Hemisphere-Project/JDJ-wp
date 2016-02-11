@@ -533,12 +533,30 @@ function filter_search_results_by_time( $posts, $query, $c ) {
         $first = get_post_meta($post->ID,"wpcf-first-post");
         if( $first[0] == 1) {
           $firstkey = $key;
+          $firsthour = date('Gi', get_post_meta($post->ID,"wpcf-time")[0]);
+          echo 'FIRST HOUR  '.$FH;
         }
       }
       $start = array_slice($posts,0,$firstkey+1);
       $end = array_slice($posts,$firstkey+1);
-      $new =  array_merge($end,$start);
-    	return $new;
+      $sorted =  array_merge($end,$start);
+      // return $sorted;
+
+
+      $TNOW = date('Gi')+100;
+      $pastposts = array();
+      foreach($sorted as $key => $post){
+        $timepost = date('Gi', get_post_meta($post->ID,"wpcf-time")[0]);
+        if (($TNOW < $firsthour)&&(($timepost < $TNOW)||($timepost > $firsthour))){
+          array_push($pastposts,$post);
+        }else if (($TNOW > $firsthour)&&(($timepost < $TNOW)&&($timepost > $firsthour))){
+          array_push($pastposts,$post);
+        }
+      }
+      return $pastposts;
+
+
+
     }
     elseif(($type == 'prepost')||is_admin()){
       $hour_array = array();
@@ -553,7 +571,7 @@ function filter_search_results_by_time( $posts, $query, $c ) {
   }
 
 
-  
+
   if(is_admin()){
     if (($type == 'timepost')){
       $hour_array = array();

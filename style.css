@@ -337,7 +337,7 @@ margin-left: 7%;
     TIMELINE PAGE
 \*------------------------------------*/
 .timeline{
-	margin-top: 60px;
+	margin-top: 80px;
 	width:65%;
 	margin-left: 20%;
 	font-size : 0; /* eviter les white space entre les timeposts inlineblock */
