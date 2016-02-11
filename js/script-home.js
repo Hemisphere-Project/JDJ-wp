@@ -192,6 +192,10 @@
 				}
 			});
 
+			$('.headerpost').each(function(index,div){
+				$(this).css('margin-top', '10px');
+			});
+
 		}
 
 
