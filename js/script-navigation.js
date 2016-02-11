@@ -532,6 +532,8 @@
 					showTimeline();
 					stopPlayers();
 					page='time';
+					allButtonsInactive();
+					$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 				});
 				var postdiv =  $('#'+id);
 				$('body, html').animate({scrollTop: postdiv.offset().top-$('header').height()+1,easing:"swing"},400,function(){

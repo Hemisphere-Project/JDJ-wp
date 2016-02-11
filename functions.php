@@ -546,9 +546,9 @@ function filter_search_results_by_time( $posts, $query, $c ) {
       $pastposts = array();
       foreach($sorted as $key => $post){
         $timepost = date('Gi', get_post_meta($post->ID,"wpcf-time")[0]);
-        if (($TNOW < $firsthour)&&(($timepost <= $TNOW)||($timepost > $firsthour))){
+        if (($TNOW < $firsthour)&&(($timepost <= $TNOW)||($timepost >= $firsthour))){
           array_push($pastposts,$post);
-        }else if (($TNOW > $firsthour)&&(($timepost <= $TNOW)&&($timepost > $firsthour))){
+        }else if (($TNOW >= $firsthour)&&(($timepost <= $TNOW)&&($timepost >= $firsthour))){
           array_push($pastposts,$post);
         }
       }
