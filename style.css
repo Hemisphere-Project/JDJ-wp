@@ -642,14 +642,15 @@ margin-right: auto;*/
 	margin-top: 40px;
 	max-width: 20%;
 	margin-left: 12%;
-	cursor: pointer;
+	cursor: default;
 }
 
 .elevator-item{
 		font-size: 12pt;
 }
 .elevator-clickable{
-		color: #E8E7E7
+		color: #E8E7E7;
+		cursor:pointer;
 }
 
 .elevator-active{
