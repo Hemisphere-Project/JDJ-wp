@@ -217,7 +217,7 @@
 		$('.postcontent').click(function(){
 			// page='post';
 			// $('#postoverlay').fadeIn(300);
-			var postId = $(this).parent('.timepost').attr('id');
+			var postId = $(this).parent('.post').attr('id');
 			var postTime = $(this).parent().find('.posttitle').html();
 			var postPosition = $(this).parent().find('.pos_link').attr('value');
 			$('#viewpostmap').hide();
@@ -260,7 +260,7 @@
 
 		$('.pos_link').click(function(){
 			openMap();
-			var postId = $(this).parent('.timepost').attr('id');
+			var postId = $(this).parent('.post').attr('id');
 			var postTime = $(this).parent().find('.posttitle').html();
 			showGeoPost(postId,postTime);
 			unselectAllMarkers();
@@ -381,7 +381,7 @@
 		$('.pos_link').each(function(index, poslink){
 
 			var positiondiv = $(poslink);
-			var postId = positiondiv.parent('.timepost').attr('id');
+			var postId = positiondiv.parent('.post').attr('id');
 			var postTime = positiondiv.parent().find('.posttitle').html();
 			var position = positiondiv.attr('value');
 			var lat= parseFloat(position.substr(0, position.indexOf(',')));

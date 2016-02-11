@@ -51,8 +51,6 @@
 		}
 
 		function colorElevator(){
-			// $('.elevator-item').each(function(index,div){
-			// });
 			// INUTILE DE REFAIRE UNE 2E FOIS CE QU'ON FAIT EN PHP, SE BASER SUR LA PRESENCE OU NON DE HEADERPOSTS
 			$('.headerpost').each(function(index,post){
 				var hour=$(post).attr("hour");
@@ -66,7 +64,7 @@
 		// click
 		var animating = false;
 		var activeDiv;
-		$('.elevator-item').on('click', function(){
+		$('.elevator-clickable').on('click', function(){
 			animating = true;
 			var hourClicked=$(this).text();
 			if (hourClicked !='...'){

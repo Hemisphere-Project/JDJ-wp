@@ -542,21 +542,17 @@ function filter_search_results_by_time( $posts, $query, $c ) {
       $sorted =  array_merge($end,$start);
       // return $sorted;
 
-
       $TNOW = date('Gi')+100;
       $pastposts = array();
       foreach($sorted as $key => $post){
         $timepost = date('Gi', get_post_meta($post->ID,"wpcf-time")[0]);
-        if (($TNOW < $firsthour)&&(($timepost < $TNOW)||($timepost > $firsthour))){
+        if (($TNOW < $firsthour)&&(($timepost <= $TNOW)||($timepost > $firsthour))){
           array_push($pastposts,$post);
-        }else if (($TNOW > $firsthour)&&(($timepost < $TNOW)&&($timepost > $firsthour))){
+        }else if (($TNOW > $firsthour)&&(($timepost <= $TNOW)&&($timepost > $firsthour))){
           array_push($pastposts,$post);
         }
       }
       return $pastposts;
-
-
-
     }
     elseif(($type == 'prepost')||is_admin()){
       $hour_array = array();
@@ -569,8 +565,6 @@ function filter_search_results_by_time( $posts, $query, $c ) {
       return $posts;
     }
   }
-
-
 
   if(is_admin()){
     if (($type == 'timepost')){
