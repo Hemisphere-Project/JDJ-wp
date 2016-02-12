@@ -485,7 +485,7 @@
 		function showGeoPost(id,time){
 			$("#map_post_content").empty();
 			$("#map_post_title").html(time);
-			var loader = $("<img class='maploader' src="+theme_directory+"/img/rolling.svg></img>").appendTo('#map_post_title');
+			var loader = $("<img class='maploader' src="+theme_directory+"/img/gif/rolling.svg></img>").appendTo('#map_post_title');
 
 			// get position from id
 			$.each(allPoints,function(index,point){

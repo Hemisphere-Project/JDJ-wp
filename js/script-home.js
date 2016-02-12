@@ -127,6 +127,13 @@
 
 
 
+	// WINDOW ON LOAD DOES NOT TRIGGER ON IPAD
+	var iOS8 = navigator.userAgent.match(/(iPad|iPhone|iPod).*OS 8_\d/i);
+    if( iOS8 ){
+      setTimeout(function(){
+        $(window).trigger('load');
+      }, 3500);
+    }
 
 
 	});
