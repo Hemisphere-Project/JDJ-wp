@@ -49,7 +49,7 @@ body {
 	height: 100%;
 	z-index: 0;
 	-webkit-filter:brightness(40%);
-	filter: brightness(0.5);
+	filter: brightness(0.4);
 }
 *::-webkit-scrollbar {
   width: 0px;
@@ -522,8 +522,11 @@ margin-left: 7%;
 	padding-top: 2px;
 	padding-bottom: 10px;
 	max-height: 145px;
-		overflow-y: hidden;
-		border-bottom: 10px solid #ABABAB;
+	overflow-y: hidden;
+	border-bottom: 10px solid #ABABAB;
+	/*display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;*/
 }
 .littletext p{
 	margin-top:10px;
@@ -561,7 +564,8 @@ margin-left: 7%;
 	/*position:relative;*/
 	margin-top: 120px;
 	width: 60%;
-	height: 80%;
+	height: auto;
+	max-height: 80%;
 	margin-left: 22%;
 	z-index: 10;
 	background-color: #ABABAB;
@@ -1048,7 +1052,7 @@ margin-right: auto;*/
 	.timeline{
 		margin-top:80px;
 	}
-	
+
 	.headertitle{
 		margin-top: 45px;
 	}

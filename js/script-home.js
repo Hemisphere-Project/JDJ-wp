@@ -96,20 +96,6 @@
 		}
 
 
-	//  $('.onlytextpost p').each(function(index,div){
-	// 	 var txtArray = $(div).html().split('');
- // 		 $(div).empty();
-	// 	 $.each(txtArray,function(index,char){
-	// 		 $(div).append('<span class="singleChar">'+char+'</span>');
-	// 	 });
-	// 	 $('.singleChar').each(function(index,char){
-	// 		 var top = $(char).offset().top - $(char).parent().offset().top;
-	// 		 var postH = $(char).parent().height();
-	// 		 console.log(top+' '+postH);
-	// 		 if (top>postH){ $(char).remove(); }
-	// 	 });
-	//  });
-
 
 
 	// WINDOW ON LOAD DOES NOT TRIGGER ON IPAD
