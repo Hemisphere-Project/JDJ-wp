@@ -117,7 +117,7 @@
     if( iOS8 ){
       setTimeout(function(){
         $(window).trigger('load');
-      }, 3500);
+      }, 7000);
     }
 
 
