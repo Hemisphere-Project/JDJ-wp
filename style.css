@@ -417,6 +417,7 @@ margin-left: 7%;
 }
 
 
+
 .postsubtitle{
 	font-family: OpenSansRegular;
 	height: 18px;
@@ -538,6 +539,7 @@ margin-left: 7%;
 .postcontent{
 	border-top: 2px solid #FF5230;
 	clear:both;
+	cursor:pointer;
 }
 
 
@@ -1062,6 +1064,10 @@ margin-right: auto;*/
 
 	.commentslink{
 		top: 80px;
+	}
+
+	#postdetails{
+		margin-top: 80px;
 	}
 }
 
