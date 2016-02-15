@@ -18,6 +18,7 @@
 					'posts_per_page'=> -1);
 				$loop = new WP_Query( $args );
 				while ( $loop->have_posts() ) : $loop->the_post();
+
 				$header=types_render_field( "hourheader");
 				$image=types_render_field( "image");
 				$audio=types_render_field( "audio");
@@ -59,8 +60,8 @@
   						<?php	if ($text && !$image && !$audio){ ?> <div class="onlytextpost"><?php echo types_render_field("text") ?></div> <?php } ?>
             </div>
 				</div>
-
         <?php } ?>
+
 				<?php endwhile; ?>
 
         <br><br>
