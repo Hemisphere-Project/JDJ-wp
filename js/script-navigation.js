@@ -111,6 +111,11 @@
 					showTimeline();
 				});
 			}
+			if (page=='tweets'){
+				$('#tweets').fadeOut(200, function(){
+					showTimeline();
+				});
+			}
 			if (page=='post'){
 				$('#postoverlay').fadeOut(200);
 				$('html').css('overflow-y','scroll');
@@ -165,6 +170,34 @@
 			allButtonsInactive();
 			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 		});
+
+		//////////////////////////////////////////////////////////
+		/////////////////////    TWEETS     ///////////////////////
+		//////////////////////////////////////////////////////////
+
+		// // OPEN
+		// $('#infosheader').click(function(){
+		// 	openTweets();
+		// });
+		// function openTweets(){
+		// 	page = 'tweets';
+		// 	stopPlayers();
+		// 	$("#postoverlay").hide();
+		// 	$('#map').hide();
+		// 	hideTimeline();
+		// 	$('#tweets').fadeIn(200);
+		// 	allButtonsInactive();
+		// 	$('#infosheader').children('img').attr("src", theme_directory+"/img/buttons/info_orange.png");
+		// }
+		// // CLOSE
+		// $('#closeinfos').click(function() {
+		// 	page='time';
+		// 	$('#tweets').fadeOut(200, function(){
+		// 		showTimeline();
+		// 	});
+		// 	allButtonsInactive();
+		// 	$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
+		// });
 
 
 

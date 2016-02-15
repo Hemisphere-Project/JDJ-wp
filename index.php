@@ -138,12 +138,28 @@
   <div id="infos" class="popup">
     <div id="closeinfos" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
     <div class='popuptitle'>A Propos</div>
-    <div class='infoscontent'>
+    <div class='popupcontent'>
     <?php
       $infospage = get_page_by_title('infos');
       $post = $infospage->post_content;
       echo $post;
     ?>
+    </div>
+  </div>
+
+  <div id="tweets" class="popup">
+    <div id="closetweets" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
+    <div class='popuptitle'>Au #bordumonde</div>
+    <div class='popupcontent'>
+
+      
+
+      <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/bordumonde" data-widget-id="699274680901988352">Tweets sur #bordumonde</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+          <?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-1')) ?>
+
     </div>
   </div>
 
