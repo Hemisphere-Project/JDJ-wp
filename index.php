@@ -173,33 +173,34 @@
       $data = json_decode($data);
       $data_hashtag = $data->statuses;
 
-      foreach ($data_hashtag as $result) {
+      foreach ($data_hashtag as $tweet) {
 
         echo '<div class="tweet">';
 
-        $profileurl = $result->user->profile_image_url;
-        echo '<img src='.$profileurl.'>';
+        $profileurl = $tweet->user->profile_image_url;
+        echo '<img class="twitter_profilepic" src='.$profileurl.'>';
 
-        echo '<div class="twitter_id">'.$result->user->screen_name.'</div>';
-        echo $result->text. "\n";
+        echo '<div class="twitter_content">';
+          echo '<div class="twitter_id">'.$tweet->user->screen_name.'</div>';
+          $datetime = new DateTime($tweet->created_at);
+          echo '<div class="twitter_date"> le '.$datetime->format('d/m/Y').' à '.$datetime->format('G\hi').'</div>';
 
-        $img = $result->entities->media[0]->media_url;
-        echo '<img src='.$img.'>';
+          echo '<div class="twitter_text">'.$tweet->text.'</div>';
 
-        $url = $result->entities->urls[0]->expanded_url;
-        $shorturl = $result->entities->urls[0]->display_url;
-        echo '<a href='.$url.'>'.$shorturl.'</a>';
+          $img = $tweet->entities->media[0]->media_url;
+          if ($img) {
+            echo '<img class="twitter_image" src='.$img.'>';
+          }
 
-        echo '<br>';
-        $datetime = new DateTime($result->created_at);
-        echo 'le '.$datetime->format('d/m/Y').' à '.$datetime->format('G\hi');
+          $url = $tweet->entities->urls[0]->expanded_url;
+          $shorturl = $tweet->entities->urls[0]->display_url;
+          echo '<a class="twitter_link" href='.$url.'>'.$shorturl.'</a>';
 
+        echo '</div>';
         echo '</div>';
 
         echo '<br>';
       }
-
-
       ?>
 
     </div>

@@ -820,11 +820,36 @@ margin-right: auto;*/
 /*------------------------------------*\
     TWITTER
 \*------------------------------------*/
+.twitter_profilepic{
+	margin-top: 0px;
+	float: left;
+	margin-right: 5px;
+	margin-top: 3px;
+}
 
+.twitter_content{
+	width:80%;
+	margin-left: 10%;
+	display:block;
+}
 .twitter_id{
-	display:inline;
 	font-size: 12pt;
 	font-weight: bold;
+}
+
+.twitter_date{
+	font-size: 10pt;
+	font-style: italic;
+}
+
+.twitter_text{
+
+}
+.twitter_link{
+	font-weight: bold;
+}
+.twitter_image{
+	margin-top:10px;
 }
 
 /*------------------------------------*\
