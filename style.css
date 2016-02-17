@@ -199,6 +199,15 @@ input:focus {
 #infosheader img:active{
 	content: url(img/buttons/info_orange.png);
 }
+#tweetsheader{
+	cursor:pointer;
+	margin-top:25px;
+	position: absolute;
+	left: 90%;
+}
+#tweetsheader img:active{
+	content: url(img/buttons/info_orange.png);
+}
 
 /*------------------------------------*\
     INFOS PAGE

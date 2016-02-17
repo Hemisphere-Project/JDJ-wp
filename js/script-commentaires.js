@@ -15,6 +15,10 @@
 		$('#placeheader').on('click',function(){
 			document.location.href="/#map";
 		});
+		$('#tweetsheader').on('click',function(){
+			document.location.href="/#tweets";
+		});
+
 
 		$('html').mousedown(function(e) {
 			document.location.href="/";
