@@ -147,57 +147,57 @@
 		/////////////////////    INFOS     ///////////////////////
 		//////////////////////////////////////////////////////////
 
-		// OPEN
-		$('#infosheader').click(function(){
-			openInfos();
-		});
-		function openInfos(){
-			page = 'infos';
-			stopPlayers();
-			$("#postoverlay").hide();
-			$('#map').hide();
-			hideTimeline();
-			$('#infos').fadeIn(200);
-			allButtonsInactive();
-			$('#infosheader').children('img').attr("src", theme_directory+"/img/buttons/info_orange.png");
-		}
-		// CLOSE
-		$('#closeinfos').click(function() {
-			page='time';
-			$('#infos').fadeOut(200, function(){
-				showTimeline();
-			});
-			allButtonsInactive();
-			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
-		});
-
-		//////////////////////////////////////////////////////////
-		/////////////////////    TWEETS     ///////////////////////
-		//////////////////////////////////////////////////////////
-
 		// // OPEN
 		// $('#infosheader').click(function(){
-		// 	openTweets();
+		// 	openInfos();
 		// });
-		// function openTweets(){
-		// 	page = 'tweets';
+		// function openInfos(){
+		// 	page = 'infos';
 		// 	stopPlayers();
 		// 	$("#postoverlay").hide();
 		// 	$('#map').hide();
 		// 	hideTimeline();
-		// 	$('#tweets').fadeIn(200);
+		// 	$('#infos').fadeIn(200);
 		// 	allButtonsInactive();
 		// 	$('#infosheader').children('img').attr("src", theme_directory+"/img/buttons/info_orange.png");
 		// }
 		// // CLOSE
 		// $('#closeinfos').click(function() {
 		// 	page='time';
-		// 	$('#tweets').fadeOut(200, function(){
+		// 	$('#infos').fadeOut(200, function(){
 		// 		showTimeline();
 		// 	});
 		// 	allButtonsInactive();
 		// 	$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 		// });
+
+		//////////////////////////////////////////////////////////
+		/////////////////////    TWEETS     ///////////////////////
+		//////////////////////////////////////////////////////////
+
+		// OPEN
+		$('#infosheader').click(function(){
+			openTweets();
+		});
+		function openTweets(){
+			page = 'tweets';
+			stopPlayers();
+			$("#postoverlay").hide();
+			$('#map').hide();
+			hideTimeline();
+			$('#tweets').fadeIn(200);
+			allButtonsInactive();
+			$('#infosheader').children('img').attr("src", theme_directory+"/img/buttons/info_orange.png");
+		}
+		// CLOSE
+		$('#closeinfos').click(function() {
+			page='time';
+			$('#tweets').fadeOut(200, function(){
+				showTimeline();
+			});
+			allButtonsInactive();
+			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
+		});
 
 
 

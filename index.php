@@ -151,14 +151,56 @@
     <div id="closetweets" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
     <div class='popuptitle'>Au #bordumonde</div>
     <div class='popupcontent'>
+      <?php //if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-1')) ?>
+      <?php
 
-      
+      require_once('twitter-api-php-master/TwitterAPIExchange.php');
 
-      <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/bordumonde" data-widget-id="699274680901988352">Tweets sur #bordumonde</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      $settings = array(
+          'oauth_access_token' => "3131098684-fB5vUDKy7MYoSgPsl6cHwm0gMOiFKl1VHgHe9mw",
+          'oauth_access_token_secret' => "tAphACM55IdmAywQXCb3fcHpxxD3xnakiGSLO1e0iurjs",
+          'consumer_key' => "6ycyOdjLlV9Q4k5nhdNtqVRCM",
+          'consumer_secret' => "c1hhAvuQgqBGNTBXG525RgR2crWCfqSnnJcGLnDv5LdKimEnk5"
+      );
+      $url = 'https://api.twitter.com/1.1/search/tweets.json';
+      $getfield = '?q=%23bordumonde&count=100';
+
+      $requestMethod = 'GET';
+      $twitter = new TwitterAPIExchange($settings);
+      $data = $twitter->setGetfield($getfield)
+               ->buildOauth($url, $requestMethod)
+               ->performRequest();
+      $data = json_decode($data);
+      $data_hashtag = $data->statuses;
+
+      foreach ($data_hashtag as $result) {
+
+        echo '<div class="tweet">';
+
+        $profileurl = $result->user->profile_image_url;
+        echo '<img src='.$profileurl.'>';
+
+        echo '<div class="twitter_id">'.$result->user->screen_name.'</div>';
+        echo $result->text. "\n";
+
+        $img = $result->entities->media[0]->media_url;
+        echo '<img src='.$img.'>';
+
+        $url = $result->entities->urls[0]->expanded_url;
+        $shorturl = $result->entities->urls[0]->display_url;
+        echo '<a href='.$url.'>'.$shorturl.'</a>';
+
+        echo '<br>';
+        $datetime = new DateTime($result->created_at);
+        echo 'le '.$datetime->format('d/m/Y').' à '.$datetime->format('G\hi');
+
+        echo '</div>';
+
+        echo '<br>';
+      }
 
 
-          <?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-1')) ?>
+      ?>
 
     </div>
   </div>
