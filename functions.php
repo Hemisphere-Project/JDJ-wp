@@ -472,7 +472,59 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 
 
 
-function filter_search_results_by_time( $posts, $query, $c ) {
+function sortpostsbytime($posts){
+  foreach($posts as $key => $post){
+    $source = get_post_meta($post->ID,"wpcf-time");
+    $time = date('Gi', $source[0]);
+    $hour_array[$key] = $time;
+  }
+  array_multisort($hour_array, SORT_DESC, $posts);
+  foreach($posts as $key => $post){
+    $first = get_post_meta($post->ID,"wpcf-first-post");
+    if( $first[0] == 1) {
+      $firstkey = $key;
+    }
+  }
+  $start = array_slice($posts,0,$firstkey+1);
+  $end = array_slice($posts,$firstkey+1);
+  $sorted =  array_merge($end,$start);
+  return $sorted;
+}
+
+function sortpostsbytime_CLOCK($posts){
+  $hour_array = array();
+  foreach($posts as $key => $post){
+    $source = get_post_meta($post->ID,"wpcf-time");
+    $time = date('Gi', $source[0]);
+    $hour_array[$key] = $time;
+  }
+  array_multisort($hour_array, SORT_DESC, $posts);
+  foreach($posts as $key => $post){
+    $first = get_post_meta($post->ID,"wpcf-first-post");
+    if( $first[0] == 1) {
+      $firstkey = $key;
+      $firsthour = date('Gi', get_post_meta($post->ID,"wpcf-time")[0]);
+    }
+  }
+  $start = array_slice($posts,0,$firstkey+1);
+  $end = array_slice($posts,$firstkey+1);
+  $sorted =  array_merge($end,$start);
+
+  $TNOW = date('Gi')+100;
+  $pastposts = array();
+  foreach($sorted as $key => $post){
+    $timepost = date('Gi', get_post_meta($post->ID,"wpcf-time")[0]);
+    if (($TNOW < $firsthour)&&(($timepost <= $TNOW)||($timepost >= $firsthour))){
+      array_push($pastposts,$post);
+    }else if (($TNOW >= $firsthour)&&(($timepost <= $TNOW)&&($timepost >= $firsthour))){
+      array_push($pastposts,$post);
+    }
+  }
+  return $pastposts;
+}
+
+
+function filter_loop( $posts, $query, $c ) {
 	global $wp_query, $wpdb;
 
 	if ( !count( $posts ) ){
@@ -482,88 +534,143 @@ function filter_search_results_by_time( $posts, $query, $c ) {
   $type = $posts[0]->post_type;
   // foreach ($posts as $key => $post) { $type = $post->post_type; } // WHAT'S BETTER ???
 
-  if(!is_admin()){
-    if (($type == 'timepost')){
-      $hour_array = array();
-      foreach($posts as $key => $post){
-        $source = get_post_meta($post->ID,"wpcf-time");
-        $time = date('Gi', $source[0]);
-      	$hour_array[$key] = $time;
-      }
-      array_multisort($hour_array, SORT_DESC, $posts);
-      foreach($posts as $key => $post){
-        $first = get_post_meta($post->ID,"wpcf-first-post");
-        if( $first[0] == 1) {
-          $firstkey = $key;
-          $firsthour = date('Gi', get_post_meta($post->ID,"wpcf-time")[0]);
-          echo 'FIRST HOUR  '.$FH;
-        }
-      }
-      $start = array_slice($posts,0,$firstkey+1);
-      $end = array_slice($posts,$firstkey+1);
-      $sorted =  array_merge($end,$start);
-      // return $sorted;
+  // $eventstate = 'pre';
+  // $eventstate = 'time';
+  // $eventstate = 'after';
+  // $eventstate = 'all';
+  $eventstate = 'all';
 
-      $TNOW = date('Gi')+100;
-      $pastposts = array();
-      foreach($sorted as $key => $post){
-        $timepost = date('Gi', get_post_meta($post->ID,"wpcf-time")[0]);
-        if (($TNOW < $firsthour)&&(($timepost <= $TNOW)||($timepost >= $firsthour))){
-          array_push($pastposts,$post);
-        }else if (($TNOW >= $firsthour)&&(($timepost <= $TNOW)&&($timepost >= $firsthour))){
-          array_push($pastposts,$post);
-        }
-      }
-      return $pastposts;
+
+  if(!is_admin()){
+    if ($eventstate=='time'){
+      if (($type == 'prepost')){ return sortpostsbytime($posts); }
+      if(($type == 'timepost')){ return sortpostsbytime_CLOCK($posts); }
+      if(($type == 'afterpost')){ return; }
     }
-    elseif(($type == 'prepost')||is_admin()){
-      $hour_array = array();
-      foreach($posts as $key => $post){
-        $source = get_post_meta($post->ID,"wpcf-time");
-        $time = date('Gi', $source[0]);
-      	$hour_array[$key] = $time;
-      }
-      array_multisort($hour_array, SORT_DESC, $posts);
-      return $posts;
+    if ($eventstate=='pre'){
+      if (($type == 'prepost')){ return sortpostsbytime_CLOCK($posts); }
+      if(($type == 'timepost')){ return; }
+      if(($type == 'afterpost')){ return; }
     }
+    if ($eventstate=='after'){
+      if (($type == 'prepost')){ return sortpostsbytime($posts); }
+      if(($type == 'timepost')){ return sortpostsbytime($posts); }
+      if(($type == 'afterpost')){ return sortpostsbytime_CLOCK($posts); }
+    }
+    if ($eventstate=='all'){
+      if (($type == 'prepost')){ return sortpostsbytime($posts); }
+      if(($type == 'timepost')){ return sortpostsbytime($posts); }
+      if(($type == 'afterpost')){ return sortpostsbytime($posts);
+      }
+    }
+
   }
 
+
   if(is_admin()){
-    if (($type == 'timepost')){
-      $hour_array = array();
-      foreach($posts as $key => $post){
-        $source = get_post_meta($post->ID,"wpcf-time");
-        $time = date('Gi', $source[0]);
-      	$hour_array[$key] = $time;
-      }
-      array_multisort($hour_array, SORT_DESC, $posts);
-      foreach($posts as $key => $post){
-        $first = get_post_meta($post->ID,"wpcf-first-post");
-        if( $first[0] == 1) {
-          $firstkey = $key;
-        }
-      }
-      $start = array_slice($posts,0,$firstkey+1);
-      $end = array_slice($posts,$firstkey+1);
-      $new =  array_merge($end,$start);
-    	return $new;
-    }
-    elseif(($type == 'prepost')||is_admin()){
-      $hour_array = array();
-      foreach($posts as $key => $post){
-        $source = get_post_meta($post->ID,"wpcf-time");
-        $time = date('Gi', $source[0]);
-      	$hour_array[$key] = $time;
-      }
-      array_multisort($hour_array, SORT_DESC, $posts);
-      return $posts;
+    if (($type == 'timepost')||($type == 'prepost')||($type == 'afterpost')){
+      return sortpostsbytime($posts);
     }
   }
 
   return $posts;
 
 }
-add_filter( 'the_posts', 'filter_search_results_by_time' );
+add_filter( 'the_posts', 'filter_loop' );
+
+
+// function filter_search_results_by_time( $posts, $query, $c ) {
+// 	global $wp_query, $wpdb;
+//
+// 	if ( !count( $posts ) ){
+// 		return $posts;
+// 	}
+//
+//   $type = $posts[0]->post_type;
+//   // foreach ($posts as $key => $post) { $type = $post->post_type; } // WHAT'S BETTER ???
+//
+//   if(!is_admin()){
+//     if (($type == 'timepost')){
+//       $hour_array = array();
+//       foreach($posts as $key => $post){
+//         $source = get_post_meta($post->ID,"wpcf-time");
+//         $time = date('Gi', $source[0]);
+//       	$hour_array[$key] = $time;
+//       }
+//       array_multisort($hour_array, SORT_DESC, $posts);
+//       foreach($posts as $key => $post){
+//         $first = get_post_meta($post->ID,"wpcf-first-post");
+//         if( $first[0] == 1) {
+//           $firstkey = $key;
+//           $firsthour = date('Gi', get_post_meta($post->ID,"wpcf-time")[0]);
+//           echo 'FIRST HOUR  '.$FH;
+//         }
+//       }
+//       $start = array_slice($posts,0,$firstkey+1);
+//       $end = array_slice($posts,$firstkey+1);
+//       $sorted =  array_merge($end,$start);
+//       // return $sorted;
+//
+//       $TNOW = date('Gi')+100;
+//       $pastposts = array();
+//       foreach($sorted as $key => $post){
+//         $timepost = date('Gi', get_post_meta($post->ID,"wpcf-time")[0]);
+//         if (($TNOW < $firsthour)&&(($timepost <= $TNOW)||($timepost >= $firsthour))){
+//           array_push($pastposts,$post);
+//         }else if (($TNOW >= $firsthour)&&(($timepost <= $TNOW)&&($timepost >= $firsthour))){
+//           array_push($pastposts,$post);
+//         }
+//       }
+//       return $pastposts;
+//     }
+//     elseif(($type == 'prepost')||is_admin()){
+//       $hour_array = array();
+//       foreach($posts as $key => $post){
+//         $source = get_post_meta($post->ID,"wpcf-time");
+//         $time = date('Gi', $source[0]);
+//       	$hour_array[$key] = $time;
+//       }
+//       array_multisort($hour_array, SORT_DESC, $posts);
+//       return $posts;
+//     }
+//   }
+//
+//   if(is_admin()){
+//     if (($type == 'timepost')){
+//       $hour_array = array();
+//       foreach($posts as $key => $post){
+//         $source = get_post_meta($post->ID,"wpcf-time");
+//         $time = date('Gi', $source[0]);
+//       	$hour_array[$key] = $time;
+//       }
+//       array_multisort($hour_array, SORT_DESC, $posts);
+//       foreach($posts as $key => $post){
+//         $first = get_post_meta($post->ID,"wpcf-first-post");
+//         if( $first[0] == 1) {
+//           $firstkey = $key;
+//         }
+//       }
+//       $start = array_slice($posts,0,$firstkey+1);
+//       $end = array_slice($posts,$firstkey+1);
+//       $new =  array_merge($end,$start);
+//     	return $new;
+//     }
+//     elseif(($type == 'prepost')||is_admin()){
+//       $hour_array = array();
+//       foreach($posts as $key => $post){
+//         $source = get_post_meta($post->ID,"wpcf-time");
+//         $time = date('Gi', $source[0]);
+//       	$hour_array[$key] = $time;
+//       }
+//       array_multisort($hour_array, SORT_DESC, $posts);
+//       return $posts;
+//     }
+//   }
+//
+//   return $posts;
+//
+// }
+// add_filter( 'the_posts', 'filter_search_results_by_time' );
 
 
 /*------------------------------------*\
