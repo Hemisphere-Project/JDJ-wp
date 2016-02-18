@@ -194,7 +194,7 @@
 
           $url = $tweet->entities->urls[0]->expanded_url;
           $shorturl = $tweet->entities->urls[0]->display_url;
-          echo '<a class="twitter_link" href='.$url.'>'.$shorturl.'</a>';
+          echo '<a class="twitter_link" target="_blank" href='.$url.'>'.$shorturl.'</a>';
 
         echo '</div>';
         echo '</div>';
