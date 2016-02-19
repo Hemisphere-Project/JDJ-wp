@@ -52,7 +52,7 @@
 						<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/info_grey.png">
 					</div>
 					<div id='tweetsheader'>
-						<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/info_grey.png">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/hashtag_grey.png">
 					</div>
 
 

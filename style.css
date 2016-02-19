@@ -192,21 +192,21 @@ input:focus {
 
 #infosheader{
 	cursor:pointer;
-	margin-top:25px;
+	margin-top:24px;
 	position: absolute;
-	left: 84%;
+	left: 89%;
 }
 #infosheader img:active{
 	content: url(img/buttons/info_orange.png);
 }
 #tweetsheader{
 	cursor:pointer;
-	margin-top:25px;
+	margin-top:24px;
 	position: absolute;
-	left: 90%;
+	left: 83%;
 }
 #tweetsheader img:active{
-	content: url(img/buttons/info_orange.png);
+	content: url(img/buttons/hashtag_orange.png);
 }
 
 /*------------------------------------*\
@@ -993,7 +993,11 @@ margin-right: auto;*/
 	}
 	#infosheader{
 		margin-top:6px;
-		left: 90%;
+		left: 91%;
+	}
+	#tweetsheader{
+		margin-top:42px;
+		left: 91%;
 	}
 
 	/*------------------------------------*\

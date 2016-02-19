@@ -68,7 +68,7 @@
 			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_grey.png");
 			$('#placeheader').children('img').attr("src", theme_directory+"/img/buttons/place_grey.png");
 			$('#infosheader').children('img').attr("src", theme_directory+"/img/buttons/info_grey.png");
-			$('#tweetsheader').children('img').attr("src", theme_directory+"/img/buttons/info_grey.png");
+			$('#tweetsheader').children('img').attr("src", theme_directory+"/img/buttons/hashtag_grey.png");
 		}
 
 
@@ -191,7 +191,7 @@
 			hideEverything();
 			allButtonsInactive();
 			$('#tweets').fadeIn(200);
-			$('#tweetsheader').children('img').attr("src", theme_directory+"/img/buttons/info_orange.png");
+			$('#tweetsheader').children('img').attr("src", theme_directory+"/img/buttons/hashtag_orange.png");
 		}
 		// CLOSE
 		$('#closetweets').click(function() {
