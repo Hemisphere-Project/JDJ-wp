@@ -529,7 +529,8 @@ function get_event_state(){
   // $eventstate = 'after';
   // $eventstate = 'all';
   $eventstate = file_get_contents('http://app.journaldunseuljour.fr/server/db/event_state.db');
-  return $eventstate;
+  if($eventstate){ return $eventstate; }
+  else{ return 'all';}
 }
 
 function filter_loop( $posts, $query, $c ) {
