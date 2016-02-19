@@ -528,15 +528,8 @@ function get_event_state(){
   // $eventstate = 'time';
   // $eventstate = 'after';
   // $eventstate = 'all';
-
-  $filename = $_POST['filename'];
-  if (isExtValid($filename, 'raw')) {
-    $contents = file_get_contents('http://app.journaldunseuljour.fr/server/db/event_state.db');
-    echo $contents;
-    echo 'jueygfjdshgfkdjshfgksdjhfgskdjfhgdskjfhgsdkjfhgsdfkjhsdgfksdjhgfsdkjhfgkfsjhgk';
-  }
-
-  return 'all';
+  $eventstate = file_get_contents('http://app.journaldunseuljour.fr/server/db/event_state.db');
+  return $eventstate;
 }
 
 function filter_loop( $posts, $query, $c ) {
