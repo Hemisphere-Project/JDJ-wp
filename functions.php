@@ -523,23 +523,29 @@ function sortpostsbytime_CLOCK($posts){
   return $pastposts;
 }
 
-
-function filter_loop( $posts, $query, $c ) {
-	global $wp_query, $wpdb;
-
-	if ( !count( $posts ) ){
-		return $posts;
-	}
-
-  $type = $posts[0]->post_type;
-  // foreach ($posts as $key => $post) { $type = $post->post_type; } // WHAT'S BETTER ???
-
+function get_event_state(){
   // $eventstate = 'pre';
   // $eventstate = 'time';
   // $eventstate = 'after';
   // $eventstate = 'all';
-  $eventstate = 'all';
 
+  $filename = $_POST['filename'];
+  if (isExtValid($filename, 'raw')) {
+    $contents = file_get_contents('http://app.journaldunseuljour.fr/server/db/event_state.db');
+    echo $contents;
+    echo 'jueygfjdshgfkdjshfgksdjhfgskdjfhgdskjfhgsdkjfhgsdfkjhsdgfksdjhgfsdkjhfgkfsjhgk';
+  }
+
+  return 'all';
+}
+
+function filter_loop( $posts, $query, $c ) {
+	global $wp_query, $wpdb;
+	if ( !count( $posts ) ){ return $posts;	}
+
+  $type = $posts[0]->post_type;
+  // foreach ($posts as $key => $post) { $type = $post->post_type; } // WHAT'S BETTER ???
+  $eventstate = get_event_state();
 
   if(!is_admin()){
     if ($eventstate=='time'){
@@ -563,19 +569,15 @@ function filter_loop( $posts, $query, $c ) {
       if(($type == 'afterpost')){ return sortpostsbytime($posts);
       }
     }
-
   }
-
-
   if(is_admin()){
     if (($type == 'timepost')||($type == 'prepost')||($type == 'afterpost')){
       return sortpostsbytime($posts);
     }
   }
-
   return $posts;
-
 }
+
 add_filter( 'the_posts', 'filter_loop' );
 
 
