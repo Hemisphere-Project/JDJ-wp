@@ -528,9 +528,18 @@ function get_event_state(){
   // $eventstate = 'time';
   // $eventstate = 'after';
   // $eventstate = 'all';
+  // $eventstate = 'off';
   $eventstate = file_get_contents('http://app.journaldunseuljour.fr/server/db/event_state.db');
-  if($eventstate){ return $eventstate; }
-  else{ return 'all';}
+  // if( current_user_can('editor') || current_user_can('administrator') ) {  }
+  $user = wp_get_current_user();
+  $allowed_roles = array('editor', 'administrator', 'author');
+  if( array_intersect($allowed_roles, $user->roles ) ) {
+    return 'time';
+  }else{
+    if($eventstate){ return $eventstate; }
+    else{ return 'all';}
+  }
+
 }
 
 function filter_loop( $posts, $query, $c ) {
