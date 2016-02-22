@@ -10,6 +10,15 @@
 		$('#timeheader, #placeheader, #infosheader, #tweetsheader').hide();
 		$('#offpage').show();
 
+
+		// FILL EVENTS dropdown
+
+		
+
+
+
+
+
 });
 
 })(jQuery, this);

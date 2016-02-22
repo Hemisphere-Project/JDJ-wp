@@ -54,6 +54,7 @@ body {
 *::-webkit-scrollbar {
   width: 0px;
 }
+
 /* clear */
 .clear:before,
 .clear:after {
@@ -293,9 +294,9 @@ input:focus {
 	border-top: 1px dashed white;
 }
 
-#comments .comment-form-comment label{
+/*#comments .comment-form-comment label{
 	text:'iehslkjh';
-}
+}*/
 
 
 /*------ RESPOND -------*/
@@ -860,6 +861,49 @@ margin-right: auto;*/
 }
 
 /*------------------------------------*\
+    INSCRIPTION
+\*------------------------------------*/
+
+.dropdown{
+  font-family: "Lato";
+  font-size:10pt;
+  background: url(img/arrow.png) no-repeat right #FFFFFF;
+  border: none;
+  border: 1px solid lightgrey;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  }
+  .dropdown:focus{
+    outline: none;
+  }
+  .big{
+    width:40%;
+    margin-top:8px;
+    height: 25px;
+    padding-left: 4px;
+  }
+
+	#telinput{
+		width:40%;
+		outline: none;
+		border:0px none;
+		margin-bottom:10px;
+	}
+	#telinput:focus{
+		outline: none;
+		border:0px none;
+	}
+
+	.inscription input[type=submit] {
+		color: white;
+		padding:5px 15px;
+		background:#FF5230;
+		border:0 none;
+	  -webkit-border-radius: 5px;
+	  border-radius: 5px;
+	}
+
+/*------------------------------------*\
 	TYPOGRAPHY
 \*------------------------------------*/
 
@@ -1041,11 +1085,12 @@ margin-right: auto;*/
 		top: 100px;
 		left: 0%;
 		width: 100%;
-		height: 100%;
+		height: 90%;
 		border-radius: 0px;
 		padding: 2%;
 		font-size: 11pt;
 		overflow-y:scroll;
+		padding-bottom:80px;
 	}
 	#postdetails{
 		position:relative;

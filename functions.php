@@ -536,12 +536,17 @@ function get_event_state(){
   $user = wp_get_current_user();
   $allowed_roles = array('editor', 'administrator', 'author');
   if( array_intersect($allowed_roles, $user->roles ) ) {
-    return 'all';
+    return 'off'; //all
   }else{
     if($eventstate){ return $eventstate; }
     else{ return 'off';}
   }
 }
+
+// function get_events(){
+//   $events = file_get_contents('http://app.journaldunseuljour.fr/server/db/show_beta.db');
+//   echo $events;
+// }
 
 function filter_loop( $posts, $query, $c ) {
 	global $wp_query, $wpdb;
@@ -638,8 +643,6 @@ function wpsites_modify_comment_form_text_area($arg) {
     return $arg;
 }
 add_filter('comment_form_defaults', 'wpsites_modify_comment_form_text_area');
-
-
 
 
 
