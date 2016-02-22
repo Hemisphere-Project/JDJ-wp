@@ -534,7 +534,7 @@ function get_event_state(){
   $user = wp_get_current_user();
   $allowed_roles = array('editor', 'administrator', 'author');
   if( array_intersect($allowed_roles, $user->roles ) ) {
-    return 'time';
+    return 'all';
   }else{
     if($eventstate){ return $eventstate; }
     else{ return 'all';}

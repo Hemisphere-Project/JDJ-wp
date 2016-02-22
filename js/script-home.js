@@ -20,19 +20,21 @@
 				var hour=$(post).attr("hour");
 			});
 			var firsttimepost = $( ".timepost" ).last();
-			var firsthour = parseInt(firsttimepost.attr("hour").substr(0, 2))+1;
-
-			// build elevator
-			var hoursArray = [];
-			for(var k=23;k>=0;k--){ hoursArray.push(k); }
-			var firstindex = 24-firsthour;
-			var start = hoursArray.slice(firstindex);
-			var end = hoursArray.slice(0,firstindex);
-			hoursArray = $.merge(start,end);
-			$.each(hoursArray,function(index,hour){
-				$(".elevator").append('<div id='+hour+'h00'+' class="elevator-item">'+hour+'h00'+'</div>');
-			});
-			$(".elevator").append('<div id=elevator-preposts class="elevator-item elevator-clickable">...</div>');
+			// exclude en 'pre' spectacle
+			if(firsttimepost.hasClass('timepost')){
+				var firsthour = parseInt(firsttimepost.attr("hour").substr(0, 2))+1;
+				// build elevator
+				var hoursArray = [];
+				for(var k=23;k>=0;k--){ hoursArray.push(k); }
+				var firstindex = 24-firsthour;
+				var start = hoursArray.slice(firstindex);
+				var end = hoursArray.slice(0,firstindex);
+				hoursArray = $.merge(start,end);
+				$.each(hoursArray,function(index,hour){
+					$(".elevator").append('<div id='+hour+'h00'+' class="elevator-item">'+hour+'h00'+'</div>');
+				});
+				$(".elevator").append('<div id=elevator-preposts class="elevator-item elevator-clickable">...</div>');
+			}
 		}
 
 		function colorElevator(){
