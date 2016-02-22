@@ -13,7 +13,17 @@
 
 		// FILL EVENTS dropdown
 
-		
+		$.ajax({
+				url: theme_directory+"/js/files.php",
+				type: "POST",
+				data: {
+						// action: 'load',
+						// filename: name
+				}
+		})
+		.done(function(response){
+			console.log(response);
+		});
 
 
 
