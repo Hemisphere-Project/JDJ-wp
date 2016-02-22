@@ -194,7 +194,7 @@ input:focus {
 	cursor:pointer;
 	margin-top:24px;
 	position: absolute;
-	left: 89%;
+	left: 78%;
 }
 #infosheader img:active{
 	content: url(img/buttons/info_orange.png);
@@ -203,10 +203,17 @@ input:focus {
 	cursor:pointer;
 	margin-top:24px;
 	position: absolute;
-	left: 83%;
+	left: 82.5%;
 }
 #tweetsheader img:active{
 	content: url(img/buttons/hashtag_orange.png);
+}
+
+#socialheader{
+	cursor:pointer;
+	margin-top:24px;
+	position: absolute;
+	left: 87%;
 }
 
 /*------------------------------------*\
@@ -999,6 +1006,10 @@ margin-right: auto;*/
 		margin-top:42px;
 		left: 91%;
 	}
+	#socialheader{
+		display:none;
+	}
+
 
 	/*------------------------------------*\
 			TIMELINE
