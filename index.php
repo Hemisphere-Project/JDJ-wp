@@ -8,6 +8,26 @@
     <div id="startoverlay"><img src="<?php echo get_template_directory_uri(); ?>/img/gif/rolling.svg"> </div>
 		<section class="elevator"></section>
 		<section class="timeline">
+
+      <?php
+       $args = array(
+      	 'post_type' => 'afterpost',
+      	 'posts_per_page'=> -1);
+       $loop = new WP_Query( $args );
+       while ( $loop->have_posts() ) : $loop->the_post(); endwhile;
+       $args = array(
+        'post_type' => 'prepostpost',
+        'posts_per_page'=> -1);
+       $loop = new WP_Query( $args );
+       while ( $loop->have_posts() ) : $loop->the_post(); endwhile;
+       $args = array(
+        'post_type' => 'timepost',
+        'posts_per_page'=> -1);
+       $loop = new WP_Query( $args );
+       while ( $loop->have_posts() ) : $loop->the_post(); endwhile;
+
+       ?>
+
       <?php if(get_event_state()!='off'): get_template_part('loop'); ?>
 		</section>
 	</main>

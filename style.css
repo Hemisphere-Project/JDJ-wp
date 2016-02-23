@@ -865,7 +865,7 @@ margin-right: auto;*/
 \*------------------------------------*/
 
 .dropdown{
-  font-family: "Lato";
+  font-family: inherit;
   font-size:10pt;
   background: url(img/arrow.png) no-repeat right #FFFFFF;
   border: none;
