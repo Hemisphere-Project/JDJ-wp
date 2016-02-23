@@ -530,7 +530,11 @@ function sortpostsbytime_CLOCK($posts){
 }
 
 function get_event_state(){
-  // 'pre'  'time'  'after'  'all'  'off'
+  // 'pre' = 24h avant le début
+  // 'time' = après le début, pendant 24h
+  // 'after' = après la fin pendant 24h
+  // 'all' = après le after pendant 48h
+  // 'off' sinon
   $eventstate = file_get_contents('http://app.journaldunseuljour.fr/server/db/event_state.db');
   // if( current_user_can('editor') || current_user_can('administrator') ) {  }
   $user = wp_get_current_user();
