@@ -97,16 +97,20 @@
 		}
 		}
 
+		$("#gotobottom").click(function(){
+			var sHeight = $('#comments')[0].scrollHeight;
+			// $('#comments').scrollTop(sHeight);
+			$('#comments').animate({scrollTop: sHeight,easing:"swing"},400);
+		});
 
 
-
-	// WINDOW ON LOAD DOES NOT TRIGGER ON IPAD
-	var iOS8 = navigator.userAgent.match(/(iPad|iPhone|iPod).*OS 8_\d/i);
-    if( iOS8 ){
-      setTimeout(function(){
-        $(window).trigger('load');
-      }, 7000);
-    }
+		// WINDOW ON LOAD DOES NOT TRIGGER ON IPAD
+		var iOS8 = navigator.userAgent.match(/(iPad|iPhone|iPod).*OS 8_\d/i);
+	    if( iOS8 ){
+	      setTimeout(function(){
+	        $(window).trigger('load');
+	      }, 7000);
+	    }
 
 
 	});

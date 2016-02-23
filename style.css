@@ -252,6 +252,13 @@ input:focus {
     COMMENTS PAGE
 \*------------------------------------*/
 
+#gotobottom{
+	float:right;
+	text-decoration: underline;
+	cursor:pointer;
+	margin-top: 7px;
+margin-right: 2%;
+}
 /*------ COMMENTS -------*/
 
 #comments{
@@ -1188,6 +1195,12 @@ margin-right: auto;*/
 	#map{
 		top: 80px;
 		height: 90%;
+	}
+
+	#gotobottom{
+		width: 100px;
+    margin-top: 0px;
+    margin-right: 0%;
 	}
 }
 
