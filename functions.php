@@ -534,7 +534,7 @@ function get_event_state(){
   $eventstate = file_get_contents('http://app.journaldunseuljour.fr/server/db/event_state.db');
   // if( current_user_can('editor') || current_user_can('administrator') ) {  }
   $user = wp_get_current_user();
-  $allowed_roles = array('editor', 'administrator', 'author');
+  $allowed_roles = array('editor', 'administrator', 'author', 'visitor');
   if( array_intersect($allowed_roles, $user->roles ) ) {
     return 'off'; //all
   }else{
@@ -543,10 +543,6 @@ function get_event_state(){
   }
 }
 
-// function get_events(){
-//   $events = file_get_contents('http://app.journaldunseuljour.fr/server/db/show_beta.db');
-//   echo $events;
-// }
 
 function filter_loop( $posts, $query, $c ) {
 	global $wp_query, $wpdb;
@@ -577,13 +573,10 @@ function filter_loop( $posts, $query, $c ) {
       if(($type == 'timepost')){ return sortpostsbytime($posts); }
       if(($type == 'afterpost')){ return sortpostsbytime($posts);}
     }
-    if ($eventstate=='off'){
-      if (($type == 'prepost')||($type == 'timepost')||($type == 'afterpost')){ return ; }
-    }
   }
   if(is_admin()){
     if (($type == 'timepost')||($type == 'prepost')||($type == 'afterpost')){
-      return;
+      return sortpostsbytime($posts);
     }
   }
   return $posts;
