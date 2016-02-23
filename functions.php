@@ -126,7 +126,7 @@ function html5blank_conditional_scripts()
       wp_enqueue_script('comments');
     }
   }
-  else if (get_event_state()=='off') {
+  else if ((get_event_state()=='off')&&(!is_admin())) {
     wp_register_script('off', get_template_directory_uri() . '/js/script-off.js', array('jquery'), '1.0.0'); // Conditional script(s)
     wp_enqueue_script('off');
   }
@@ -536,7 +536,7 @@ function get_event_state(){
   $user = wp_get_current_user();
   $allowed_roles = array('editor', 'administrator', 'author', 'visitor');
   if( array_intersect($allowed_roles, $user->roles ) ) {
-    return 'off'; //all
+    return 'all'; //all
   }else{
     if($eventstate){ return $eventstate; }
     else{ return 'off';}
