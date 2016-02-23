@@ -95,6 +95,8 @@
 			console.log('show timeline');
 			$('.timeline, .elevator, .wp-audio-shortcode').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1}, 100);
 			$('html').css('overflow-y','scroll');
+			// document.location.href="/";
+			window.location.hash="";
 		}
 
 		var page='time'; // comments, infos, time, post, map
