@@ -21,7 +21,7 @@
 
 		function getEvents(){
 			$.ajax({
-					url: theme_directory+"/js/files.php",
+					url: theme_directory+"/js/file_operations.php",
 					type: "POST",
 					data: {
 							// action: 'load',

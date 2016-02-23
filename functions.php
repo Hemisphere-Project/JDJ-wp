@@ -544,6 +544,7 @@ function get_event_state(){
 }
 
 
+
 function filter_loop( $posts, $query, $c ) {
 	global $wp_query, $wpdb;
 	if ( !count( $posts ) ){ return $posts;	}
