@@ -14,10 +14,9 @@
     Il ne sera utilisé que pendant la durée du festival et sera supprimé ensuite. <br><br>
     Gens équipés de smartphones: lien vers appli <br>
     Gens équipés de dumbphones: inscrivez vous ici<br>
-    <br>
-    <input type="tel" id="telinput" value="0612345678" maxlength="10"></input><br>
-    <!-- <input type='tel' name="numero" pattern='\d{10}' required title="Format: 0612345678" pattern="\d10" size=10 min=0 step=1 value="<?php echo $numero ?>"> -->
-    <select name="eventselector" id="eventselector" class="dropdown big"></select>
-    <input type="submit" value="Envoyer"></input>
+    <span id="telcomments" class="telcomments">Veuillez entrer un numéro de protable au format 06XXXXXXXX ou 07XXXXXXXX</span><br>
+    <input type="tel" id="telinput" value="06XXXXXXXX" maxlength="10" onClick="this.select();"></input><br>
+    <select name="eventselector" id="eventselector" class="dropdown big"></select> <br>
+    <input id="sendtel" type="submit" value="Envoyer"></input>
   </div>
 </div>

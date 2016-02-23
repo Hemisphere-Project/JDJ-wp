@@ -878,7 +878,8 @@ margin-right: auto;*/
   }
   .big{
     width:40%;
-    margin-top:8px;
+		margin-top:10px;
+		margin-bottom:10px;
     height: 25px;
     padding-left: 4px;
   }
@@ -887,6 +888,7 @@ margin-right: auto;*/
 		width:40%;
 		outline: none;
 		border:0px none;
+		margin-top:10px;
 		margin-bottom:10px;
 	}
 	#telinput:focus{
@@ -901,6 +903,14 @@ margin-right: auto;*/
 		border:0 none;
 	  -webkit-border-radius: 5px;
 	  border-radius: 5px;
+		margin-top:10px;
+		margin-bottom:10px;
+	}
+
+	.telcomments{
+		visibility: hidden;
+		font-size:10pt;
+		color: #FF5230;
 	}
 
 /*------------------------------------*\

@@ -11,6 +11,9 @@
 		$('#offpage').show();
 
 
+		//////////////////////////////////////////////////
+		////////////////// INSCRIPTION ///////////////////
+		//////////////////////////////////////////////////
 
 		// FILL EVENTS dropdown
 		var allEvents = new Array();
@@ -26,41 +29,51 @@
 					}
 			})
 			.done(function(response){
-				allEvents = JSON.parse(response);
+				var allEventsIn = JSON.parse(response);
+				//clean db file
+				$.each(allEventsIn,function(index,event){
+					if (event !=null){ allEvents.push(event); }
+				});
 				buildEvents();
 			});
 		}
 
 		function buildEvents(){
+			console.log(allEvents);
 			$('#eventselector').empty();
-			// $("#eventselector").append(('<option value="all">all</option>'));
 			$.each(allEvents,function(index,event){
 				console.log(event);
 				$("#eventselector").append(('<option value_id="'+event.id+'" value="'+event.date+'">'+event.place+' - '+event.date+'</option>'));
 			});
 		}
 
-		// $('#eventselector').change(function(){
-		// 	dateselected = $('#eventselector option:selected').val();
-		// 	$.each(allEvents,function(index,event){
-		// 		if (dateselected == event.date){
-		// 			socket.emit('eventselected', event);
-		// 		}
-		// 	});
-		// });
+		$('#telinput, #eventselector').change(function(){
+				$("#telcomments").css('visibility', 'hidden');
+		});
 
-
-		$('#telinput').change(function(){
-			console.log($('#telinput').val());
+		$("#sendtel").click(function(){
 			var telnum = $('#telinput').val();
-
-			// var regex = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
 			var regex = /^(06|07)\d{8}$/i;
 			var telformat = regex.test(telnum);
+			var dateselected = $('#eventselector option:selected').val();
+			var eventselected = [];
+			$.each(allEvents,function(index,event){
+				if (dateselected == event.date){
+					eventselected = event;
+				}
+			});
+			if (telformat){
+				$("#telcomments").css('visibility', 'visible').html('Merci, nous avons bien enregistré votre participation pour le spectacle du '+dateselected+' ! ');
 
-
-			console.log(telformat);
-		})
+				// SUBSCRIBING NEW USER
+				console.log(telnum);
+				console.log(eventselected);
+			}
+			if (!telformat){
+				$("#telcomments").css('visibility', 'visible').html('Veuillez entrer un numéro de protable au format 06XXXXXXXX ou 07XXXXXXXX');;
+				$("#telcomments").val('06XXXXXXXX');
+			}
+		});
 
 
 
