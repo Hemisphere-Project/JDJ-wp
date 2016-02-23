@@ -89,6 +89,7 @@
 			$('#map').hide();
 			$('#infos').hide();
 			$('.timeline, .elevator, .wp-audio-shortcode').css('visibility', 'hidden');
+			$('html').css('overflow-y','hidden');
 		}
 		function showTimeline(){
 			// $('.timeline, .elevator').fadeIn(200);
