@@ -24,8 +24,8 @@
 					url: theme_directory+"/js/file_operations.php",
 					type: "POST",
 					data: {
-							// action: 'load',
-							// filename: name
+							action: 'readfile',
+							fileurl:'http://app.journaldunseuljour.fr/server/db/show_beta.db'
 					}
 			})
 			.done(function(response){
@@ -39,10 +39,8 @@
 		}
 
 		function buildEvents(){
-			console.log(allEvents);
 			$('#eventselector').empty();
 			$.each(allEvents,function(index,event){
-				console.log(event);
 				$("#eventselector").append(('<option value_id="'+event.id+'" value="'+event.date+'">'+event.place+' - '+event.date+'</option>'));
 			});
 		}
@@ -64,16 +62,57 @@
 			});
 			if (telformat){
 				$("#telcomments").css('visibility', 'visible').html('Merci, nous avons bien enregistré votre participation pour le spectacle du '+dateselected+' ! ');
-
 				// SUBSCRIBING NEW USER
-				console.log(telnum);
-				console.log(eventselected);
+				var newuser = {phone:telnum, event:eventselected};
+				console.log(newuser);
+				subscribenewuser(newuser);
 			}
 			if (!telformat){
 				$("#telcomments").css('visibility', 'visible').html('Veuillez entrer un numéro de protable au format 06XXXXXXXX ou 07XXXXXXXX');;
 				$("#telcomments").val('06XXXXXXXX');
 			}
 		});
+
+
+
+
+
+		var allUsers= [];
+		getallusers();
+
+		function getallusers(){
+			$.ajax({
+					url: theme_directory+"/js/file_operations.php",
+					type: "POST",
+					data: {
+							action: 'readfile',
+							fileurl:'http://app.journaldunseuljour.fr/server/db/users_from_wp.db'
+					}
+			})
+			.done(function(response){
+				allUsers= [];
+				allUsers.push(JSON.parse(response));
+				console.log(allUsers);
+			});
+		}
+
+		function subscribenewuser(newuser){
+			console.log(allUsers);
+			allUsers.push(newuser);
+			$.ajax({
+					url: theme_directory+"/js/file_operations.php",
+					type: "POST",
+					data: {
+							action: 'saveusers',
+							content:JSON.stringify(allUsers)
+					}
+			})
+			.done(function(response){
+				console.log(response);
+				getallusers();
+			});
+
+		}
 
 
 

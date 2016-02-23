@@ -540,7 +540,7 @@ function get_event_state(){
   $user = wp_get_current_user();
   $allowed_roles = array('editor', 'administrator', 'author', 'visitor');
   if( array_intersect($allowed_roles, $user->roles ) ) {
-    return 'all'; //all
+    return 'off'; //all
   }else{
     if($eventstate){ return $eventstate; }
     else{ return 'off';}
