@@ -1,4 +1,29 @@
 <?php
+/*
+function __autoload($class_name) {
+	$class_name = str_replace('\\','/',$class_name);
+	require_once("./$class_name.php");
+}*/
+require_once "DnodeSyncClient.php";
+
+function dnode() {
+	$dnode = new \DnodeSyncClient\Dnode();
+	return $dnode->connect('localhost', 8086);
+}
+
+$action = $_POST['action'];
+
+if ($action=='allevents'){
+	$events = dnode()->call('allEvents', array('Hello, world!'));
+	echo json_encode($events[0]);
+	exit();
+}
+else if ($action=='adduser'){
+	dnode()->call('addUser', array(json_decode($_POST['user'])));
+	exit();
+}
+
+/*
 $action = $_POST['action'];
 
 
@@ -31,7 +56,7 @@ elseif ($action == 'saveusers') {
   }
   echo json_encode($response);
 
-}
+}*/
 
 
 
