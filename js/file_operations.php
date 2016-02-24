@@ -16,13 +16,13 @@ elseif ($action == 'saveusers') {
 
   if (json_decode($json) != null)
   {
-      // $file = fopen('https://app.journaldunseuljour.fr/server/db/users_from_wp.db','w+');
-      // if (!$file) {
-      //   echo "Impossible d'ouvrir le fichier distant pour écriture";
-      // }
-      // fwrite($file, $json);
-      // fclose($file);
-      file_put_contents('http://app.journaldunseuljour.fr/server/db/users_from_wp.db', $json);
+      echo $json;
+      $file = fopen('https://app.journaldunseuljour.fr/server/db/users_from_wp.db','w');
+      if (!$file) {
+        echo "Impossible d'ouvrir le fichier distant pour écriture";
+      }
+      fwrite($file, $json);
+      fclose($file);
       $response['status'] = 'success';
   }
   else

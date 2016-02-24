@@ -64,6 +64,7 @@
 				$("#telcomments").css('visibility', 'visible').html('Merci, nous avons bien enregistré votre participation pour le spectacle du '+dateselected+' ! ');
 				// SUBSCRIBING NEW USER
 				var newuser = {phone:telnum, event:eventselected};
+				console.log(newuser);
 				subscribenewuser(newuser);
 			}
 			if (!telformat){
