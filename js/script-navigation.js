@@ -271,7 +271,8 @@
 				$('#viewpostmap').show();
 				$('.header').show();
 				$('#closepost').css({'position':'relative', 'float':'right'});
-				$('#postdetails').css({'height':'90%','width':'100%','margin-top':'100px', 'padding':'2%'});
+				// $('#postdetails').css({'height':'90%','width':'100%','margin-top':'100px', 'padding':'2%', 'max-height':'90%'});
+				$('#postdetails').css({'height':'90%','margin-top':'100px', 'padding':'2%', 'max-height':'90%'});
 				windowWidth = $(window).width();
 				if(windowWidth <= 480){$('#postdetails').css({'margin-top':'80px'});}
 				reset_postdetailsCSS = false;
@@ -652,7 +653,8 @@
 					$("#timepost_title").hide();
 					$('#viewpostmap').hide();
 					$('.header').hide();
-					$('#postdetails').css({'height':'100%','width':'100%','margin-top':'0px', 'padding':'0px'});
+					// $('#postdetails').css({'height':'100%','width':'100%','margin-top':'0px', 'padding':'0px', 'max-height':'100%'});
+					$('#postdetails').css({'height':'100%','margin-top':'0px', 'padding':'0px', 'max-height':'100%'});
 					$('#closepost').css({'position':'absolute'});
 					reset_postdetailsCSS = true;
 				}
