@@ -553,9 +553,27 @@ margin-left: 7%;
 }
 .littletext p{
 	margin-top:10px;
+	margin-bottom: 0px;
 	vertical-align: top;
 	float:top;
-
+}
+.littletext_audio{
+	background-color: #ABABAB;
+	font-family: OpenSansRegular;
+	font-size: 10pt;
+	color: black;
+	padding:20px;
+	padding-top: 0px;
+	padding-bottom: 10px;
+	max-height: 145px;
+	overflow-y: hidden;
+	border-bottom: 15px solid #ABABAB;
+}
+.littletext_audio p{
+	margin-top:0px;
+	margin-bottom: 0px;
+	vertical-align: top;
+	float:top;
 }
 
 .postcontent{

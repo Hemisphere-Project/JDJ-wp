@@ -26,7 +26,7 @@
 				 <?php	if ($text){ ?> <div class="littletext"><?php echo types_render_field("text") ?></div> <?php } ?>
 			 <?php } ?>
 			 <?php if ($audio){ ?> <div class="audiopost_content"><?php echo types_render_field("audio") ?></div>
-				 <?php	if ($text){ ?> <div class="littletext"><?php echo types_render_field("text") ?></div> <?php } ?>
+				 <?php	if ($text){ ?> <div class="littletext_audio"><?php echo types_render_field("text") ?></div> <?php } ?>
 			 <?php } ?>
 			 <?php if ($video){ ?>
 				 <div class="playvid"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/play2.png"></div>
@@ -81,7 +81,7 @@
 					<?php	if ($text){ ?> <div class="littletext"><?php echo types_render_field("text") ?></div> <?php } ?>
 				<?php } ?>
 				<?php if ($audio){ ?> <div class="audiopost_content"><?php echo types_render_field("audio") ?></div>
-					<?php	if ($text){ ?> <div class="littletext"><?php echo types_render_field("text") ?></div> <?php } ?>
+					<?php	if ($text){ ?> <div class="littletext_audio"><?php echo types_render_field("text") ?></div> <?php } ?>
 				<?php } ?>
 				<?php if ($video){ ?>
 					<div class="playvid"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/play2.png"></div>
@@ -124,7 +124,7 @@
 						<?php	if ($text){ ?> <div class="littletext"><?php echo types_render_field("text") ?></div> <?php } ?>
 					<?php } ?>
 					<?php if ($audio){ ?> <div class="audiopost_content"><?php echo types_render_field("audio") ?></div>
-						<?php	if ($text){ ?> <div class="littletext"><?php echo types_render_field("text") ?></div> <?php } ?>
+						<?php	if ($text){ ?> <div class="littletext_audio"><?php echo types_render_field("text") ?></div> <?php } ?>
 					<?php } ?>
 					<?php if ($video){ ?>
 						<div class="playvid"><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/play2.png"></div>
