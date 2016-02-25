@@ -134,22 +134,8 @@
 			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
 		});
 
-		$('#map, header').mousedown(function(e){
-			e.stopPropagation();
-		});
-		$('#infos, #infosheader ,header').mousedown(function(e){
-			e.stopPropagation();
-		});
-		$('#comments').mousedown(function(e){
-			e.stopPropagation();
-		});
-		$('#tweets').mousedown(function(e){
-			e.stopPropagation();
-		});
-		$('#postdetails, .post, header').mousedown(function(e){
-			e.stopPropagation();
-		});
-		$('#viewpostmap, .pos_link').mousedown(function(e){
+
+		$('#map, header, #infos, #comments, #tweets, #postdetails, .post, #viewpostmap, .pos_link').mousedown(function(e){
 			e.stopPropagation();
 		});
 
