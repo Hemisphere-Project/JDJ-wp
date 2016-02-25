@@ -538,7 +538,7 @@ function get_event_state(){
   $eventstate = file_get_contents('http://app.journaldunseuljour.fr/server/db/event_state.db');
   // if( current_user_can('editor') || current_user_can('administrator') ) {  }
   $user = wp_get_current_user();
-  $allowed_roles = array('editor', 'administrator', 'author', 'visitor');
+  $allowed_roles = array('editor', 'administrator', 'author', 'subscriber');
   if( array_intersect($allowed_roles, $user->roles ) ) {
     return 'all'; //all
   }else{
