@@ -104,7 +104,6 @@
 
 		$('html').mousedown(function(e) {
 			if (page=='map'){
-				console.log('html map hide');
 				$('#map').fadeOut(200, function(){
 					showTimeline();
 					stopPlayers();

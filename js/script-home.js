@@ -201,7 +201,7 @@
 					checkBig = false;
 				}
 
-			}else if (windowWidth < 768){
+			}else if (windowWidth <= 768){
 				// console.log('small');
 				// in css on start
 				$('.post').css('width', '100%');
