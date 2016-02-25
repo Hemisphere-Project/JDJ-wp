@@ -93,7 +93,6 @@
 		}
 		function showTimeline(){
 			// $('.timeline, .elevator').fadeIn(200);
-			console.log('show timeline');
 			$('.timeline, .elevator, .wp-audio-shortcode').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1}, 100);
 			$('html').css('overflow-y','scroll');
 			// document.location.href="/";
