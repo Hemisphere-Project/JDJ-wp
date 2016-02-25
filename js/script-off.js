@@ -4,11 +4,13 @@
 
 		'use strict';
 
-		console.log('SCRIPT OFF');
-
-		$('#startoverlay').fadeOut(200,function(){ });
+		// console.log('SCRIPT OFF');
 		$('#timeheader, #placeheader, #infosheader, #tweetsheader').hide();
-		$('#offpage').show();
+		$('#startoverlay').fadeOut(200,function(){
+			$('#offpage').fadeIn(300);
+		});
+
+
 
 
 		//////////////////////////////////////////////////
@@ -26,7 +28,7 @@
 					data: { action: 'allevents' }
 			})
 			.done(function(response){
-				console.log(response);
+				// console.log(response);
 				var allEventsIn = JSON.parse(response);
 				//clean db file
 				$.each(allEventsIn,function(index,event){
@@ -51,7 +53,7 @@
 			var telnum = $('#telinput').val();
 			var regex = /^(06|07)\d{8}$/i;
 			var telformat = regex.test(telnum);
-			var dateselected = $('#eventselector option:selected').val(); 
+			var dateselected = $('#eventselector option:selected').val();
 			var eventselected = [];
 			$.each(allEvents,function(index,event){
 				if (dateselected == event.date){
@@ -82,16 +84,12 @@
 				$("#telcomments").css('visibility', 'visible').html('Merci, nous avons bien enregistré votre participation pour le spectacle du '+newuser.date+' ! ');
 			})
 			.fail(function() {
-				$("#telcomments").css('visibility', 'visible').html('Désolé, une erreur est survenue.. essayez ultérieurement..');
+				$("#telcomments").css('visibility', 'visible').html('Désolé, une erreur est survenue. Veuillez essayez ultérieurement...');
 			});
 		}
 
-
-
-
-
-
-
 });
+
+// $(window).on("load", function() {});
 
 })(jQuery, this);

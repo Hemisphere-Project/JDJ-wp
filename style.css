@@ -871,6 +871,13 @@ margin-right: auto;*/
     INSCRIPTION
 \*------------------------------------*/
 
+.link{
+	font-weight: bold;
+	text-decoration: underline;
+	cursor:pointer;
+}
+
+
 .dropdown{
   font-family: inherit;
   font-size:10pt;
