@@ -20,10 +20,8 @@ $data = json_decode($data);
 $data_hashtag = $data->statuses;
 
 foreach ($data_hashtag as $tweet) {
-
   // print_r($tweet);
   echo '<div class="tweet">';
-
   $profileurl = $tweet->user->profile_image_url;
   // echo '<img class="twitter_profilepic" src='.$profileurl.'>';
   echo '<a target="blank" href="http://twitter.com/'.$tweet->user->screen_name.'"><img class="twitter_profilepic" src='.$profileurl.'></a>';
