@@ -29,7 +29,8 @@ foreach ($data_hashtag as $tweet) {
   echo '<a target="blank" href="http://twitter.com/'.$tweet->user->screen_name.'"><img class="twitter_profilepic" src='.$profileurl.'></a>';
 
   echo '<div class="twitter_content">';
-    echo '<div class="twitter_id">'.$tweet->user->screen_name.'</div>';
+    // echo '<div class="twitter_id">'.$tweet->user->screen_name.'</div>';
+    echo '<div class="twitter_id"><a target="blank" href="http://twitter.com/'.$tweet->user->screen_name.'">'.$tweet->user->screen_name.'</a></div>';
     $datetime = new DateTime($tweet->created_at);
     echo '<div class="twitter_date"> le '.$datetime->format('d/m/Y').' à '.$datetime->format('G\hi').'</div>';
 
