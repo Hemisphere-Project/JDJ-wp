@@ -270,8 +270,10 @@
 				$("#timepost_title").show();
 				$('#viewpostmap').show();
 				$('.header').show();
-				$('#postdetails').css({'height':'90%','width':'100%','margin-top':'100px', 'padding':'2%'});
 				$('#closepost').css({'position':'relative', 'float':'right'});
+				$('#postdetails').css({'height':'90%','width':'100%','margin-top':'100px', 'padding':'2%'});
+				windowWidth = $(window).width();
+				if(windowWidth <= 480){$('#postdetails').css({'margin-top':'80px'});}
 				reset_postdetailsCSS = false;
 			}
 
