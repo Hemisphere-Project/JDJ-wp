@@ -98,7 +98,7 @@ function html5blank_header_scripts()
         wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('fastclick', get_template_directory_uri() . '/js/lib/fastclick.js', array(), '1.0.0');
+        wp_register_script('fastclick', get_template_directory_uri() . '/js/lib/fastclick_nopub.js', array(), '1.0.0');
         wp_enqueue_script('fastclick'); // Enqueue it!
 
         wp_register_script('globalscript', get_template_directory_uri() . '/js/script-allpages.js', array('jquery'), '1.0.0'); // Custom scripts
