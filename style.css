@@ -499,8 +499,10 @@ margin-left: 7%;
 
 .wp-video{
 	position:relative;
-	width: 100%;
-	height: 100%;
+	/*width: 100%;
+	height: 100%;*/
+	max-width: 100%;
+	height: auto;
 }
 .wp-video-shortcode {
 	width: 100%;
