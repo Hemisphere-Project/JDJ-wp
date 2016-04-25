@@ -963,7 +963,7 @@ margin-right: auto;*/
 @font-face {
   font-family: 'AlfaSlabOneRegular';
   src: url("fonts/AlfaSlabOneRegular.eot");
-  src: url("AlfaSlabOneRegular.eot?#iefix") format("embedded-opentype"),
+  src: url("fonts/AlfaSlabOneRegular.eot?#iefix") format("embedded-opentype"),
 		url("fonts/AlfaSlabOneRegular.woff2") format("woff2"),
 		url("fonts/AlfaSlabOneRegular.woff") format("woff"),
 		url("fonts/AlfaSlabOneRegular.ttf") format("truetype"),
