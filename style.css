@@ -944,8 +944,9 @@ margin-right: auto;*/
 
 	.telcomments{
 		visibility: hidden;
-		font-size:10pt;
+		font-size:11pt;
 		color: #FF5230;
+		font-weight:bold;
 	}
 
 /*------------------------------------*\
