@@ -891,10 +891,11 @@ margin-right: auto;*/
     INSCRIPTION
 \*------------------------------------*/
 
-.link{
-	font-weight: bold;
-	text-decoration: underline;
-	cursor:pointer;
+.appBtn{
+	width: 20%;
+	margin-top: 10px;
+	margin-left: 40%;
+
 }
 
 
@@ -1099,6 +1100,10 @@ margin-right: auto;*/
 		display:none;
 	}
 
+	.appBtn{
+		width: 35%;
+    margin-left: 30%;
+	}
 
 	/*------------------------------------*\
 			TIMELINE
