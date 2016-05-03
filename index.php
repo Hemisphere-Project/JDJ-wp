@@ -70,6 +70,7 @@
       $post = $infospage->post_content;
       echo $post;
     ?>
+    <strong> © <a target="blank" href="http://hemisphere-project.com">Hémisphère, Atelier de dispositifs numériques</a></strong>
     </div>
   </div>
 

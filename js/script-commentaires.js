@@ -18,6 +18,9 @@
 		$('#tweetsheader').on('click',function(){
 			document.location.href="/#tweets";
 		});
+		$('#inscriptionheader').on('click',function(){
+			document.location.href="/#inscription";
+		});
 
 
 		$('html').mousedown(function(e) {

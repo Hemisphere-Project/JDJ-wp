@@ -4,7 +4,6 @@
 
 		'use strict';
 
-		console.log('script navigation');
 
 		//////////////////////////////////////////////////////////
 		///////////////////   RESPONSIVE   ///////////////////////
@@ -705,6 +704,8 @@
 			openInfos();
 		}else if (hash=='tweets') {
 			openTweets();
+		}else if (hash=='inscription') {
+			openInscription();
 		}
 
 
