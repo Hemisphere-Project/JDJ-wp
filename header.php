@@ -24,7 +24,7 @@
         });
     </script>
 
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBpYpLF1OtkMcw3lAVZHqY-M134dGLUmbc"></script>
 
 	</head>
 	<body <?php body_class(); ?>>
