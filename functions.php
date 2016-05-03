@@ -104,6 +104,9 @@ function html5blank_header_scripts()
         wp_register_script('globalscript', get_template_directory_uri() . '/js/script-allpages.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('globalscript'); // Enqueue it!
 
+        wp_register_script('inscriptionscript', get_template_directory_uri() . '/js/script-inscription.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_enqueue_script('inscriptionscript'); // Enqueue it!
+
     }
 }
 

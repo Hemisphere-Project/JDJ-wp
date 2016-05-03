@@ -48,6 +48,9 @@
 						</a>
 						<div class="logo-lgd">Drame chorégraphique dans la ville en 24 heures</div>
 					</div>
+					<div id='inscriptionheader'>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/inscription_grey.png">
+					</div>
 					<div id='infosheader'>
 						<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/info_grey.png">
 					</div>

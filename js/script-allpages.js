@@ -4,6 +4,8 @@
 
 		'use strict';
 
+		console.log("script ALL PAGES");
+
   	FastClick.attach(document.body);
 
 		/////////////////////  BACKGROUND  ///////////////////////
