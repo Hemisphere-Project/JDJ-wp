@@ -254,6 +254,11 @@ input:focus {
 	float:right;
 }
 
+#hmsphrlogo{
+	width:35%;
+	max-width: 270px;
+}
+
 
 /*------------------------------------*\
     COMMENTS PAGE
@@ -1213,7 +1218,9 @@ margin-right: auto;*/
 	overflow-y:scroll;
 }
 
-
+#hmsphrlogo{
+	width:50%;
+}
 
 
 }

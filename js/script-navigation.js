@@ -697,7 +697,6 @@
 		//////////////////////////////////////////////////////////
 
 		var hash = window.location.hash.substr(1);
-		console.log(hash);
 		if (hash =='map'){
 			openMap();
 		}else if (hash=='infos') {
