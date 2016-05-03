@@ -36,7 +36,7 @@
   </div>
 
   <div id="inscription" class="popup">
-    <div id="closeinfos" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
+    <div id="closeinscription" class='closebtn'><img src="<?php echo get_template_directory_uri(); ?>/img/buttons/close.png"></div>
     <div class='popuptitle'>Inscription </div>
     <div class='popupcontent inscription'>
       Pour vivre le spectacle de manière interactive, vous êtes invités à télécharger une application pour votre smartphone.

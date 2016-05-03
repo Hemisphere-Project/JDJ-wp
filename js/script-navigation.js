@@ -70,6 +70,7 @@
 			$('#placeheader').children('img').attr("src", theme_directory+"/img/buttons/place_grey.png");
 			$('#infosheader').children('img').attr("src", theme_directory+"/img/buttons/info_grey.png");
 			$('#tweetsheader').children('img').attr("src", theme_directory+"/img/buttons/hashtag_grey.png");
+			$('#inscriptionheader').children('img').attr("src", theme_directory+"/img/buttons/inscription_grey.png");
 		}
 
 
@@ -86,6 +87,7 @@
 			stopPlayers();
 			$("#tweets").hide();
 			$("#comments").hide();
+			$("#inscription").hide();
 			$("#postoverlay").hide();
 			$('#map').hide();
 			$('#infos').hide();
@@ -124,6 +126,11 @@
 					showTimeline();
 				});
 			}
+			if (page=='inscription'){
+				$('#inscription').fadeOut(200, function(){
+					showTimeline();
+				});
+			}
 			if (page=='post'){
 				$('#postoverlay').fadeOut(200);
 				$('html').css('overflow-y','scroll');
@@ -135,10 +142,13 @@
 		});
 
 
-		$('#map, header, #infos, #comments, #tweets, #postdetails, .post, #viewpostmap, .pos_link').mousedown(function(e){
+		$('#map, header, #infos, #comments, #tweets, #inscription, #postdetails, .post, #viewpostmap, .pos_link').mousedown(function(e){
 			e.stopPropagation();
 		});
 
+		// $('#inscription')find('*').mousedown(function(e){//.
+		// 	e.stopPropagation();
+		// });
 
 		//////////////////////////////////////////////////////////
 		/////////////////////    INFOS     ///////////////////////
@@ -167,7 +177,7 @@
 
 
 		//////////////////////////////////////////////////////////
-		/////////////////////    TWEETS     ///////////////////////
+		/////////////////////    TWEETS     //////////////////////
 		//////////////////////////////////////////////////////////
 
 		// OPEN
@@ -185,6 +195,31 @@
 		$('#closetweets').click(function() {
 			page='time';
 			$('#tweets').fadeOut(200, function(){
+				showTimeline();
+			});
+			allButtonsInactive();
+			$('#timeheader').children('img').attr("src", theme_directory+"/img/buttons/clock_orange.png");
+		});
+
+		//////////////////////////////////////////////////////////
+		//////////////////    INSCRIPTION     ////////////////////
+		//////////////////////////////////////////////////////////
+
+		// OPEN
+		$('#inscriptionheader').click(function(){
+			openInscription();
+		});
+		function openInscription(){
+			page = 'inscription';
+			hideEverything();
+			allButtonsInactive();
+			$('#inscription').fadeIn(200);
+			$('#inscriptionheader').children('img').attr("src", theme_directory+"/img/buttons/inscription_orange.png");
+		}
+		// CLOSE
+		$('#closeinscription').click(function() {
+			page='time';
+			$('#inscription').fadeOut(200, function(){
 				showTimeline();
 			});
 			allButtonsInactive();
