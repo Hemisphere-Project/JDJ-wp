@@ -70,7 +70,6 @@
 			$('#infosheader').children('img').attr("src", theme_directory+"/img/buttons/info_grey.png");
 			$('#tweetsheader').children('img').attr("src", theme_directory+"/img/buttons/hashtag_grey.png");
 			$('#inscriptionheader').children('img').attr("src", theme_directory+"/img/buttons/inscription_grey.png");
-			console.log("all btns inactive");
 		}
 
 
