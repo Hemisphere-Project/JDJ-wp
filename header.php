@@ -65,9 +65,9 @@
 						<a href="https://twitter.com/AileJDJ" target="blank">
 							<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/social_t.png">
 						</a>
-						<a href="https://www.instagram.com/" target="blank">
+					<!--	<a href="https://www.instagram.com/" target="blank">
 							<img src="<?php echo get_template_directory_uri(); ?>/img/buttons/social_i.png">
-						</a>
+						</a>-->
 					</div>
 
 					<!-- nav -->

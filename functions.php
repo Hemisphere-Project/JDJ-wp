@@ -519,7 +519,9 @@ function sortpostsbytime_CLOCK($posts){
   $end = array_slice($posts,$firstkey+1);
   $sorted =  array_merge($end,$start);
 
-  $TNOW = date('Gi')+100;
+  $TNOW = date('Gi')+200;
+  if ($TNOW >= 2400) $TNOW -= 2400; 
+  //$TNOW = date('Gi');
   $pastposts = array();
   foreach($sorted as $key => $post){
     $timepost = date('Gi', get_post_meta($post->ID,"wpcf-time")[0]);
